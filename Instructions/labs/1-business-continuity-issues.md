@@ -15,7 +15,7 @@ An Azure sandbox subscription is provided for this lab. You can use the followin
 
 # Troubleshoot business continuity with Microsoft Azure
 
-**Estimated Time: 8 minutes**
+**Estimated Time: 15 minutes**
 
 You've been asked to make a backup of a virtual machine. Your development team have asked that you make the backup application consistent.
 
@@ -25,27 +25,33 @@ You've been asked to make a backup of a virtual machine. Your development team h
 
 1. Select the portal menu on the top left, select **Virtual machines**, and then select **VM1**.
 
-1. If the VM is running, select **Stop**, and wait for the **Status** to show **Stopped (deallocated)**.
+1. If the VM is running, select **Stop**, select **Do you want to reserve the Public IP address**, then select **OK**. 
+
+1. Wait for the **Status** to show **Stopped (deallocated)**.
+
+    ![Screenshot showing the stopped vm in the Azure portal.](../media/mod1-stopped-vm.png)
 
 1. In the left navigation pane, under **Operations**, select **Backup**.
 
-    :::image type="content" source="../media/4-azure-backup-welcome.png" alt-text="Screenshot showing the back up welcome screen.":::
-
-1. Enter the following settings, and then select **Enable Backup**.
+1. Enter the following settings:
 
    - Recovery Services vault: **Create new**
-
    - Backup vault: **labdemo**
+   - Resource Group: Use the default resource group
+   - Policy sub type: **Standard**
+   - Choose backup policy: Use the default policy
 
-   - Choose backup policy: **DefaultPolicy-labdemo**
+    Review the policy details at the bottom of the page.
 
-1. This takes you back to the **Virtual machines** page, select **labvm**.
+1. Select **Enable backup** and wait for the deployment to complete.
+
+1. Select the portal menu on the top left, select **Virtual machines**, and then select **VM1**.
 
 1. In the left navigation pane, under **Operations**, select **Backup**.
 
 1. Select **Backup now**, and then select **OK**.
 
-    :::image type="content" source="../media/4-machine-backup-screen.png" alt-text="Screenshot showing the backup screen.":::
+    ![Screenshot showing the backup screen.](../media/4-machine-backup-screen.png)
 
 1. The backup starts, and runs in two phases.
 
@@ -61,11 +67,11 @@ You won't see anything in the Backup page of the VM until the backup has complet
 
 1. In the left navigation pane, under **Monitoring + reporting**, select **Backup jobs**. You should see your job running.
 
-    :::image type="content" source="../media/4-backup-instances.png" alt-text="Screenshot showing the backup job running.":::
+    ![Screenshot showing the backup job running.](../media/4-backup-instances.png)
 
 1. Select the backup job to see more info. You can see in the screen picture that the first phase has completed.
 
-    :::image type="content" source="../media/4-single-backup.png" alt-text="Screenshot showing a single backup instance.":::
+    ![Screenshot showing a single backup instance.](../media/4-single-backup.png)
 
 ## View results of first phase
 
@@ -75,38 +81,40 @@ When the first phase has completed, you can see that it is **Crash Consistent**.
 
 1. In the left navigation pane, under **Manage**, select **Backup instances**.
 
-    :::image type="content" source="../media/4-multiple-backups.png" alt-text="Screenshot showing multiple backup instances.":::
+    ![Screenshot showing multiple backup instances.](../media/4-multiple-backups.png)
 
-1. Scroll down until you see **labvm** and select **labvm**. This shows that the backup is **Crash Consistent**. This is incorrect, the backup should be **Application Consistent**. You need to find out why and fix the problem.
+1. Scroll down until you see **VM1** and select it.
 
-    > [!NOTE]
-    > Only the first phase has completed, and the data will now be transferring to the vault. You can continue with the lab; you don't have to wait for this to complete.
+    ![Screenshot showing a crash consistent backup only](../media/mod1-crash-consistent-backup.png)
+
+    This shows that the backup is **Crash Consistent**. This is incorrect, the backup should be **Application Consistent**. You need to find out why and fix the problem.
+
+    > [!note] Only the first phase has completed, and the data will now be transferring to the vault. You can continue with the lab; you don't have to wait for this to complete.
 
  
-## Resolution
+## Create an application consistent backup
 
-The VM was in a **Stopped** state. You need to start the VM and wait for it to be in a running state before making another backup.
+The reason the backup isn't application consistent is because the VM is in a **Stopped** state. You need to start the VM and wait for it to be in a running state before making your backups.
 
-1. Select the portal menu on the top left, select **Virtual machines**, and then select **labvm**.
+1. Select the portal menu on the top left, select **Virtual machines**, and then select **VM1**.
 
 1. Select **Start**, and wait for the **Status** to show **Running**.
 
 1. In the left navigation pane, under **Operations**, select **Backup**.
 
-1. On the **labvm** page, you should see that there is one **Crash Consistent** restore point.
+1. On the **VM1** page, you should see that there is one **Crash Consistent** restore point.
 
 1. Select **Backup now**.
 
-    :::image type="content" source="../media/4-backup-screen.png" alt-text="Screenshot of the backup screen.":::
+    ![Screenshot of the backup screen.](../media/4-backup-screen.png)
 
 1. On the **Backup now** page, select **OK**. The second backup will be an incremental backup and should take less time than the first backup.
 
 1. You can monitor progress in the **Backup center**.
 
-1. When the first phase is complete, navigate to the **Backup** page of the VM. The send backup is **Application Consistent**.
+1. When the first phase is complete, navigate to the **Backup** page of the VM. 
+1. You now have two backups, and the latest is **Application Consistent**.
 
-    :::image type="content" source="../media/4-crash-instance-restore-point.png" alt-text="Screenshot showing the crash consistent restore point.":::
+    ![Screenshot showing the crash consistent restore point.](../media/4-crash-instance-restore-point.png)
 
-In this demonstration you will see how to proactively troubleshoot Conditional Access policies using the What if tool in the Azure portal:
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Ubfe]
