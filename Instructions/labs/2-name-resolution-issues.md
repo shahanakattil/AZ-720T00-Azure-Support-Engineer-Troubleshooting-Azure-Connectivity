@@ -1,9 +1,15 @@
-> [!IMPORTANT]
-> You need your own [Azure subscription](https://azure.microsoft.com/free/?azure-portal=true) to complete the exercises in this module. If you don't have an Azure subscription, you can still view the demonstration video at the bottom of this page.
+---Azure
+lab:
+    title: 'Lab 2 - Name resolution issues'
+    module: 'Troubleshoot name resolution issues in Microsoft Azure'
+---
 
-Sign in to the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) using the same account you used to activate the sandbox.
+An Azure sandbox subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
 
-If you have not already run the script in unit 2, please do so now so you can follow the exercise below.
+
+# Troubleshoot name resolution issues in Microsoft Azure
+
+**Estimated Time: 15 minutes**
 
 You work for Contoso as a network engineer, and users are complaining that they cannot access VM1 or VM2. You have configured two Azure virtual networks: VNet1 and VNet2. They are connected with peering.
 
@@ -13,9 +19,9 @@ You work for Contoso as a network engineer, and users are complaining that they 
 ||| Subnet2| 10.1.2.0/24|
 | VNet2| 10.2.0.0/16| Default| 10.2.0.0/24|
 
-:::image type="content" source="../media/5-network-1.png" alt-text="Screenshot showing the topology of v net 1." border="false":::
+![Screenshot showing the topology of v net 1.](../media/5-network-1.png)
 
-:::image type="content" source="../media/5-network-2.png" alt-text="Screenshot showing the topology of v net 2." border="false":::
+![Screenshot showing the topology of v net 2.](../media/5-network-2.png)
 
 | **Virtual machine**| **Operating system**| **VNet and subnet**| **DNS domain**|
 | :--- | :--- | :--- | :--- |
@@ -23,35 +29,82 @@ You work for Contoso as a network engineer, and users are complaining that they 
 | VM2| Windows Server 2019| VNet1, Subnet2| contoso.com|
 | VM3| Windows Server 2019| VNet2, default| contoso.com|
 
-## Diagnosis
+## Diagnose networking issues between virtual machines
 
-Use Nslookup on VM1 and VM2 and check you get the following results:
+You'll connect to VM1 and VM3 using Azure Bastion and perform some networking checks.
 
-- vm1.contoso.com – success
+1. Sign in to the [Azure portal](https://portal.azure.com) using the Azure credentials above or on the Resource tab, or if you'd like your own Azure subscription.
 
-- vm2.contoso.com – success
+1. Select the portal menu on the top left, select **Virtual machines**, and then select **VM1**.
 
-- vm3.contoso.com – can't find
+    ![Screenshot of how to select Bastion to connect to a VM.](../media/mod2-connect-bastion.png)
 
-:::image type="content" source="../media/5-nslookup.png" alt-text="Screenshot showing the results of n s lookup in the command prompt." lightbox="../media/5-nslookup.png":::
+1. On the **Overview** pane, select **Connect**, then select **Bastion**.
+1. Select **Create Azure Bastion using defaults**.
 
-Nslookup on VM3 gives these results:
+    > [!note] It may take a few minutes to create the Bastion service. When it's created enter the below details.
 
-- vm1.contoso.com – can't find
+1. Under **Connection Settings**, in Username, enter **AdminXyz**.
+1. In Password, enter **Azur$Pa55w0rd**.
+1. Select **Connect**, a new tab in your browser should connect to **VM1**.
 
-- vm2.contoso.com – can't find
+    ![Screenshot showing selecting option 15.](../media/mod2-run-powershell.png)
 
-- vm3.contoso.com – can't find
+1. In the command window, enter **15**.
+1. Run this powershell command:
 
-:::image type="content" source="../media/5-nslookup-3.png" alt-text="Screenshot of results of running n s lookup in the command prompt on vm3." lightbox="../media/5-nslookup-3.png":::
+    ```powershell
+    nslookup vm1.contoso.com
+    ```
 
-## Diagnosis
+1. Run this powershell command:
+
+    ```powershell
+    nslookup vm2.contoso.com
+    ```
+
+1. Run this powershell command:
+
+    ```powershell
+    nslookup vm3.contoso.com
+    ```
+
+    ![Screenshot showing the results of n s lookup in the command prompt." lightbox="../media/5-nslookup.png](../media/5-nslookup.png)
+
+    The last command is unable to connect to **vm3.contoso.com**.
+
+1. Switch back to the tab with the Azure portal, in the menu on the top left, select **Virtual machines**, and then select **VM3**.
+1. On the **Overview** pane, select **Connect**, then select **Bastion**.
+1. In Username, enter **AdminXyz**.
+1. In Password, enter **Azur$Pa55w0rd**.
+1. Select **Connect**, a new tab in your browser should connect to VM3.
+
+1. In the command window, enter **15**.
+1. Run this powershell command:
+
+    ```powershell
+    nslookup vm1.contoso.com
+    ```
+
+1. Run this powershell command:
+
+    ```powershell
+    nslookup vm2.contoso.com
+    ```
+
+1. Run this powershell command:
+
+    ```powershell
+    nslookup vm3.contoso.com
+    ```
+
+    ![Screenshot of results of running n s lookup in the command prompt on vm3." lightbox="../media/5-nslookup-3.png](../media/5-nslookup-3.png)
+
+    VM3 is unable to find any of the domains. 
 
 ### Examine the Internet Protocol configuration of the Virtual Machines
 
-Connect to each VM using Remote Desktop. Open a command prompt window and type: ipconfig /all
-
-The IP addresses are:
+The internal IP addresses of the virtual machines are:
 
 - VM1 = 10.1.1.4
 
@@ -61,51 +114,69 @@ The IP addresses are:
 
 The DNS server address is 168.63.129.16, which is the wire server.
 
-:::image type="content" source="../media/5-network-configure.png" alt-text="Screenshot of command prompt results after running i p config / all." lightbox="../media/5-network-configure.png":::
+![Screenshot of command prompt results after running i p config / all." lightbox="../media/5-network-configure.png](../media/5-network-configure.png)
 
 ### Test network connectivity
 
-Use **ping** to test network connectivity between the three virtual machines.
+Use **ping** to test network connectivity between the three virtual machines. Use the open Bastion tab for virtual machine VM1 try and try to ping the other two machines.
 
-All three VMs are able to ping each other, so network connectivity is good at the IP level (OSI Layer 3).
+1. In the command window, run this command.
 
-:::image type="content" source="../media/5-ping-connectivity.png" alt-text="Screenshot of command screen after pinging for network connectivity." lightbox="../media/5-ping-connectivity.png":::
+    ```powershell
+    ping 10.1.2.4
+    ```
+1. Run this command.
+
+    ```powershell
+    ping 10.2.0.4
+    ```
+
+    If you ran these commands on the other machines you'd see that all three VMs are able to ping each other, so network connectivity is good at the IP level (OSI Layer 3).
+
+    ![Screenshot of command screen after pinging for network connectivity." lightbox="../media/5-ping-connectivity.png](../media/5-ping-connectivity.png)
 
 ### Examine the Azure resource group
 
-There are two virtual networks (VNets) called VNet1 and VNet2.
+There are two virtual networks (VNets) called **VNet1** and **VNet2**.
 
-There is a private DNS zone, which is contoso.com.
+There is a private DNS zone, which is **contoso.com**.
 
-:::image type="content" source="../media/5-resource-group.png" alt-text="Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png":::
+![Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png](../media/5-resource-group.png)
 
 The private DNS zone has vm1 and vm2 automatically registered, but vm3 does not appear.
 
-:::image type="content" source="../media/5-no-machine-3.png" alt-text="Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png":::
+![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/5-no-machine-3.png)
 
-Go to **Settings** > **Virtual network links**. We see that the private DNS zone is linked to VNet1, but not to VNet2.
+Switch back to the Azure portal tab. 
 
-:::image type="content" source="../media/5-virtual-network.png" alt-text="Screenshot showing the virtual links." lightbox="../media/5-virtual-network.png":::
+1. Search for private dns zones, then select **contoso.com**.
+1. Under **Settings**, select **Virtual network links**.
 
-## Resolution
+    ![Screenshot showing the virtual links." lightbox="../media/5-virtual-network.png](../media/5-virtual-network.png)
+
+    Note that the private DNS zone is linked to **VNet1**, but not to **VNet2**.
+
+## Resolve the connection issue
+
+Your investigation points to a configuration issue with the private DNS zone.
 
 ### Link the private Domain Name System zone to Virtual Network 2
 
-Navigate to the private DNS zone (contoso.com) and select the Virtual network links page. Add a new link.
+1. On the Virtual network links pane, select **+ Add** and enter these details:
 
-- Link name: vnet2_dns
+    - Link name: vnet2_dns
+    
+    - [ ] I know the resource ID of virtual network – leave unchecked
+    
+    - Subscription: &lt;the name of your subscription&gt;
+    
+    - Virtual network: VNet2
+    
+    - Configuration: [&#10003;] Enable auto registration
 
-- [  ] I know the resource ID of virtual network – leave unchecked
+1. Select **OK**.
 
-- Subscription: &lt;the name of your subscription&gt;
-
-- Virtual network: VNet2
-
-- Configuration: [X] Enable auto registration
-
-:::image type="content" source="../media/5-add-virtual-network.png" alt-text="Screenshot showing the add virtual network link screen." lightbox="../media/5-add-virtual-network.png":::
-
-After you select OK, it may take a few minutes for the link to be created. Select Refresh occasionally to see the latest status. Wait until the link status says Completed.
+    > [!note] It may take a few minutes for the link to be created. Select Refresh occasionally to see the latest status. Wait until the link status says Completed.
 
 ### Inspect the Domain Name System name table
 
@@ -115,23 +186,37 @@ VM1, VM2, and VM3 should appear. You may need to wait a short while for VM3 to a
 
 Nslookup on VM1 and VM2 should resolve vm3.contoso.com.
 
-> [!TIP]
-> If VM3 does not appear after several minutes, try restarting the VM.
+> [!tip] If VM3 does not appear after several minutes, try restarting the VM.
 
-:::image type="content" source="../media/5-table.png" alt-text="Screenshot showing the d n s table." lightbox="../media/5-table.png":::
+![Screenshot showing the d n s table." lightbox="../media/5-table.png](../media/mod2-vm3-registered.png)
 
-:::image type="content" source="../media/5-command-prompt-machine.png" alt-text="Screenshot showing the results of running the n s lookup commands." lightbox="../media/5-command-prompt-machine.png":::
+1. Switch back to the VM1 tab in your browser. 
 
-:::image type="content" source="../media/5-command-prompt-lookup.png" alt-text="Screenshot of the command prompt showing the results of n s lookup." lightbox="../media/5-command-prompt-lookup.png":::
+1. Run this powershell command:
 
-Optionally, you can test pinging the VMs, using their DNS names.
+    ```powershell
+    nslookup vm1.contoso.com
+    ```
 
-- vm1.contoso.com
+1. Run this powershell command:
 
-- vm2.contoso.com
+    ```powershell
+    nslookup vm2.contoso.com
+    ```
 
-- vm3.contoso.com
+1. Run this powershell command:
 
-In this demonstration you will see how to proactively troubleshoot Conditional Access policies using the What if tool in the Azure portal:
+    ```powershell
+    nslookup vm3.contoso.com
+    ```
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4TYML]
+![Screenshot showing the results of running the n s lookup commands." lightbox="../media/5-command-prompt-machine.png](../media/5-command-prompt-machine.png)
+
+Optionally, you can test pinging each VM, using their DNS names.
+
+- `ping vm1.contoso.com`
+
+- `ping vm2.contoso.com`
+
+- `ping vm3.contoso.com`
+

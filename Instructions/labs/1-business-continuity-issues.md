@@ -4,14 +4,7 @@ lab:
     module: 'Troubleshoot business continuity with Microsoft Azure'
 ---
 
-An Azure sandbox subscription is provided for this lab. You can use the following Azure subscription credentials to complete this lab:
-
-| | |
-|---:|:---|
-| Email Address | +++@lab.CloudPortalCredential(User1).Username+++ |
-| Password | +++@lab.CloudPortalCredential(User1).Password+++ |
-
-> [!tip] If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
+An Azure sandbox subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
 
 # Troubleshoot business continuity with Microsoft Azure
 
@@ -21,7 +14,7 @@ You've been asked to make a backup of a virtual machine. Your development team h
 
 ## Create a backup
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the credentials above, or if you'd like your own Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the Azure credentials above or on the Resource tab, or if you'd like your own Azure subscription.
 
 1. Select the portal menu on the top left, select **Virtual machines**, and then select **VM1**.
 
