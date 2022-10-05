@@ -1,23 +1,34 @@
-> [!IMPORTANT]
-> You need your own [Azure subscription](https://azure.microsoft.com/free/?azure-portal=true) to complete the exercises in this module. If you don't have an Azure subscription, you can still view the demonstraition video at the bottom of this page.
+---
+lab:
+    title: 'Lab 3 - Troubleshoot cloud and hybrid connectivity'
+    module: 'Troubleshoot cloud and hybrid connectivity in Microsoft Azure'
+---
 
-If you have not already run the script in unit 2, please do so now so you can follow the exercise below.
+An Azure sandbox subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
 
-You have configured your network as shown in the diagram below. You want VM1 and VM2 to communicate via the VnetHub. Users are complaining that VM1 cannot communicate with VM2. You need to investigate to diagnose the problem, and then fix it.
+# Troubleshoot cloud and hybrid connectivity in Microsoft Azure
+
+**Estimated Time: 10 minutes**
+
+You've configured your network as shown in the diagram below. You want VM1 and VM2 to communicate via the VnetHub. Users are complaining that VM1 cannot communicate with VM2. You need to investigate to diagnose the problem, and then fix it.
 
 There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
-:::image type="content" source="../media/6-spoke-hub-topology.png" alt-text="Screenshot of spoke and hub topology." border="false":::
-
-## Diagnosis
+![Screenshot of spoke and hub topology.](../media/6-spoke-hub-topology.png)
 
 ## Verify the network topology
 
-1. Sign in to the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com)  using the same account you used to activate the sandbox.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the Azure credentials above or if you'd like your own Azure subscription.
+
+1. Select the portal menu on the top left, select **Resource groups**.
+
+1. 
 
 1. Familiarize yourself with the network topology and check it matches the diagram above.
 
-1. Check the private IP addresses of the firewall (FW1) and virtual machines (VM1 and VM2). These are allocated automatically. Make a note of the correct IP addresses if they are different from the diagram.
+1. Check the private IP addresses of the firewall (**FW1**) and virtual machines (**VM1** and **VM2**). These are allocated automatically.
+
+1. Make a note of the correct IP addresses if they are different from the diagram.
 
 ### Check OSI level 3 connectivity
 
@@ -35,7 +46,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Ping the private IP address of the Azure firewall (FW1).
 
-    :::image type="content" source="../media/6-private-address-ping.png" alt-text="Screenshot showing the command prompt with the ping request results.":::
+    ![Screenshot showing the command prompt with the ping request results.](../media/6-private-address-ping.png)
 
 ### Troubleshoot the problem
 
@@ -51,9 +62,9 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
     The diagram shows the effective routes on VM1-nic.
 
-    :::image type="content" source="../media/6-effective-routes.png" alt-text="Screenshot showing the effective routes.":::
+    ![Screenshot showing the effective routes.](../media/6-effective-routes.png)
 
-## Resolution
+## Resolve the connection issue
 
 When you examined the peering connections, you would have found that the peering settings are different.
 
@@ -64,11 +75,11 @@ When you examined the peering connections, you would have found that the peering
 | VnetSpoke1| Spoke1-Hub| Allow (default)|
 | VnetSpoke2| Spoke2-Hub| Block traffic that originates from outside this virtual network|
 
-:::image type="content" source="../media/6-peerings.png" alt-text="Screenshot showing peerings.":::
+![Screenshot showing peerings.](../media/6-peerings.png)
 
 The settings on **Hub-Spoke2** are incorrect.
 
-:::image type="content" source="../media/6-incorrect-traffic-forwarding.png" alt-text="Screenshot showing the incorrect spoke traffic forwarding setting.":::
+![Screenshot showing the incorrect spoke traffic forwarding setting.](../media/6-incorrect-traffic-forwarding.png)
 
 To fix the problem, you must change the setting in both sides of the peering between VnetHub and VnetSpoke2.
 
@@ -80,10 +91,7 @@ The **Traffic forwarded from remote virtual network** must be set to **Allow**.
 
 It should now be possible on VM1 to ping VM2.
 
-:::image type="content" source="../media/6-private-address-ping-working.png" alt-text="Screenshot showing the command prompt with the ping request working.":::
+![Screenshot showing the command prompt with the ping request working.](../media/6-private-address-ping-working.png)
 
 There will be a short delay before the new settings take effect. If the ping fails at first, try again.
 
-In this demonstration you will see how to proactively troubleshoot Conditional Access policies using the What if tool in the Azure portal:
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4TYMM]

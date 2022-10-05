@@ -14,7 +14,7 @@ You've been asked to make a backup of a virtual machine. Your development team h
 
 ## Create a backup
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the Azure credentials above or on the Resource tab, or if you'd like your own Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the Azure credentials above or if you'd like your own Azure subscription.
 
 1. Select the portal menu on the top left, select **Virtual machines**, and then select **VM1**.
 

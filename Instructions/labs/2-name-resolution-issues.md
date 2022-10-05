@@ -1,4 +1,4 @@
----Azure
+---
 lab:
     title: 'Lab 2 - Name resolution issues'
     module: 'Troubleshoot name resolution issues in Microsoft Azure'
@@ -33,7 +33,7 @@ You work for Contoso as a network engineer, and users are complaining that they 
 
 You'll connect to VM1 and VM3 using Azure Bastion and perform some networking checks.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the Azure credentials above or on the Resource tab, or if you'd like your own Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the Azure credentials above or if you'd like your own Azure subscription.
 
 1. Select the portal menu on the top left, select **Virtual machines**, and then select **VM1**.
 
