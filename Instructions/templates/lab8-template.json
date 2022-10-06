@@ -1,0 +1,433 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+        {
+          "type": "Microsoft.Network/networkSecurityGroups",
+          "apiVersion": "2020-11-01",
+          "name": "bastion-nsg",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "securityRules": [
+                  {
+                      "name": "AllowTagHTTPSInbound",
+                      "properties": {
+                          "protocol": "TCP",
+                          "sourcePortRange": "*",
+                          "destinationPortRange": "443",
+                          "sourceAddressPrefix": "GatewayManager",
+                          "destinationAddressPrefix": "*",
+                          "access": "Allow",
+                          "priority": 110,
+                          "direction": "Inbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  },
+                  {
+                      "name": "AllowTagHTTPSInboundLB",
+                      "properties": {
+                          "protocol": "TCP",
+                          "sourcePortRange": "*",
+                          "destinationPortRange": "443",
+                          "sourceAddressPrefix": "AzureLoadBalancer",
+                          "destinationAddressPrefix": "*",
+                          "access": "Allow",
+                          "priority": 120,
+                          "direction": "Inbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  },
+                  {
+                      "name": "AllowSSHRDPOutbound",
+                      "properties": {
+                          "protocol": "*",
+                          "sourcePortRange": "*",
+                          "sourceAddressPrefix": "*",
+                          "destinationAddressPrefix": "VirtualNetwork",
+                          "access": "Allow",
+                          "priority": 130,
+                          "direction": "Outbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [
+                              "22",
+                              "3389"
+                          ],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  },
+                  {
+                      "name": "AllowAzureCloudOutbound",
+                      "properties": {
+                          "protocol": "TCP",
+                          "sourcePortRange": "*",
+                          "destinationPortRange": "443",
+                          "sourceAddressPrefix": "*",
+                          "destinationAddressPrefix": "AzureCloud",
+                          "access": "Allow",
+                          "priority": 140,
+                          "direction": "Outbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  },
+                  {
+                      "name": "AllowBastionCommunication",
+                      "properties": {
+                          "protocol": "*",
+                          "sourcePortRange": "*",
+                          "sourceAddressPrefix": "VirtualNetwork",
+                          "destinationAddressPrefix": "VirtualNetwork",
+                          "access": "Allow",
+                          "priority": 150,
+                          "direction": "Outbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [
+                              "8080",
+                              "5701"
+                          ],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  },
+                  {
+                      "name": "AllowGetSessionInformation",
+                      "properties": {
+                          "protocol": "TCP",
+                          "sourcePortRange": "*",
+                          "destinationPortRange": "80",
+                          "sourceAddressPrefix": "*",
+                          "destinationAddressPrefix": "Internet",
+                          "access": "Allow",
+                          "priority": 160,
+                          "direction": "Outbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkSecurityGroups",
+          "apiVersion": "2020-11-01",
+          "name": "windows-vm-nsg",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "securityRules": [
+                  {
+                      "name": "RDP",
+                      "properties": {
+                          "protocol": "TCP",
+                          "sourcePortRange": "*",
+                          "destinationPortRange": "3389",
+                          "sourceAddressPrefix": "*",
+                          "destinationAddressPrefix": "*",
+                          "access": "Allow",
+                          "priority": 300,
+                          "direction": "Inbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Network/publicIPAddresses",
+          "apiVersion": "2020-11-01",
+          "name": "[concat(resourceGroup().name,'-vnet-ip')]",
+          "location": "[resourceGroup().location]",
+          "sku": {
+              "name": "Standard",
+              "tier": "Regional"
+          },
+          "properties": {
+              "publicIPAddressVersion": "IPv4",
+              "publicIPAllocationMethod": "Static",
+              "idleTimeoutInMinutes": 4,
+              "ipTags": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/publicIPAddresses",
+          "apiVersion": "2020-11-01",
+          "name": "windows-vm-ip",
+          "location": "[resourceGroup().location]",
+          "sku": {
+              "name": "Standard",
+              "tier": "Regional"
+          },
+          "properties": {
+              "publicIPAddressVersion": "IPv4",
+              "publicIPAllocationMethod": "Static",
+              "idleTimeoutInMinutes": 4,
+              "ipTags": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks",
+          "apiVersion": "2020-11-01",
+          "name": "[concat(resourceGroup().name,'-vnet')]",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "addressSpace": {
+                  "addressPrefixes": [
+                      "10.0.0.0/16"
+                  ]
+              },
+              "subnets": [
+                  {
+                      "name": "default",
+                      "properties": {
+                          "addressPrefix": "10.0.0.0/24",
+                          "delegations": [],
+                          "privateEndpointNetworkPolicies": "Disabled",
+                          "privateLinkServiceNetworkPolicies": "Enabled"
+                      }
+                  },
+                  {
+                      "name": "AzureBastionSubnet",
+                      "properties": {
+                          "addressPrefix": "10.0.1.0/26",
+                          "delegations": [],
+                          "privateEndpointNetworkPolicies": "Disabled",
+                          "privateLinkServiceNetworkPolicies": "Enabled"
+                      }
+                  }
+              ],
+              "virtualNetworkPeerings": [],
+              "enableDdosProtection": false
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines",
+          "apiVersion": "2022-03-01",
+          "name": "windows-vm",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkInterfaces', 'windows-vm348')]"
+          ],
+          "identity": {
+              "type": "SystemAssigned"
+          },
+          "properties": {
+              "hardwareProfile": {
+                  "vmSize": "Standard_D2ads_v5"
+              },
+              "storageProfile": {
+                  "imageReference": {
+                      "publisher": "MicrosoftWindowsServer",
+                      "offer": "WindowsServer",
+                      "sku": "2022-datacenter-azure-edition",
+                      "version": "latest"
+                  },
+                  "osDisk": {
+                      "osType": "Windows",
+                      "name": "windows-vm_OsDisk_1_39d43188091a46289578f9f4f6c0e35c",
+                      "createOption": "FromImage",
+                      "caching": "ReadWrite",
+                      "managedDisk": {
+                          "storageAccountType": "StandardSSD_LRS"
+                      },
+                      "deleteOption": "Delete",
+                      "diskSizeGB": 127
+                  },
+                  "dataDisks": []
+              },
+              "osProfile": {
+                  "computerName": "windows-vm",
+                  "adminUsername": "azureadmin",
+                  "adminPassword": "Azur$Pa55w0rd",
+                  "windowsConfiguration": {
+                      "provisionVMAgent": true,
+                      "enableAutomaticUpdates": true,
+                      "patchSettings": {
+                          "patchMode": "AutomaticByOS",
+                          "assessmentMode": "ImageDefault",
+                          "enableHotpatching": false
+                      }
+                  },
+                  "secrets": [],
+                  "allowExtensionOperations": true
+              },
+              "networkProfile": {
+                  "networkInterfaces": [
+                      {
+                          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'windows-vm348')]",
+                          "properties": {
+                              "deleteOption": "Detach"
+                          }
+                      }
+                  ]
+              },
+              "diagnosticsProfile": {
+                  "bootDiagnostics": {
+                      "enabled": true
+                  }
+              }
+          }
+      },
+      {
+          "type": "microsoft.devtestlab/schedules",
+          "apiVersion": "2018-09-15",
+          "name": "shutdown-computevm-windows-vm",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Compute/virtualMachines', 'windows-vm')]"
+          ],
+          "properties": {
+              "status": "Enabled",
+              "taskType": "ComputeVmShutdownTask",
+              "dailyRecurrence": {
+                  "time": "1900"
+              },
+              "timeZoneId": "UTC",
+              "notificationSettings": {
+                  "status": "Enabled",
+                  "timeInMinutes": 30,
+                  "emailRecipient": "phils@contentmaster.com",
+                  "notificationLocale": "en"
+              },
+              "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', 'windows-vm')]"
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "apiVersion": "2020-11-01",
+          "name": "windows-vm-nsg/RDP",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'windows-vm-nsg')]"
+          ],
+          "properties": {
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 300,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/subnets",
+          "apiVersion": "2020-11-01",
+          "name": "[concat(resourceGroup().name,'-vnet/AzureBastionSubnet')]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name,'-vnet'))]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'bastion-nsg')]"
+          ],
+          "properties": {
+              "addressPrefix": "10.0.1.0/26",
+              "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'bastion-nsg')]"
+              },
+              "serviceEndpoints": [],
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/subnets",
+          "apiVersion": "2020-11-01",
+          "name": "[concat(resourceGroup().name,'-vnet/default')]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', concat(resourceGroup().name,'-vnet'))]"
+          ],
+          "properties": {
+              "addressPrefix": "10.0.0.0/24",
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+          }
+      },
+      {
+          "type": "Microsoft.Network/bastionHosts",
+          "apiVersion": "2020-11-01",
+          "name": "[concat(resourceGroup().name,'-vnet-bastion')]",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/publicIPAddresses', concat(resourceGroup().name,'-vnet-ip'))]",
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(resourceGroup().name,'-vnet'), 'AzureBastionSubnet')]"
+          ],
+          "sku": {
+              "name": "Basic"
+          },
+          "properties": {
+              "dnsName": "bst-73f9ccf6-7a5f-4a03-9dbf-f3a4e5da9e05.bastion.azure.com",
+              "ipConfigurations": [
+                  {
+                      "name": "IpConf",
+                      "properties": {
+                          "privateIPAllocationMethod": "Dynamic",
+                          "publicIPAddress": {
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(resourceGroup().name,'-vnet-ip'))]"
+                          },
+                          "subnet": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(resourceGroup().name,'-vnet'), 'AzureBastionSubnet')]"
+                          }
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkInterfaces",
+          "apiVersion": "2020-11-01",
+          "name": "windows-vm348",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/publicIPAddresses', 'windows-vm-ip')]",
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(resourceGroup().name,'-vnet'), 'default')]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'windows-vm-nsg')]"
+          ],
+          "properties": {
+              "ipConfigurations": [
+                  {
+                      "name": "ipconfig1",
+                      "properties": {
+                          "privateIPAddress": "10.0.0.4",
+                          "privateIPAllocationMethod": "Dynamic",
+                          "publicIPAddress": {
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'windows-vm-ip')]"
+                          },
+                          "subnet": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(resourceGroup().name,'-vnet'), 'default')]"
+                          },
+                          "primary": true,
+                          "privateIPAddressVersion": "IPv4"
+                      }
+                  }
+              ],
+              "dnsSettings": {
+                  "dnsServers": []
+              },
+              "enableAcceleratedNetworking": true,
+              "enableIPForwarding": false,
+              "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'windows-vm-nsg')]"
+              }
+          }
+      }
+  ]
+}

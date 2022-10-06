@@ -1,0 +1,421 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+      {
+          "type": "Microsoft.Network/networkSecurityGroups",
+          "apiVersion": "2020-11-01",
+          "name": "webNetworkSecurityGroup",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "securityRules": [
+                  {
+                      "name": "webNetworkSecurityGroupRule",
+                      "properties": {
+                          "protocol": "Tcp",
+                          "sourcePortRange": "*",
+                          "destinationPortRange": "80",
+                          "sourceAddressPrefix": "*",
+                          "destinationAddressPrefix": "*",
+                          "access": "Allow",
+                          "priority": 1001,
+                          "direction": "Inbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Network/publicIPAddresses",
+          "apiVersion": "2020-11-01",
+          "name": "webPublicIP",
+          "location": "[resourceGroup().location]",
+          "sku": {
+              "name": "Standard",
+              "tier": "Regional"
+          },
+          "properties": {
+              "publicIPAddressVersion": "IPv4",
+              "publicIPAllocationMethod": "Static",
+              "idleTimeoutInMinutes": 4,
+              "ipTags": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks",
+          "apiVersion": "2020-11-01",
+          "name": "webVnet",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "addressSpace": {
+                  "addressPrefixes": [
+                      "10.0.0.0/16"
+                  ]
+              },
+              "dhcpOptions": {
+                  "dnsServers": []
+              },
+              "subnets": [
+                  {
+                      "name": "webSubnet",
+                      "properties": {
+                          "addressPrefix": "10.0.0.0/24",
+                          "delegations": [],
+                          "privateEndpointNetworkPolicies": "Disabled",
+                          "privateLinkServiceNetworkPolicies": "Enabled"
+                      }
+                  }
+              ],
+              "virtualNetworkPeerings": [],
+              "enableDdosProtection": false
+          }
+      },
+      {
+          "type": "Microsoft.Network/loadBalancers/backendAddressPools",
+          "apiVersion": "2020-11-01",
+          "name": "webLoadBalancer/webBackEndPool",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/loadBalancers', 'webLoadBalancer')]"
+          ],
+          "properties": {}
+      },
+      {
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "apiVersion": "2020-11-01",
+          "name": "webNetworkSecurityGroup/webNetworkSecurityGroupRule",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'webNetworkSecurityGroup')]"
+          ],
+          "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "80",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 1001,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/subnets",
+          "apiVersion": "2020-11-01",
+          "name": "webVnet/webSubnet",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'webVnet')]"
+          ],
+          "properties": {
+              "addressPrefix": "10.0.0.0/24",
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+          }
+      },
+      {
+          "type": "Microsoft.Compute/availabilitySets",
+          "apiVersion": "2022-03-01",
+          "name": "webAvailabilitySet",
+          "location": "[resourceGroup().location]",
+          "sku": {
+              "name": "Aligned"
+          },
+          "properties": {
+              "platformUpdateDomainCount": 2,
+              "platformFaultDomainCount": 2,
+              "virtualMachines": [
+                  {
+                      "id": "[resourceId('Microsoft.Compute/virtualMachines', 'webVirtualMachine1')]"
+                  },
+                  {
+                      "id": "[resourceId('Microsoft.Compute/virtualMachines', 'webVirtualMachine2')]"
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines",
+          "apiVersion": "2022-03-01",
+          "name": "webVirtualMachine1",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkInterfaces', 'webNic1')]",
+              "[resourceId('Microsoft.Compute/availabilitySets', 'webAvailabilitySet')]"
+          ],
+          "properties": {
+              "availabilitySet": {
+                  "id": "[resourceId('Microsoft.Compute/availabilitySets', 'webAvailabilitySet')]"
+              },
+              "hardwareProfile": {
+                  "vmSize": "Standard_DS1_v2"
+              },
+              "storageProfile": {
+                  "imageReference": {
+                      "publisher": "Canonical",
+                      "offer": "UbuntuServer",
+                      "sku": "18.04-LTS",
+                      "version": "latest"
+                  },
+                  "osDisk": {
+                      "osType": "Linux",
+                      "name": "webVirtualMachine1_OsDisk_1_58c58c6c43f7465ba2701da181f2c876",
+                      "createOption": "FromImage",
+                      "caching": "ReadWrite",
+                      "managedDisk": {
+                          "storageAccountType": "Premium_LRS"
+                      },
+                      "deleteOption": "Detach",
+                      "diskSizeGB": 30
+                  },
+                  "dataDisks": []
+              },
+              "osProfile": {
+                  "computerName": "webVirtualMachine1",
+                  "adminUsername": "azureuser",
+                  "adminPassword": "Azur$Pa55w0rd",
+                  "linuxConfiguration": {
+                      "provisionVMAgent": true,
+                      "patchSettings": {
+                          "patchMode": "ImageDefault",
+                          "assessmentMode": "ImageDefault"
+                      }
+                  },
+                  "secrets": [],
+                  "allowExtensionOperations": true,
+                  "customData": "[base64('#cloud-config \npackage_upgrade: true \npackages: \n  - nginx \n  - nodejs \n  - npm \nwrite_files: \n  - owner: www-data:www-data \n  - path: /etc/nginx/sites-available/default \n    content: | \n      server { \n        listen 80; \n        location / { \n          proxy_pass http://localhost:3000; \n          proxy_http_version 1.1; \n          proxy_set_header Upgrade $http_upgrade; \n          proxy_set_header Connection keep-alive; \n          proxy_set_header Host $host; \n          proxy_cache_bypass $http_upgrade; \n        } \n      } \n  - owner: azureuser:azureuser \n  - path: /home/azureuser/myapp/index.js \n    content: | \n      var express = require(''express'') \n      var app = express() \n      var os = require(''os''); \n      app.get(''/'', function (req, res) { \n        res.send(''<p>Hello World from host <strong>'' + os.hostname() + ''</strong>!</p>'') \n      }) \n      app.listen(3000, function () { \n        console.log(''Hello world app listening on port 3000!'') \n      }) \nruncmd: \n  - service nginx restart \n  - cd ''/home/azureuser/myapp'' \n  - npm init \n  - npm install express -y \n  - nodejs index.js')]"
+              },
+              "networkProfile": {
+                  "networkInterfaces": [
+                      {
+                          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'webNic1')]",
+                          "properties": {
+                              "primary": true
+                          }
+                      }
+                  ]
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines",
+          "apiVersion": "2022-03-01",
+          "name": "webVirtualMachine2",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkInterfaces', 'webNic2')]",
+              "[resourceId('Microsoft.Compute/availabilitySets', 'webAvailabilitySet')]"
+          ],
+          "properties": {
+              "availabilitySet": {
+                  "id": "[resourceId('Microsoft.Compute/availabilitySets', 'webAvailabilitySet')]"
+              },
+              "hardwareProfile": {
+                  "vmSize": "Standard_DS1_v2"
+              },
+              "storageProfile": {
+                  "imageReference": {
+                      "publisher": "Canonical",
+                      "offer": "UbuntuServer",
+                      "sku": "18.04-LTS",
+                      "version": "latest"
+                  },
+                  "osDisk": {
+                      "osType": "Linux",
+                      "name": "webVirtualMachine2_OsDisk_1_58d6a4e501484277b6fa747691a296fb",
+                      "createOption": "FromImage",
+                      "caching": "ReadWrite",
+                      "managedDisk": {
+                          "storageAccountType": "Premium_LRS"
+                      },
+                      "deleteOption": "Detach",
+                      "diskSizeGB": 30
+                  },
+                  "dataDisks": []
+              },
+              "osProfile": {
+                  "computerName": "webVirtualMachine2",
+                  "adminUsername": "azureuser",
+                  "adminPassword": "Azur$Pa55w0rd",
+                  "linuxConfiguration": {
+                      "provisionVMAgent": true,
+                      "patchSettings": {
+                          "patchMode": "ImageDefault",
+                          "assessmentMode": "ImageDefault"
+                      }
+                  },
+                  "secrets": [],
+                  "allowExtensionOperations": true,
+                  "customData": "[base64('#cloud-config \npackage_upgrade: true \npackages: \n  - nginx \n  - nodejs \n  - npm \nwrite_files: \n  - owner: www-data:www-data \n  - path: /etc/nginx/sites-available/default \n    content: | \n      server { \n        listen 80; \n        location / { \n          proxy_pass http://localhost:3000; \n          proxy_http_version 1.1; \n          proxy_set_header Upgrade $http_upgrade; \n          proxy_set_header Connection keep-alive; \n          proxy_set_header Host $host; \n          proxy_cache_bypass $http_upgrade; \n        } \n      } \n  - owner: azureuser:azureuser \n  - path: /home/azureuser/myapp/index.js \n    content: | \n      var express = require(''express'') \n      var app = express() \n      var os = require(''os''); \n      app.get(''/'', function (req, res) { \n        res.send(''<p>Hello World from host <strong>'' + os.hostname() + ''</strong>!</p>'') \n      }) \n      app.listen(3000, function () { \n        console.log(''Hello world app listening on port 3000!'') \n      }) \nruncmd: \n  - service nginx restart \n  - cd ''/home/azureuser/myapp'' \n  - npm init \n  - npm install express -y \n  - nodejs index.js')]"
+              },
+              "networkProfile": {
+                  "networkInterfaces": [
+                      {
+                          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'webNic2')]",
+                          "properties": {
+                              "primary": true
+                          }
+                      }
+                  ]
+              }
+          }
+      },  
+      {
+          "type": "Microsoft.Network/loadBalancers",
+          "apiVersion": "2020-11-01",
+          "name": "webLoadBalancer",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/publicIPAddresses', 'webPublicIP')]"
+          ],
+          "sku": {
+              "name": "Standard",
+              "tier": "Regional"
+          },
+          "properties": {
+              "frontendIPConfigurations": [
+                  {
+                      "name": "webFrontEndPool",
+                      "properties": {
+                          "privateIPAllocationMethod": "Dynamic",
+                          "publicIPAddress": {
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'webPublicIP')]"
+                          }
+                      }
+                  }
+              ],
+              "backendAddressPools": [
+                  {
+                      "name": "webBackEndPool",
+                      "properties": {}
+                  }
+              ],
+              "loadBalancingRules": [
+                  {
+                      "name": "webLoadBalancerRule",
+                      "properties": {
+                          "frontendIPConfiguration": {
+                              "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'webLoadBalancer'), '/frontendIPConfigurations/webFrontEndPool')]"
+                          },
+                          "frontendPort": 80,
+                          "backendPort": 80,
+                          "enableFloatingIP": false,
+                          "idleTimeoutInMinutes": 4,
+                          "protocol": "Tcp",
+                          "enableTcpReset": false,
+                          "loadDistribution": "SourceIPProtocol",
+                          "disableOutboundSnat": false,
+                          "backendAddressPool": {
+                              "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'webLoadBalancer', 'webBackEndPool')]"
+                          },
+                          "probe": {
+                              "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'webLoadBalancer'), '/probes/webHealthProbe')]"
+                          }
+                      }
+                  }
+              ],
+              "probes": [
+                  {
+                      "name": "webHealthProbe",
+                      "properties": {
+                          "protocol": "Tcp",
+                          "port": 80,
+                          "intervalInSeconds": 15,
+                          "numberOfProbes": 2
+                      }
+                  }
+              ],
+              "inboundNatRules": [],
+              "inboundNatPools": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkInterfaces",
+          "apiVersion": "2020-11-01",
+          "name": "webNic1",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'webVnet', 'webSubnet')]",
+              "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'webLoadBalancer', 'webBackEndPool')]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'webNetworkSecurityGroup')]"
+          ],
+          "properties": {
+              "ipConfigurations": [
+                  {
+                      "name": "ipconfig1",
+                      "properties": {
+                          "privateIPAddress": "10.0.0.4",
+                          "privateIPAllocationMethod": "Dynamic",
+                          "subnet": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'webVnet', 'webSubnet')]"
+                          },
+                          "primary": true,
+                          "privateIPAddressVersion": "IPv4",
+                          "loadBalancerBackendAddressPools": [
+                              {
+                                  "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'webLoadBalancer', 'webBackEndPool')]"
+                              }
+                          ]
+                      }
+                  }
+              ],
+              "dnsSettings": {
+                  "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'webNetworkSecurityGroup')]"
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkInterfaces",
+          "apiVersion": "2020-11-01",
+          "name": "webNic2",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'webVnet', 'webSubnet')]",
+              "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'webLoadBalancer', 'webBackEndPool')]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'webNetworkSecurityGroup')]"
+          ],
+          "properties": {
+              "ipConfigurations": [
+                  {
+                      "name": "ipconfig1",
+                      "properties": {
+                          "privateIPAddress": "10.0.0.5",
+                          "privateIPAllocationMethod": "Dynamic",
+                          "subnet": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'webVnet', 'webSubnet')]"
+                          },
+                          "primary": true,
+                          "privateIPAddressVersion": "IPv4",
+                          "loadBalancerBackendAddressPools": [
+                              {
+                                  "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'webLoadBalancer', 'webBackEndPool')]"
+                              }
+                          ]
+                      }
+                  }
+              ],
+              "dnsSettings": {
+                  "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'webNetworkSecurityGroup')]"
+              }
+          }
+      }
+  ]
+}

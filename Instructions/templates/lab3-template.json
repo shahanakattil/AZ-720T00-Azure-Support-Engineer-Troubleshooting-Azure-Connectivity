@@ -1,0 +1,909 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+      {
+          "type": "Microsoft.Network/networkSecurityGroups",
+          "apiVersion": "2020-11-01",
+          "name": "NSG1",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "securityRules": [
+                  {
+                      "name": "Allow-RDP",
+                      "properties": {
+                          "protocol": "Tcp",
+                          "sourcePortRange": "*",
+                          "destinationPortRange": "3389",
+                          "sourceAddressPrefix": "Internet",
+                          "destinationAddressPrefix": "*",
+                          "access": "Allow",
+                          "priority": 100,
+                          "direction": "Inbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkSecurityGroups",
+          "apiVersion": "2020-11-01",
+          "name": "NSG2",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "securityRules": [
+                  {
+                      "name": "Allow-RDP",
+                      "properties": {
+                          "protocol": "Tcp",
+                          "sourcePortRange": "*",
+                          "destinationPortRange": "3389",
+                          "sourceAddressPrefix": "Internet",
+                          "destinationAddressPrefix": "*",
+                          "access": "Allow",
+                          "priority": 100,
+                          "direction": "Inbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Network/publicIPAddresses",
+          "apiVersion": "2020-11-01",
+          "name": "FW1-ip",
+          "location": "[resourceGroup().location]",
+          "sku": {
+              "name": "Standard",
+              "tier": "Regional"
+          },
+          "properties": {
+              "publicIPAddressVersion": "IPv4",
+              "publicIPAllocationMethod": "Static",
+              "idleTimeoutInMinutes": 4,
+              "ipTags": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/publicIPAddresses",
+          "apiVersion": "2020-11-01",
+          "name": "VM1-ip",
+          "location": "[resourceGroup().location]",
+          "sku": {
+              "name": "Basic",
+              "tier": "Regional"
+          },
+          "properties": {
+              "publicIPAddressVersion": "IPv4",
+              "publicIPAllocationMethod": "Dynamic",
+              "idleTimeoutInMinutes": 4,
+              "ipTags": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/publicIPAddresses",
+          "apiVersion": "2020-11-01",
+          "name": "VM2-ip",
+          "location": "[resourceGroup().location]",
+          "sku": {
+              "name": "Basic",
+              "tier": "Regional"
+          },
+          "properties": {
+              "publicIPAddressVersion": "IPv4",
+              "publicIPAllocationMethod": "Dynamic",
+              "idleTimeoutInMinutes": 4,
+              "ipTags": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/routeTables",
+          "apiVersion": "2020-11-01",
+          "name": "RT1",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "disableBgpRoutePropagation": true,
+              "routes": [
+                  {
+                      "name": "RT1_ToSpoke2",
+                      "properties": {
+                          "addressPrefix": "10.3.0.0/16",
+                          "nextHopType": "VirtualAppliance",
+                          "nextHopIpAddress": "10.1.1.4",
+                          "hasBgpOverride": false
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Network/routeTables",
+          "apiVersion": "2020-11-01",
+          "name": "RT2",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "disableBgpRoutePropagation": true,
+              "routes": [
+                  {
+                      "name": "RT2_ToSpoke1",
+                      "properties": {
+                          "addressPrefix": "10.2.0.0/16",
+                          "nextHopType": "VirtualAppliance",
+                          "nextHopIpAddress": "10.1.1.4",
+                          "hasBgpOverride": false
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines",
+          "apiVersion": "2022-03-01",
+          "name": "VM1",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkInterfaces', 'VM1-nic')]"
+          ],
+          "properties": {
+              "hardwareProfile": {
+                  "vmSize": "Standard_D2s_v3"
+              },
+              "storageProfile": {
+                  "imageReference": {
+                      "publisher": "MicrosoftWindowsServer",
+                      "offer": "WindowsServer",
+                      "sku": "2022-datacenter-azure-edition-core",
+                      "version": "latest"
+                  },
+                  "osDisk": {
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                      "storageAccountType": "StandardSSD_LRS"
+                    }
+                  },
+                  "dataDisks": [
+                    {
+                      "diskSizeGB": 1023,
+                      "lun": 0,
+                      "createOption": "Empty"
+                    }
+                  ]
+              },
+              "osProfile": {
+                  "computerName": "VM1",
+                  "adminUsername": "AdminXyz",
+                  "adminPassword": "Azur$Pa55w0rd",
+                  "windowsConfiguration": {
+                      "provisionVMAgent": true,
+                      "enableAutomaticUpdates": true,
+                      "patchSettings": {
+                          "patchMode": "AutomaticByPlatform",
+                          "assessmentMode": "ImageDefault"
+                      }
+                  },
+                  "secrets": [],
+                  "allowExtensionOperations": true
+              },
+              "networkProfile": {
+                  "networkInterfaces": [
+                      {
+                          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'VM1-nic')]"
+                      }
+                  ]
+              },
+              "diagnosticsProfile": {
+                  "bootDiagnostics": {
+                      "enabled": true
+                  }
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines",
+          "apiVersion": "2022-03-01",
+          "name": "VM2",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkInterfaces', 'VM2-nic')]"
+          ],
+          "properties": {
+              "hardwareProfile": {
+                  "vmSize": "Standard_D2s_v3"
+              },
+              "storageProfile": {
+                  "imageReference": {
+                      "publisher": "MicrosoftWindowsServer",
+                      "offer": "WindowsServer",
+                      "sku": "2022-datacenter-azure-edition-core",
+                      "version": "latest"
+                  },
+                  "osDisk": {
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                      "storageAccountType": "StandardSSD_LRS"
+                    }
+                  },
+                  "dataDisks": [
+                    {
+                      "diskSizeGB": 1023,
+                      "lun": 0,
+                      "createOption": "Empty"
+                    }
+                  ]
+              },
+              "osProfile": {
+                  "computerName": "VM2",
+                  "adminUsername": "AdminXyz",
+                  "adminPassword": "Azur$Pa55w0rd",
+                  "windowsConfiguration": {
+                      "provisionVMAgent": true,
+                      "enableAutomaticUpdates": true,
+                      "patchSettings": {
+                          "patchMode": "AutomaticByPlatform",
+                          "assessmentMode": "ImageDefault"
+                      }
+                  },
+                  "secrets": [],
+                  "allowExtensionOperations": true
+              },
+              "networkProfile": {
+                  "networkInterfaces": [
+                      {
+                          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'VM2-nic')]"
+                      }
+                  ]
+              },
+              "diagnosticsProfile": {
+                  "bootDiagnostics": {
+                      "enabled": true
+                  }
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "apiVersion": "2022-03-01",
+          "name": "VM1/AllowEchoRequest",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Compute/virtualMachines', 'VM1')]"
+          ],
+          "properties": {
+              "autoUpgradeMinorVersion": true,
+              "publisher": "Microsoft.Compute",
+              "type": "CustomScriptExtension",
+              "typeHandlerVersion": "1.8",
+              "settings": {
+                  "commandToExecute": "powershell Set-NetFirewallRule -Name FPS-ICMP4-ERQ-In -Enabled True -RemoteAddress @('10.1.0.0/255.255.0.0', '10.2.0.0/255.255.0.0', '10.3.0.0/255.255.0.0');"
+              },
+              "protectedSettings": {}
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "apiVersion": "2022-03-01",
+          "name": "VM1/BGInfo",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Compute/virtualMachines', 'VM1')]"
+          ],
+          "properties": {
+              "autoUpgradeMinorVersion": true,
+              "publisher": "Microsoft.Compute",
+              "type": "BGInfo",
+              "typeHandlerVersion": "2.2"
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "apiVersion": "2022-03-01",
+          "name": "VM2/AllowEchoRequest",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Compute/virtualMachines', 'VM2')]"
+          ],
+          "properties": {
+              "autoUpgradeMinorVersion": true,
+              "publisher": "Microsoft.Compute",
+              "type": "CustomScriptExtension",
+              "typeHandlerVersion": "1.8",
+              "settings": {
+                  "commandToExecute": "powershell Set-NetFirewallRule -Name FPS-ICMP4-ERQ-In -Enabled True -RemoteAddress @('10.1.0.0/255.255.0.0', '10.2.0.0/255.255.0.0', '10.3.0.0/255.255.0.0');"
+              },
+              "protectedSettings": {}
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "apiVersion": "2022-03-01",
+          "name": "VM2/BGInfo",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Compute/virtualMachines', 'VM2')]"
+          ],
+          "properties": {
+              "autoUpgradeMinorVersion": true,
+              "publisher": "Microsoft.Compute",
+              "type": "BGInfo",
+              "typeHandlerVersion": "2.2"
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "apiVersion": "2020-11-01",
+          "name": "NSG1/Allow-RDP",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG1')]"
+          ],
+          "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "apiVersion": "2020-11-01",
+          "name": "NSG2/Allow-RDP",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG2')]"
+          ],
+          "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/routeTables/routes",
+          "apiVersion": "2020-11-01",
+          "name": "RT1/RT1_ToSpoke2",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/routeTables', 'RT1')]"
+          ],
+          "properties": {
+              "addressPrefix": "10.3.0.0/16",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "10.1.1.4",
+              "hasBgpOverride": false
+          }
+      },
+      {
+          "type": "Microsoft.Network/routeTables/routes",
+          "apiVersion": "2020-11-01",
+          "name": "RT2/RT2_ToSpoke1",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/routeTables', 'RT2')]"
+          ],
+          "properties": {
+              "addressPrefix": "10.2.0.0/16",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "10.1.1.4",
+              "hasBgpOverride": false
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/subnets",
+          "apiVersion": "2020-11-01",
+          "name": "VnetHub/AzureFirewallSubnet",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetHub')]"
+          ],
+          "properties": {
+              "addressPrefix": "10.1.1.0/24",
+              "serviceEndpoints": [],
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+          }
+      },
+      {
+          "type": "Microsoft.Network/azureFirewalls",
+          "apiVersion": "2020-11-01",
+          "name": "FW1",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/publicIPAddresses', 'FW1-ip')]",
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'VnetHub', 'AzureFirewallSubnet')]"
+          ],
+          "properties": {
+              "sku": {
+                  "name": "AZFW_VNet",
+                  "tier": "Standard"
+              },
+              "threatIntelMode": "Alert",
+              "additionalProperties": {},
+              "ipConfigurations": [
+                  {
+                      "name": "AzureFirewallIpConfiguration0",
+                      "properties": {
+                          "publicIPAddress": {
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'FW1-ip')]"
+                          },
+                          "subnet": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'VnetHub', 'AzureFirewallSubnet')]"
+                          }
+                      }
+                  }
+              ],
+              "networkRuleCollections": [
+                  {
+                      "name": "Spoke-to-spoke",
+                      "properties": {
+                          "priority": 200,
+                          "action": {
+                              "type": "Allow"
+                          },
+                          "rules": [
+                              {
+                                  "name": "Spoke1-2",
+                                  "description": "Allow all traffic from Spoke1 to Spoke2",
+                                  "protocols": [
+                                      "Any"
+                                  ],
+                                  "sourceAddresses": [
+                                      "10.2.0.0/16"
+                                  ],
+                                  "destinationAddresses": [
+                                      "10.3.0.0/16"
+                                  ],
+                                  "sourceIpGroups": [],
+                                  "destinationIpGroups": [],
+                                  "destinationFqdns": [],
+                                  "destinationPorts": [
+                                      "*"
+                                  ]
+                              },
+                              {
+                                  "name": "Spoke2-1",
+                                  "description": "Allow all traffic from Spoke2 to Spoke1",
+                                  "protocols": [
+                                      "Any"
+                                  ],
+                                  "sourceAddresses": [
+                                      "10.3.0.0/16"
+                                  ],
+                                  "destinationAddresses": [
+                                      "10.2.0.0/16"
+                                  ],
+                                  "sourceIpGroups": [],
+                                  "destinationIpGroups": [],
+                                  "destinationFqdns": [],
+                                  "destinationPorts": [
+                                      "*"
+                                  ]
+                              }
+                          ]
+                      }
+                  }
+              ],
+              "applicationRuleCollections": [],
+              "natRuleCollections": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkInterfaces",
+          "apiVersion": "2020-11-01",
+          "name": "VM1-nic",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/publicIPAddresses', 'VM1-ip')]",
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'VnetSpoke1', 'Subnet11')]"
+          ],
+          "properties": {
+              "ipConfigurations": [
+                  {
+                      "name": "ipconfig1",
+                      "properties": {
+                          "privateIPAddress": "10.2.1.4",
+                          "privateIPAllocationMethod": "Dynamic",
+                          "publicIPAddress": {
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'VM1-ip')]"
+                          },
+                          "subnet": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'VnetSpoke1', 'Subnet11')]"
+                          },
+                          "primary": true,
+                          "privateIPAddressVersion": "IPv4"
+                      }
+                  }
+              ],
+              "dnsSettings": {
+                  "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkInterfaces",
+          "apiVersion": "2020-11-01",
+          "name": "VM2-nic",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/publicIPAddresses', 'VM2-ip')]",
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'VnetSpoke2', 'Subnet21')]"
+          ],
+          "properties": {
+              "ipConfigurations": [
+                  {
+                      "name": "ipconfig1",
+                      "properties": {
+                          "privateIPAddress": "10.3.1.4",
+                          "privateIPAllocationMethod": "Dynamic",
+                          "publicIPAddress": {
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'VM2-ip')]"
+                          },
+                          "subnet": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'VnetSpoke2', 'Subnet21')]"
+                          },
+                          "primary": true,
+                          "privateIPAddressVersion": "IPv4"
+                      }
+                  }
+              ],
+              "dnsSettings": {
+                  "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks",
+          "apiVersion": "2020-11-01",
+          "name": "VnetHub",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke1')]",
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke2')]"
+          ],
+          "properties": {
+              "addressSpace": {
+                  "addressPrefixes": [
+                      "10.1.0.0/16"
+                  ]
+              },
+              "subnets": [
+                  {
+                      "name": "AzureFirewallSubnet",
+                      "properties": {
+                          "addressPrefix": "10.1.1.0/24",
+                          "serviceEndpoints": [],
+                          "delegations": [],
+                          "privateEndpointNetworkPolicies": "Disabled",
+                          "privateLinkServiceNetworkPolicies": "Enabled"
+                      }
+                  }
+              ],
+              "virtualNetworkPeerings": [
+                  {
+                      "name": "Hub-Spoke1",
+                      "properties": {
+                          "peeringState": "Connected",
+                          "remoteVirtualNetwork": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke1')]"
+                          },
+                          "allowVirtualNetworkAccess": true,
+                          "allowForwardedTraffic": true,
+                          "allowGatewayTransit": false,
+                          "useRemoteGateways": false,
+                          "remoteAddressSpace": {
+                              "addressPrefixes": [
+                                  "10.2.0.0/16"
+                              ]
+                          }
+                      }
+                  },
+                  {
+                      "name": "Hub-Spoke2",
+                      "properties": {
+                          "peeringState": "Connected",
+                          "remoteVirtualNetwork": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke2')]"
+                          },
+                          "allowVirtualNetworkAccess": true,
+                          "allowForwardedTraffic": false,
+                          "allowGatewayTransit": false,
+                          "useRemoteGateways": false,
+                          "remoteAddressSpace": {
+                              "addressPrefixes": [
+                                  "10.3.0.0/16"
+                              ]
+                          }
+                      }
+                  }
+              ],
+              "enableDdosProtection": false
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+          "apiVersion": "2020-11-01",
+          "name": "VnetHub/Hub-Spoke1",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetHub')]",
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke1')]"
+          ],
+          "properties": {
+              "peeringState": "Connected",
+              "remoteVirtualNetwork": {
+                  "id": "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke1')]"
+              },
+              "allowVirtualNetworkAccess": true,
+              "allowForwardedTraffic": true,
+              "allowGatewayTransit": false,
+              "useRemoteGateways": false,
+              "remoteAddressSpace": {
+                  "addressPrefixes": [
+                      "10.2.0.0/16"
+                  ]
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+          "apiVersion": "2020-11-01",
+          "name": "VnetHub/Hub-Spoke2",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetHub')]",
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke2')]"
+          ],
+          "properties": {
+              "peeringState": "Connected",
+              "remoteVirtualNetwork": {
+                  "id": "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke2')]"
+              },
+              "allowVirtualNetworkAccess": true,
+              "allowForwardedTraffic": false,
+              "allowGatewayTransit": false,
+              "useRemoteGateways": false,
+              "remoteAddressSpace": {
+                  "addressPrefixes": [
+                      "10.3.0.0/16"
+                  ]
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+          "apiVersion": "2020-11-01",
+          "name": "VnetSpoke1/Spoke1-Hub",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke1')]",
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetHub')]"
+          ],
+          "properties": {
+              "peeringState": "Connected",
+              "remoteVirtualNetwork": {
+                  "id": "[resourceId('Microsoft.Network/virtualNetworks', 'VnetHub')]"
+              },
+              "allowVirtualNetworkAccess": true,
+              "allowForwardedTraffic": true,
+              "allowGatewayTransit": false,
+              "useRemoteGateways": false,
+              "remoteAddressSpace": {
+                  "addressPrefixes": [
+                      "10.1.0.0/16"
+                  ]
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+          "apiVersion": "2020-11-01",
+          "name": "VnetSpoke2/Spoke2-Hub",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke2')]",
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetHub')]"
+          ],
+          "properties": {
+              "peeringState": "Connected",
+              "remoteVirtualNetwork": {
+                  "id": "[resourceId('Microsoft.Network/virtualNetworks', 'VnetHub')]"
+              },
+              "allowVirtualNetworkAccess": true,
+              "allowForwardedTraffic": false,
+              "allowGatewayTransit": false,
+              "useRemoteGateways": false,
+              "remoteAddressSpace": {
+                  "addressPrefixes": [
+                      "10.1.0.0/16"
+                  ]
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks",
+          "apiVersion": "2020-11-01",
+          "name": "VnetSpoke1",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG1')]",
+              "[resourceId('Microsoft.Network/routeTables', 'RT1')]"
+          ],
+          "properties": {
+              "addressSpace": {
+                  "addressPrefixes": [
+                      "10.2.0.0/16"
+                  ]
+              },
+              "dhcpOptions": {
+                  "dnsServers": []
+              },
+              "subnets": [
+                  {
+                      "name": "Subnet11",
+                      "properties": {
+                          "addressPrefix": "10.2.1.0/24",
+                          "networkSecurityGroup": {
+                              "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG1')]"
+                          },
+                          "routeTable": {
+                              "id": "[resourceId('Microsoft.Network/routeTables', 'RT1')]"
+                          },
+                          "serviceEndpoints": [],
+                          "delegations": [],
+                          "privateEndpointNetworkPolicies": "Disabled",
+                          "privateLinkServiceNetworkPolicies": "Enabled"
+                      }
+                  }
+              ],
+              "virtualNetworkPeerings": [
+                  {
+                      "name": "Spoke1-Hub",
+                      "properties": {
+                          "peeringState": "Connected",
+                          "remoteVirtualNetwork": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks', 'VnetHub')]"
+                          },
+                          "allowVirtualNetworkAccess": true,
+                          "allowForwardedTraffic": true,
+                          "allowGatewayTransit": false,
+                          "useRemoteGateways": false,
+                          "remoteAddressSpace": {
+                              "addressPrefixes": [
+                                  "10.1.0.0/16"
+                              ]
+                          }
+                      }
+                  }
+              ],
+              "enableDdosProtection": false
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks",
+          "apiVersion": "2020-11-01",
+          "name": "VnetSpoke2",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG2')]",
+              "[resourceId('Microsoft.Network/routeTables', 'RT2')]"
+          ],
+          "properties": {
+              "addressSpace": {
+                  "addressPrefixes": [
+                      "10.3.0.0/16"
+                  ]
+              },
+              "dhcpOptions": {
+                  "dnsServers": []
+              },
+              "subnets": [
+                  {
+                      "name": "Subnet21",
+                      "properties": {
+                          "addressPrefix": "10.3.1.0/24",
+                          "networkSecurityGroup": {
+                              "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG2')]"
+                          },
+                          "routeTable": {
+                              "id": "[resourceId('Microsoft.Network/routeTables', 'RT2')]"
+                          },
+                          "serviceEndpoints": [],
+                          "delegations": [],
+                          "privateEndpointNetworkPolicies": "Disabled",
+                          "privateLinkServiceNetworkPolicies": "Enabled"
+                      }
+                  }
+              ],
+              "virtualNetworkPeerings": [
+                  {
+                      "name": "Spoke2-Hub",
+                      "properties": {
+                          "peeringState": "Connected",
+                          "remoteVirtualNetwork": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks', 'VnetHub')]"
+                          },
+                          "allowVirtualNetworkAccess": true,
+                          "allowForwardedTraffic": false,
+                          "allowGatewayTransit": false,
+                          "useRemoteGateways": false,
+                          "remoteAddressSpace": {
+                              "addressPrefixes": [
+                                  "10.1.0.0/16"
+                              ]
+                          }
+                      }
+                  }
+              ],
+              "enableDdosProtection": false
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/subnets",
+          "apiVersion": "2020-11-01",
+          "name": "VnetSpoke1/Subnet11",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke1')]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG1')]",
+              "[resourceId('Microsoft.Network/routeTables', 'RT1')]"
+          ],
+          "properties": {
+              "addressPrefix": "10.2.1.0/24",
+              "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG1')]"
+              },
+              "routeTable": {
+                  "id": "[resourceId('Microsoft.Network/routeTables', 'RT1')]"
+              },
+              "serviceEndpoints": [],
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/subnets",
+          "apiVersion": "2020-11-01",
+          "name": "VnetSpoke2/Subnet21",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'VnetSpoke2')]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG2')]",
+              "[resourceId('Microsoft.Network/routeTables', 'RT2')]"
+          ],
+          "properties": {
+              "addressPrefix": "10.3.1.0/24",
+              "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'NSG2')]"
+              },
+              "routeTable": {
+                  "id": "[resourceId('Microsoft.Network/routeTables', 'RT2')]"
+              },
+              "serviceEndpoints": [],
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+          }
+      }
+  ]
+}
