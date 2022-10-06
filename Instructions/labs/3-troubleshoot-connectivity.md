@@ -8,9 +8,9 @@ An Azure sandbox subscription is provided for this lab, see the credentials abov
 
 # Troubleshoot cloud and hybrid connectivity in Microsoft Azure
 
-**Estimated Time: 10 minutes**
+**Estimated Time: 15 minutes**
 
-You've configured your network as shown in the diagram below. You want VM1 and VM2 to communicate via the VnetHub. Users are complaining that VM1 cannot communicate with VM2. You need to investigate to diagnose the problem, and then fix it.
+You've configured your network as shown in the diagram below. You want VM1 and VM2 to communicate via the VnetHub. Users are complaining that VM1 cannot communicate with VM2. You need to investigate to diagnose the problem and then fix it.
 
 There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
@@ -22,37 +22,73 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Select the portal menu on the top left, select **Resource groups**.
 
-1. 
+1. Select **lab3rg**.
 
-1. Familiarize yourself with the network topology and check it matches the diagram above.
+    ![Screenshot of the resource visualizer showing the Vnet resources.](../media/mod3-resource-visulaizer.png)
+
+1. Select **Resource visualizer**.
 
 1. Check the private IP addresses of the firewall (**FW1**) and virtual machines (**VM1** and **VM2**). These are allocated automatically.
 
-1. Make a note of the correct IP addresses if they are different from the diagram.
-
 ### Check OSI level 3 connectivity
 
-1. Connect to each virtual machine (VM1 and VM2) using Remote Desktop. Windows credentials are:
+1. Connect to each virtual machine (**VM1** and **VM2**) using Bastion.
 
-1. User name: AdminXyz
+1. Use these Windows credentials:
 
-1. Password: sfr9jttzrjjeoem7hrf#
+    - User name: **AdminXyz**
+    
+    - Password: **Azur$Pa55w0rd**
 
-1. On VM1, open a command prompt window and ping the private IP address of VM2.
+1. After you've connected to the machine, in the SConfig menu, enter option **15**.
 
-1. Ping the private IP address of the Azure firewall (FW1).
+1. Ping the private IP address of the Azure firewall (**FW1**).
 
-1. On VM2, open a command prompt window and ping the private IP address of VM1.
+    ```powershell
+    ping 10.1.1.4
+    ```
 
-1. Ping the private IP address of the Azure firewall (FW1).
+1. On **VM1**, in the command prompt window ping the private IP address of **VM2**.
 
-    ![Screenshot showing the command prompt with the ping request results.](../media/6-private-address-ping.png)
+    ```powershell
+    ping 10.3.1.4
+    ```
+
+    ![Screenshot showing the ping output for the firewall and VM2.](../media/mod3-vm1-ping-test.png)
+
+    The firewall is reachable from **VM1** and **VM2** isn't.
+
+1. On **VM2**, connect with Bastion.
+
+1. Use these Windows credentials:
+
+    - User name: **AdminXyz**
+    
+    - Password: **Azur$Pa55w0rd**
+
+1. After you've connected to the machine, in the SConfig menu, enter option **15**.
+
+1. Ping the private IP address of the Azure firewall (**FW1**).
+
+    ```powershell
+    ping 10.1.1.4
+    ```
+
+1. Ping the private IP address of **VM1**.
+
+    ```powershell
+    ping 10.2.1.4
+    ```
+
+    ![Screenshot showing the ping output for the firewall and VM1.](../media/mod3-vm2-ping-test.png)
+
+    On VM2 both the firewall and VM1 are reachable.
 
 ### Troubleshoot the problem
 
 1. To understand what is causing the problem, try the following troubleshooting steps:
 
-1. Examine ipconfig /all on both VM1 and VM2.
+1. Examine ipconfig /all on both **VM1** and **VM2**.
 
 1. Examine the Network Security Groups, and routing tables.
 
@@ -66,7 +102,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 ## Resolve the connection issue
 
-When you examined the peering connections, you would have found that the peering settings are different.
+When you examined the peering connections, you find that the peering settings are different.
 
 | **VNet**| **Peering name**| **Traffic forwarded from remote virtual network**|
 | :--- | :--- | :--- |
@@ -81,17 +117,14 @@ The settings on **Hub-Spoke2** are incorrect.
 
 ![Screenshot showing the incorrect spoke traffic forwarding setting.](../media/6-incorrect-traffic-forwarding.png)
 
-To fix the problem, you must change the setting in both sides of the peering between VnetHub and VnetSpoke2.
+To fix the problem, you must change the setting on both sides of the peering between VnetHub and VnetSpoke2.
 
 - Hub-Spoke2
 
 - Spoke2-Hub
 
-The **Traffic forwarded from remote virtual network** must be set to **Allow**.
+The **Traffic forwarded from remote virtual network** must be set to **Allow**. There will be a short delay before the new settings take effect. If the ping fails at first, try again.
 
-It should now be possible on VM1 to ping VM2.
+![Screenshot showing the command prompt with the ping request working.](../media/mod3-vm1-ping-fixed.png)
 
-![Screenshot showing the command prompt with the ping request working.](../media/6-private-address-ping-working.png)
-
-There will be a short delay before the new settings take effect. If the ping fails at first, try again.
-
+It's now possible to ping VM2 from VM1.

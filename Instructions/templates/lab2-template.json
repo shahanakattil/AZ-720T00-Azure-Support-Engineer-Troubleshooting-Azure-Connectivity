@@ -76,7 +76,7 @@
           "type": "Microsoft.Network/networkSecurityGroups",
           "apiVersion": "2020-11-01",
           "name": "[parameters('networkSecurityGroups_NSG1_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "properties": {
               "securityRules": [
                   {
@@ -103,7 +103,7 @@
           "type": "Microsoft.Network/networkSecurityGroups",
           "apiVersion": "2020-11-01",
           "name": "[parameters('networkSecurityGroups_NSG2_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "properties": {
               "securityRules": [
                   {
@@ -130,7 +130,7 @@
           "type": "Microsoft.Network/networkSecurityGroups",
           "apiVersion": "2020-11-01",
           "name": "[parameters('networkSecurityGroups_NSG3_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "properties": {
               "securityRules": [
                   {
@@ -172,7 +172,7 @@
           "type": "Microsoft.Network/publicIPAddresses",
           "apiVersion": "2020-11-01",
           "name": "[parameters('publicIPAddresses_VM1_ip_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "sku": {
               "name": "Basic",
               "tier": "Regional"
@@ -189,7 +189,7 @@
           "type": "Microsoft.Network/publicIPAddresses",
           "apiVersion": "2020-11-01",
           "name": "[parameters('publicIPAddresses_VM2_ip_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "sku": {
               "name": "Basic",
               "tier": "Regional"
@@ -206,7 +206,7 @@
           "type": "Microsoft.Network/publicIPAddresses",
           "apiVersion": "2020-11-01",
           "name": "[parameters('publicIPAddresses_VM3_ip_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "sku": {
               "name": "Basic",
               "tier": "Regional"
@@ -223,7 +223,7 @@
           "type": "Microsoft.Compute/virtualMachines",
           "apiVersion": "2022-03-01",
           "name": "[parameters('virtualMachines_VM1_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_VM1_nic_name'))]"
           ],
@@ -285,7 +285,7 @@
           "type": "Microsoft.Compute/virtualMachines",
           "apiVersion": "2022-03-01",
           "name": "[parameters('virtualMachines_VM2_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_VM2_nic_name'))]"
           ],
@@ -347,7 +347,7 @@
           "type": "Microsoft.Compute/virtualMachines",
           "apiVersion": "2022-03-01",
           "name": "[parameters('virtualMachines_VM3_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_VM3_nic_name'))]"
           ],
@@ -409,7 +409,7 @@
           "type": "Microsoft.Compute/virtualMachines/extensions",
           "apiVersion": "2022-03-01",
           "name": "[concat(parameters('virtualMachines_VM1_name'), '/AllowEchoRequest')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_VM1_name'))]"
           ],
@@ -428,7 +428,7 @@
           "type": "Microsoft.Compute/virtualMachines/extensions",
           "apiVersion": "2022-03-01",
           "name": "[concat(parameters('virtualMachines_VM2_name'), '/AllowEchoRequest')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_VM2_name'))]"
           ],
@@ -447,7 +447,7 @@
           "type": "Microsoft.Compute/virtualMachines/extensions",
           "apiVersion": "2022-03-01",
           "name": "[concat(parameters('virtualMachines_VM3_name'), '/AllowEchoRequest')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_VM3_name'))]"
           ],
@@ -466,7 +466,7 @@
           "type": "Microsoft.Compute/virtualMachines/extensions",
           "apiVersion": "2022-03-01",
           "name": "[concat(parameters('virtualMachines_VM1_name'), '/BGInfo')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_VM1_name'))]"
           ],
@@ -481,7 +481,7 @@
           "type": "Microsoft.Compute/virtualMachines/extensions",
           "apiVersion": "2022-03-01",
           "name": "[concat(parameters('virtualMachines_VM2_name'), '/BGInfo')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_VM2_name'))]"
           ],
@@ -496,7 +496,7 @@
           "type": "Microsoft.Compute/virtualMachines/extensions",
           "apiVersion": "2022-03-01",
           "name": "[concat(parameters('virtualMachines_VM3_name'), '/BGInfo')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_VM3_name'))]"
           ],
@@ -629,7 +629,7 @@
           "type": "Microsoft.Network/networkInterfaces",
           "apiVersion": "2020-11-01",
           "name": "[parameters('networkInterfaces_VM1_nic_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_VM1_ip_name'))]",
               "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_VNet1_name'), 'Subnet1')]"
@@ -663,7 +663,7 @@
           "type": "Microsoft.Network/networkInterfaces",
           "apiVersion": "2020-11-01",
           "name": "[parameters('networkInterfaces_VM2_nic_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_VM2_ip_name'))]",
               "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_VNet1_name'), 'Subnet2')]"
@@ -697,7 +697,7 @@
           "type": "Microsoft.Network/networkInterfaces",
           "apiVersion": "2020-11-01",
           "name": "[parameters('networkInterfaces_VM3_nic_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_VM3_ip_name'))]",
               "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_VNet2_name'), 'default')]"
@@ -747,7 +747,7 @@
           "type": "Microsoft.Network/virtualNetworks",
           "apiVersion": "2020-11-01",
           "name": "[parameters('virtualNetworks_VNet2_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NSG3_name'))]"
           ],
@@ -907,7 +907,7 @@
           "type": "Microsoft.Network/virtualNetworks",
           "apiVersion": "2020-11-01",
           "name": "[parameters('virtualNetworks_VNet1_name')]",
-          "location": "westeurope",
+          "location": "[resourceGroup().location]",
           "dependsOn": [
               "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NSG1_name'))]",
               "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NSG2_name'))]"

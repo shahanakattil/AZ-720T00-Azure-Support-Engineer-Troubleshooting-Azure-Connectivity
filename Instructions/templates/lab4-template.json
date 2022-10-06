@@ -1,0 +1,370 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+      {
+          "type": "Microsoft.Network/networkSecurityGroups",
+          "apiVersion": "2020-11-01",
+          "name": "LabClientVMNSG",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "securityRules": [
+                  {
+                      "name": "default-allow-ssh",
+                      "properties": {
+                          "protocol": "Tcp",
+                          "sourcePortRange": "*",
+                          "destinationPortRange": "22",
+                          "sourceAddressPrefix": "*",
+                          "destinationAddressPrefix": "*",
+                          "access": "Allow",
+                          "priority": 1000,
+                          "direction": "Inbound",
+                          "sourcePortRanges": [],
+                          "destinationPortRanges": [],
+                          "sourceAddressPrefixes": [],
+                          "destinationAddressPrefixes": []
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkSecurityGroups",
+          "apiVersion": "2020-11-01",
+          "name": "LabVMNSG",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "securityRules": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/publicIPAddresses",
+          "apiVersion": "2020-11-01",
+          "name": "LabClientVMPublicIP",
+          "location": "[resourceGroup().location]",
+          "sku": {
+              "name": "Basic",
+              "tier": "Regional"
+          },
+          "properties": {
+              "publicIPAddressVersion": "IPv4",
+              "publicIPAllocationMethod": "Dynamic",
+              "idleTimeoutInMinutes": 4,
+              "ipTags": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/publicIPAddresses",
+          "apiVersion": "2020-11-01",
+          "name": "LabVMPublicIP",
+          "location": "[resourceGroup().location]",
+          "sku": {
+              "name": "Basic",
+              "tier": "Regional"
+          },
+          "properties": {
+              "publicIPAddressVersion": "IPv4",
+              "publicIPAllocationMethod": "Dynamic",
+              "idleTimeoutInMinutes": 4,
+              "ipTags": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks",
+          "apiVersion": "2020-11-01",
+          "name": "LabVMVNET",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "addressSpace": {
+                  "addressPrefixes": [
+                      "10.0.0.0/16"
+                  ]
+              },
+              "subnets": [
+                  {
+                      "name": "LabVMSubnet",
+                      "properties": {
+                          "addressPrefix": "10.0.0.0/24",
+                          "delegations": [],
+                          "privateEndpointNetworkPolicies": "Disabled",
+                          "privateLinkServiceNetworkPolicies": "Enabled"
+                      }
+                  }
+              ],
+              "virtualNetworkPeerings": [],
+              "enableDdosProtection": false
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines",
+          "apiVersion": "2022-03-01",
+          "name": "LabClientVM",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkInterfaces', 'LabClientVMVMNic')]"
+          ],
+          "properties": {
+              "hardwareProfile": {
+                  "vmSize": "Standard_DS1_v2"
+              },
+              "storageProfile": {
+                  "imageReference": {
+                      "publisher": "Canonical",
+                      "offer": "UbuntuServer",
+                      "sku": "18.04-LTS",
+                      "version": "latest"
+                  },
+                  "osDisk": {
+                      "osType": "Linux",
+                      "name": "LabClientVM_OsDisk_1_83c05f1f61054d3b9f1d69daecb48822",
+                      "createOption": "FromImage",
+                      "caching": "ReadWrite",
+                      "managedDisk": {
+                          "storageAccountType": "Premium_LRS"
+                      },
+                      "deleteOption": "Detach",
+                      "diskSizeGB": 30
+                  },
+                  "dataDisks": []
+              },
+              "osProfile": {
+                  "computerName": "LabClientVM",
+                  "adminUsername": "azureuser",
+                  "linuxConfiguration": {
+                      "disablePasswordAuthentication": true,
+                      "ssh": {
+                          "publicKeys": [
+                              {
+                                  "path": "/home/azureuser/.ssh/authorized_keys",
+                                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5KJGmlDD0ZJL8dbEOhsy6T81atirupwxdHdiIWT1YmRUQbEmZCmrPpPrLOx7wQOqTUoUfzTLcsOml7ka4bJe5kfX0a1V+YTUqKt107bvGmNsyyKzPYnrTQZFFXDozeK1ISy39ZNkPI2MAedKQkdisB/UNra/2PvkgJ06ILxi/rTw+DeoMu9zAZ+prB6cznXXekxOpAyQ3fNkc8Zkj3ixmXEnvjNYZbhvkeKlm0sRN5406Deq8CzH+2GlBKma8FGvgogMBp48oaheiDaCvQq1CLfsrYn/1LPLrtk5ui0Rf16k95kls0P4MYIuMTU3vSOa5k+mS1Q+4cLGR/5BNTzoJ"
+                              }
+                          ]
+                      },
+                      "provisionVMAgent": true,
+                      "patchSettings": {
+                          "patchMode": "ImageDefault",
+                          "assessmentMode": "ImageDefault"
+                      }
+                  },
+                  "secrets": [],
+                  "allowExtensionOperations": true
+              },
+              "networkProfile": {
+                  "networkInterfaces": [
+                      {
+                          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'LabClientVMVMNic')]"
+                      }
+                  ]
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines",
+          "apiVersion": "2022-03-01",
+          "name": "LabVM",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkInterfaces', 'LabVMVMNic')]"
+          ],
+          "properties": {
+              "hardwareProfile": {
+                  "vmSize": "Standard_DS1_v2"
+              },
+              "storageProfile": {
+                  "imageReference": {
+                      "publisher": "Canonical",
+                      "offer": "UbuntuServer",
+                      "sku": "18.04-LTS",
+                      "version": "latest"
+                  },
+                  "osDisk": {
+                      "osType": "Linux",
+                      "name": "LabVM_disk1_9f0373af143c47f9a3b2c96353fbabc2",
+                      "createOption": "FromImage",
+                      "caching": "ReadWrite",
+                      "managedDisk": {
+                          "storageAccountType": "Premium_LRS"
+                      },
+                      "deleteOption": "Detach",
+                      "diskSizeGB": 30
+                  },
+                  "dataDisks": []
+              },
+              "osProfile": {
+                  "computerName": "LabVM",
+                  "adminUsername": "azureuser",
+                  "linuxConfiguration": {
+                      "disablePasswordAuthentication": true,
+                      "ssh": {
+                          "publicKeys": [
+                              {
+                                  "path": "/home/azureuser/.ssh/authorized_keys",
+                                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5KJGmlDD0ZJL8dbEOhsy6T81atirupwxdHdiIWT1YmRUQbEmZCmrPpPrLOx7wQOqTUoUfzTLcsOml7ka4bJe5kfX0a1V+YTUqKt107bvGmNsyyKzPYnrTQZFFXDozeK1ISy39ZNkPI2MAedKQkdisB/UNra/2PvkgJ06ILxi/rTw+DeoMu9zAZ+prB6cznXXekxOpAyQ3fNkc8Zkj3ixmXEnvjNYZbhvkeKlm0sRN5406Deq8CzH+2GlBKma8FGvgogMBp48oaheiDaCvQq1CLfsrYn/1LPLrtk5ui0Rf16k95kls0P4MYIuMTU3vSOa5k+mS1Q+4cLGR/5BNTzoJ"
+                              }
+                          ]
+                      },
+                      "provisionVMAgent": true,
+                      "patchSettings": {
+                          "patchMode": "ImageDefault",
+                          "assessmentMode": "ImageDefault"
+                      }
+                  },
+                  "secrets": [],
+                  "allowExtensionOperations": true
+              },
+              "networkProfile": {
+                  "networkInterfaces": [
+                      {
+                          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'LabVMVMNic')]"
+                      }
+                  ]
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "apiVersion": "2022-03-01",
+          "name": "LabClientVM/AzureNetworkWatcherExtension",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Compute/virtualMachines', 'LabClientVM')]"
+          ],
+          "properties": {
+              "autoUpgradeMinorVersion": true,
+              "publisher": "Microsoft.Azure.NetworkWatcher",
+              "type": "NetworkWatcherAgentLinux",
+              "typeHandlerVersion": "1.4"
+          }
+      },
+      {
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "apiVersion": "2022-03-01",
+          "name": "LabVM/AzureNetworkWatcherExtension",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Compute/virtualMachines', 'LabVM')]"
+          ],
+          "properties": {
+              "autoUpgradeMinorVersion": true,
+              "publisher": "Microsoft.Azure.NetworkWatcher",
+              "type": "NetworkWatcherAgentLinux",
+              "typeHandlerVersion": "1.4"
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "apiVersion": "2020-11-01",
+          "name": "LabClientVMNSG/default-allow-ssh",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'LabClientVMNSG')]"
+          ],
+          "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "22",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 1000,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+          }
+      },
+      {
+          "type": "Microsoft.Network/virtualNetworks/subnets",
+          "apiVersion": "2020-11-01",
+          "name": "LabVMVNET/LabVMSubnet",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/virtualNetworks', 'LabVMVNET')]"
+          ],
+          "properties": {
+              "addressPrefix": "10.0.0.0/24",
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkInterfaces",
+          "apiVersion": "2020-11-01",
+          "name": "LabClientVMVMNic",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/publicIPAddresses', 'LabClientVMPublicIP')]",
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'LabVMVNET', 'LabVMSubnet')]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'LabClientVMNSG')]"
+          ],
+          "properties": {
+              "ipConfigurations": [
+                  {
+                      "name": "ipconfigLabClientVM",
+                      "properties": {
+                          "privateIPAddress": "10.0.0.5",
+                          "privateIPAllocationMethod": "Dynamic",
+                          "publicIPAddress": {
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'LabClientVMPublicIP')]"
+                          },
+                          "subnet": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'LabVMVNET', 'LabVMSubnet')]"
+                          },
+                          "primary": true,
+                          "privateIPAddressVersion": "IPv4"
+                      }
+                  }
+              ],
+              "dnsSettings": {
+                  "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'LabClientVMNSG')]"
+              }
+          }
+      },
+      {
+          "type": "Microsoft.Network/networkInterfaces",
+          "apiVersion": "2020-11-01",
+          "name": "LabVMVMNic",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+              "[resourceId('Microsoft.Network/publicIPAddresses', 'LabVMPublicIP')]",
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'LabVMVNET', 'LabVMSubnet')]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'LabVMNSG')]"
+          ],
+          "properties": {
+              "ipConfigurations": [
+                  {
+                      "name": "ipconfigLabVM",
+                      "properties": {
+                          "privateIPAddress": "10.0.0.4",
+                          "privateIPAllocationMethod": "Dynamic",
+                          "publicIPAddress": {
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'LabVMPublicIP')]"
+                          },
+                          "subnet": {
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'LabVMVNET', 'LabVMSubnet')]"
+                          },
+                          "primary": true,
+                          "privateIPAddressVersion": "IPv4"
+                      }
+                  }
+              ],
+              "dnsSettings": {
+                  "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'LabVMNSG')]"
+              }
+          }
+      }
+  ]
+}

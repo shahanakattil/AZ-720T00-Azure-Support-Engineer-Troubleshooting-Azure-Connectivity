@@ -1,24 +1,43 @@
+---
+lab:
+    title: 'Lab 7 - Troubleshoot routing, traffic control and load balancing issues'
+    module: 'Troubleshoot routing, traffic control and load balancing in Microsoft Azure'
+---
+
+An Azure sandbox subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
+
+# Troubleshoot routing, traffic control and load balancing issues
+
+**Estimated Time: 10 minutes**
+
 You work as a support engineer supporting Azure infrastructure. You've been contacted by your web team about an issue with website performance. The web team has a pool of webservers behind a load balancer and public IP address.
 
 :::image type="content" source="../media/4-network-topology-diagram.png" alt-text="Screenshot of a network topology diagram showing a pool of webservers behind a load balancer and public IP address." lightbox="../media/4-network-topology-diagram.png" border="false":::
 
 The web team thinks that the internet traffic isn't being distributed equally between all the webservers.
 
-In this exercise, you'll use what you've learned to go through steps to troubleshoot the performance issues with your organizations website.
+In this lab, you'll use what you've learned to go through steps to troubleshoot the performance issues with your organizations website.
 
 ## Check that the issue still exists
 
-1. Using the Cloud Shell to the right, run this command.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the credentials above, or if you'd like your own Azure subscription.
 
-    ```azurecli
+1. Use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
+
+    ![](../media/mod6-cloudshell.png)
+
+1. Select **Bash**, then select **Create storage**.
+1. In the cloud shell run this command:
+
+    ```
     az network public-ip show \
-    --resource-group <rgn>[sandbox resource group name]</rgn> \
+    --resource-group lab6rg \
     --name webPublicIP \
     --query '[ipAddress]' \
     --output tsv
     ```
 
-1. Paste the IP address returned into a new browser tab.
+2. Copy the IP address, in a new tab in your browser, try to navigate to it.
 
     :::image type="content" source="../media/4-web-working.png" alt-text="Screenshot of the web responding.":::
 
@@ -87,4 +106,22 @@ The current settings appear to be correct.
 
 You think you have identified the issue. At the moment once a user visits the website they are routed to one virtual machine. This will persist because of the **Session persistence** setting.
 
-You'll resolve the issue in the next exercise.
+## Resolve load balancer issue
+
+1. To resolve the backend issue, change the **Session persistence** from **Client IP and protocol** to **None**, and then select **Save**.
+
+    :::image type="content" source="../media/5-load-balancer-fix.png" alt-text="Screenshot showing the rule fixed." lightbox="../media/5-load-balancer-fix.png":::
+
+    > [!NOTE]
+    > By setting **Session persistence** to **None**, successive request from clients can be handled by different virtual machines.
+
+1. Wait until the rule has been deployed successfully.
+
+## Test that the issue has been resolved
+
+Switch back to the tab where you pasted the public IP address. If you have closed the tab select the load balancer rule and the public IP address is listed there.
+
+1. Refresh the browser 20 or 30 times, you should see the message switch between **webVirtualMachine1** and **webVirtualMachine2**.
+1. The traffic is now being shared correctly between all the machines in the backend pool.
+
+    :::image type="content" source="../media/issue-resolved.gif" alt-text="Animated gif showing the different webservers responding.":::

@@ -4,16 +4,11 @@ lab:
     module: 'Troubleshoot platform-as-a-service issues in Microsoft Azure'
 ---
 
-An Azure sandbox subscription is provided for this lab. You can use the following Azure subscription credentials to complete this lab:
-
-| | |
-|---:|:---|
-| Email Address | +++@lab.CloudPortalCredential(User1).Username+++ |
-| Password | +++@lab.CloudPortalCredential(User1).Password+++ |
-
-> [!tip] If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
+An Azure sandbox subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
 
 # Troubleshoot virtual machine connections
+
+**Estimated Time: 10 minutes**
 
 In this lab you'll troubleshoot connection issues to a virtual machines running in Azure.
 
@@ -27,30 +22,35 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Select **LabClientVM**.
 
-1. On the top row of the **LabClientVM Overview** page, select **Connect** and select **SSH**.
+   ![Screenshot showing the connect option for a virtual machine.](../media/7-exercise-1-connect.png)
 
-   :::image type="content" source="../media/7-exercise-1-connect.png" alt-text="screen shot showing the connect option for a virtual machine.":::
+1. On the top row of the **LabClientVM Overview** page, select **Connect**, then select **SSH**.
 
-1. Notice that there is a **Test your connection** link. This provides a troubleshooter to test connections between resources, but this functionality is not available in this sandbox and we will view the settings manually.
-  
-   :::image type="content" source="../media/7-exercise-1-test-connection.png" alt-text="Screen shot showing the test your connection option.":::
+   ![Screenshot showing the test your connection option.](../media/7-exercise-1-test-connection.png)
 
-1. Select **Networking**.
+1. Scroll to the bottom of the pane and select **Test your connection**. This provides a troubleshooter to test connections to your resources.
 
-1. In the **Network security group** section, notice that there is a rule at the top of the priority list that will allow TCP connections on port 22.
-
-    :::image type="content" source="../media/7-exercise-1-network-rule-allow.png" alt-text="Screenshot of rule to allow SSH" lightbox="../media/7-exercise-1-network-rule-allow.png":::
+1. Note the connection test succeeds.
 
 1. At the top of the screen, select **All resources**.
 
 1. Select **LabVM**.
+
+1. On the top row of the **LabClientVM Overview** page, select **Connect**, then select **SSH**.
+
+1. Scroll to the bottom of the pane and select **Test your connection**.
+
+    ![Screenshot showing SSH failing.](../media/mod4-ssh-failed.png)
+
+    The connection test points to an issue connecting based on a security group error.
+
 1. Select **Networking**.
 
 1. In the **Network security group** section, notice that there is not a rule at the top of the priority list that will allow TCP connections on port 22.
 
-    :::image type="content" source="../media/7-exercise-1-network-rule-deny.png" alt-text="Screenshot showing that there is no rule to allow SSH connections." lightbox="../media/7-exercise-1-network-rule-deny.png":::
+    ![Screenshot showing that there is no rule to allow SSH connections."](../media/7-exercise-1-network-rule-deny.png)
 
-1. Notice that, except for load balancers and virtual networks, the highest priority rule will deny all inbound traffic. This will cause connectivity problems.
+1. Note except for load balancers and virtual networks, the highest priority rule will deny all inbound traffic. This will cause connectivity problems.
 
 ## Resolve the connection issues
 
@@ -64,35 +64,35 @@ Follow these steps in the Azure portal:
 
 1. In Settings, **select Networking**.
 
-   :::image type="content" source="../media/8-exercise-1-settings-networking.png" alt-text="Screen shot showing the networking option.":::
+   ![Screen shot showing the networking option.](../media/8-exercise-1-settings-networking.png)
 
 1. Select **Add inbound port rule**.
 
-   :::image type="content" source="../media/8-exercise-1-add-inbound-port-rule.png" alt-text="Screen shot showing the add inbound rule button.":::
+   ![Screen shot showing the add inbound rule button.](../media/8-exercise-1-add-inbound-port-rule.png)
 
 1. On the Add inbound security rule tab, type or select the following values:
 
-   1. **Destination port ranges: 22**
+   - **Destination port ranges: 22**
 
-   1. **Action: Allow**
+   - **Action: Allow**
 
-   1. **Priority: 100**
+   - **Priority: 100**
 
-   1. **Name: SSH_port_22**
+   - **Name: SSH_port_22**
 
 1. Select **Add**.
 
 1. Wait until the security rule has been deployed.
 
-1. In **Settings**, select **Connect**.
+1. On the left, under **Settings**, select **Connect*, then select **SSH**.
 
-1. Select **Test your connection**.
+1. Scroll down and select **Test your connection**.
 
-   :::image type="content" source="../media/8-exercise-1-test-connection-button.png" alt-text="screen shot showing the test connection button.":::
+   ![screen shot showing the test connection button.](../media/8-exercise-1-test-connection-button.png)
 
 1. Select **Test connection**.
 
 1. Notice that connectivity is now allowed and you've resolved the connectivity issue.
 
-   :::image type="content" source="../media/8-exercise-1-network-connectivity-allowed.png" alt-text="Screen shot showing that connectivity is now allowed.":::
+   ![Screen shot showing that connectivity is now allowed.](../media/8-exercise-1-network-connectivity-allowed.png)
 
