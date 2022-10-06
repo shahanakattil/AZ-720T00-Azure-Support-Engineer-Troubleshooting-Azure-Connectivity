@@ -4,7 +4,7 @@ lab:
     module: 'Troubleshoot network security issues with Microsoft Azure'
 ---
 
-An Azure sandbox subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
+An Azure subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
 
 # Troubleshoot virtual machine connections
 
@@ -147,7 +147,7 @@ After investigating the connection issues to your website, you've found an issue
     >
     > ```
     > az network public-ip show \
-    > --resource-group <rgn>[sandbox resource group name]</rgn> \
+    > --resource-group lab6rg \
     > --name webPublicIP \
     > --query '[ipAddress]' \
     > --output tsv
@@ -190,7 +190,7 @@ After investigating the connection issues to your website, you've found an issue
     > If you have closed the previous browser tab, run this command to get the public IP address:
     > ```
     > az network public-ip show \
-    > --resource-group <rgn>[sandbox resource group name]</rgn> \
+    > --resource-group lab6rg \
     > --name webPublicIP \
     > --query '[ipAddress]' \
     > --output tsv

@@ -4,7 +4,7 @@ lab:
     module: 'Troubleshoot routing, traffic control and load balancing in Microsoft Azure'
 ---
 
-An Azure sandbox subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
+An Azure subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
 
 # Troubleshoot routing, traffic control and load balancing issues
 
