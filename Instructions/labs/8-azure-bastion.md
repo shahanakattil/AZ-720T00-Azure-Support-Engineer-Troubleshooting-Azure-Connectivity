@@ -135,7 +135,3 @@ After reviewing the bastion-nsg network security group you notice that there is 
     ![Screenshot showing a browser tab connected to a VM with Bastion.](../media/mod8-bastion-connected.png)
 
     You should see a new tab open and connect to your VM.
-
-You can watch the following video to see all the steps above:
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4RYRS]
