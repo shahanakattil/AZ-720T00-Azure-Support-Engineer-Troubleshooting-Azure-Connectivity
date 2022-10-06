@@ -1,6 +1,6 @@
 ---
 lab:
-    title: 'Lab 8 - Troubleshoot site-to-site VPN gateway connectivity'
+    title: 'Lab 9 - Troubleshoot site-to-site VPN gateway connectivity'
     module: 'Troubleshoot VPN gateways in Microsoft Azure'
 ---
 
@@ -8,7 +8,7 @@ An Azure sandbox subscription is provided for this lab, see the credentials abov
 
 # Troubleshoot site-to-site VPN gateway connectivity
 
-**Estimated Time: 10 minutes**
+**Estimated Time: 20 minutes**
 
 As your organization's support engineer, you've been asked to help fix an issue between your resources in the US and northern Europe. you've existing infrastructure of virtual networks in two different regions. The VMs in the US virtual network (VNet1) are unable to get a ping response from the VMs in northern Europe (VNet2).
 
