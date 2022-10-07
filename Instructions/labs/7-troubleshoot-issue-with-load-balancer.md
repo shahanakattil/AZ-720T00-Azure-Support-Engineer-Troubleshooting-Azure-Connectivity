@@ -39,8 +39,6 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 2. Copy the IP address, in a new tab in your browser, try to navigate to it.
 
-    ![Screenshot of the web responding.](../media/4-web-working.png)
-
     > [!NOTE]
     > Your IP address will be different to the one shown in the screenshot.
 
