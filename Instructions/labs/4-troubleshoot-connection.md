@@ -36,7 +36,7 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Select **LabVM**.
 
-1. On the top row of the **LabClientVM Overview** page, select **Connect**, then select **SSH**.
+1. On the top row of the **Overview** pane, select **Connect**, then select **SSH**.
 
 1. Scroll to the bottom of the pane and select **Test your connection**.
 

@@ -46,6 +46,8 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 1. Hit refresh in your browser, or on Windows press the **F5** ten or twenty times. Notice that you are getting a response from the same webserver every single time.
 
+    ![Screenshot showing a single web server returing a response.](../media/4-web-working.png)
+
 1. Leave this tab open to check you resolve the issue in the next exercise.
 
 ## Check all the virtual machines are responding on port 80
