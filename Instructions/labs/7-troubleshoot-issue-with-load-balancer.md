@@ -12,7 +12,7 @@ An Azure subscription is provided for this lab, see the credentials above. If yo
 
 You work as a support engineer supporting Azure infrastructure. You've been contacted by your web team about an issue with website performance. The web team has a pool of webservers behind a load balancer and public IP address.
 
-:::image type="content" source="../media/4-network-topology-diagram.png" alt-text="Screenshot of a network topology diagram showing a pool of webservers behind a load balancer and public IP address." lightbox="../media/4-network-topology-diagram.png" border="false":::
+![Screenshot of a network topology diagram showing a pool of webservers behind a load balancer and public IP address.](../media/4-network-topology-diagram.png)
 
 The web team thinks that the internet traffic isn't being distributed equally between all the webservers.
 
@@ -24,7 +24,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 1. Use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
 
-    ![](../media/mod6-cloudshell.png)
+    ![Screenshot showing how to access the cloud shell.](../media/mod6-cloudshell.png)
 
 1. Select **Bash**, then select **Create storage**.
 1. In the cloud shell run this command:
@@ -39,7 +39,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 2. Copy the IP address, in a new tab in your browser, try to navigate to it.
 
-    :::image type="content" source="../media/4-web-working.png" alt-text="Screenshot of the web responding.":::
+    ![Screenshot of the web responding.](../media/4-web-working.png)
 
     > [!NOTE]
     > Your IP address will be different to the one shown in the screenshot.
@@ -56,13 +56,13 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 1. Select **Virtual machines**.
 
-    :::image type="content" source="../media/4-portal-select-virtual-machines.png" alt-text="Screenshot of the virtual machines." lightbox="../media/4-portal-select-virtual-machines.png":::
+    ![Screenshot of the virtual machines.](../media/4-portal-select-virtual-machines.png)
 
 1. Select **webVirtualMachine1**.
 
 1. Under **Settings**, select **Networking**.
 
-    :::image type="content" source="../media/4-virtual-machine-network-settings.png" alt-text="Screenshot of the networking settings for the virtual machine." lightbox="../media/4-virtual-machine-network-settings.png":::
+    ![Screenshot of the networking settings for the virtual machine.](../media/4-virtual-machine-network-settings.png)
   
 1. Check that inbound traffic is allowed on port **80**.
 
@@ -76,35 +76,35 @@ The current settings appear to be correct.
 
 1. Search for **Load balancers**.
 
-    :::image type="content" source="../media/4-load-balancers.png" alt-text="A screenshot of the Azure portal showing Load balancers being selected." lightbox="../media/4-load-balancers.png":::
+    ![A screenshot of the Azure portal showing Load balancers being selected.](../media/4-load-balancers.png)
 
 1. Under **Services**, select **Load balancers**.
 
-    :::image type="content" source="../media/4-list-of-load-balancers.png" alt-text="A screenshot showing the load balancers." lightbox="../media/4-list-of-load-balancers.png":::
+    ![A screenshot showing the load balancers.](../media/4-list-of-load-balancers.png)
 
 1. Select **webLoadBalancer**.
 
 1. Under **Settings**, Select the **Frontend IP configuration**.
 
-    :::image type="content" source="../media/4-load-balancer-frontend.png" alt-text="Screenshot of the frontend IP settings of the load balancer." lightbox="../media/4-load-balancer-frontend.png":::
+    ![Screenshot of the frontend IP settings of the load balancer.](../media/4-load-balancer-frontend.png)
 
     > [!NOTE]
     > There is a correctly configured frontend IP address. Check that it matches the IP address you have in your other tab.
 
 1. Under **Settings**, select **Backend pools**.
 
-    :::image type="content" source="../media/4-load-balancer-backend-pools.png" alt-text="Screenshot of the load balancer backend pool." lightbox="../media/4-load-balancer-backend-pools.png":::
+    ![Screenshot of the load balancer backend pool.](../media/4-load-balancer-backend-pools.png)
 
     > [!NOTE]
     > The virtual machines are both running.
 
 1. Under **Settings**, select **Load balancing rules**, then select **webLoadBalancerRule**.
 
-    :::image type="content" source="../media/4-load-balancer-rules.png" alt-text="Screenshot showing the webLoadBalancerRule to select." lightbox="../media/4-load-balancer-rules.png":::
+    ![Screenshot showing the webLoadBalancerRule to select.](../media/4-load-balancer-rules.png)
 
 1. Check all the settings for the load balancer rule.
 
-    :::image type="content" source="../media/4-web-load-balancer-rule-settings.png" alt-text="Screenshot of the webLoadBalancerRule settings." lightbox="../media/4-web-load-balancer-rule-settings.png":::
+    ![Screenshot of the webLoadBalancerRule settings.](../media/4-web-load-balancer-rule-settings.png)
 
 You think you have identified the issue. At the moment once a user visits the website they are routed to one virtual machine. This will persist because of the **Session persistence** setting.
 
@@ -112,7 +112,7 @@ You think you have identified the issue. At the moment once a user visits the we
 
 1. To resolve the backend issue, change the **Session persistence** from **Client IP and protocol** to **None**, and then select **Save**.
 
-    :::image type="content" source="../media/5-load-balancer-fix.png" alt-text="Screenshot showing the rule fixed." lightbox="../media/5-load-balancer-fix.png":::
+    ![Screenshot showing the rule fixed.](../media/5-load-balancer-fix.png)
 
     > [!NOTE]
     > By setting **Session persistence** to **None**, successive request from clients can be handled by different virtual machines.
@@ -126,4 +126,4 @@ Switch back to the tab where you pasted the public IP address. If you have close
 1. Refresh the browser 20 or 30 times, you should see the message switch between **webVirtualMachine1** and **webVirtualMachine2**.
 1. The traffic is now being shared correctly between all the machines in the backend pool.
 
-    :::image type="content" source="../media/issue-resolved.gif" alt-text="Animated gif showing the different webservers responding.":::
+    ![Animated gif showing the different webservers responding.](../media/issue-resolved.gif)
