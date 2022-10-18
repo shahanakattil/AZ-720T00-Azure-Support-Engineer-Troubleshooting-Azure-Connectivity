@@ -11,13 +11,13 @@
                         {
                             "field": "Microsoft.Compute/virtualMachines/sku.name",
                             "in": [
-                                "Standard_D2s_v3"
+                                "Standard_DS1_v2"
                             ]
                         },
                         {
                             "field": "name",
                             "in": [
-                                "VM1", "VM2","VM3"
+                                "LabClientVM","LabVM"
                             ]
                         },
                         {

@@ -17,7 +17,7 @@
                         {
                             "field": "name",
                             "in": [
-                                "VM1", "VM2","VM3"
+                                "VM1","VM2"
                             ]
                         },
                         {
@@ -29,23 +29,27 @@
                             "notEquals": "global"
                         }
                     ]
-                },          
-            {
-            "field": "type",
-            "contains": "Microsoft.Network"
-            },
-            {
-            "field": "type",
-            "contains": "Microsoft.Compute/disks"
-            },
-            {
-            "field": "type",
-            "contains": "Microsoft.Compute/virtualMachines/extensions"
-            },
-            {
-            "field": "type",
-            "contains": "Microsoft.Storage/storageaccounts"
-            }
+                },
+                {
+                "field": "type",
+                "contains": "Microsoft.Network"
+                },
+                {
+                "field": "type",
+                "contains": "Microsoft.Compute/disks"
+                },
+                {
+                "field": "type",
+                "contains": "Microsoft.Compute/virtualMachines/extensions"
+                },
+                {
+                "field": "type",
+                "contains": "Microsoft.Storage/storageaccounts"
+                },
+                {
+                  "field": "type",
+                  "contains": "microsoft.devtestlab/schedules"
+                }
             ]
         }
     },
