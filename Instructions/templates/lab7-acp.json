@@ -22,7 +22,9 @@
                         },
                         {
                             "field": "location",
-                            "In": "[resourceGroup().location]"
+                            "In": [
+                                "[resourceGroup().location]"
+                            ]
                         },
                         {
                             "field": "location",
@@ -31,16 +33,8 @@
                     ]
                 },
                 {
-                  "allOf": [
-                    {
-                        "field": "type",
-                        "equals": "Microsoft.Compute/availabilitySets"
-                    },
-                    {
-                      "field": "platformUpdateDomainCount",
-                      "equals": "2"                      
-                    }
-                  ]
+                "field": "type",
+                "contains": "Microsoft.Compute/availabilitySets"
                 },
                 {
                 "field": "type",
