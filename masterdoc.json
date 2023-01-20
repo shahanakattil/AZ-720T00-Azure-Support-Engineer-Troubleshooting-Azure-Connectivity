@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity",
+    "Language": "English",
+    "Files": [
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/prod/Instructions/labs/1-business-continuity-issues.md",
+        "Order": 1
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/prod/Instructions/labs/2-name-resolution-issues.md",
+        "Order": 2
+      }
+    ]
+  }
+]
+ 
