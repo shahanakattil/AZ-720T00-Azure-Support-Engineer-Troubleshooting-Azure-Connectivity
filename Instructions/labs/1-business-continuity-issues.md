@@ -133,11 +133,11 @@ The reason the backup isn't application consistent is because the VM is in a **S
 
 1. In the left navigation pane, under **Monitoring + reporting**, select **Backup jobs**. You should see your job running.
 
-    ![Screenshot showing the backup job running.](../media/mod1-job1.png)
+    ![Screenshot showing the backup job running.](../media/mod1-job4.png)
 
 1. Select the backup job to see more info. You can see in the screen picture that the first phase is **In progess**.
 
-    ![Screenshot showing a single backup instance.](../media/mod1-job2.png)
+    ![Screenshot showing a single backup instance.](../media/mod1-job5.png)
 
 1. When the first phase is complete, navigate to the **Backup** page of the VM. 
 
