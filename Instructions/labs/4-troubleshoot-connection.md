@@ -42,7 +42,7 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. In the **Network security group** section, notice that there is not a rule at the top of the priority list that will allow TCP connections on port 22.
 
-    ![Screenshot showing that there is no rule to allow SSH connections."](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/466f654fa70ffb015518a8b97d41196e3a172dec/Instructions/media/Az-720%204-3.png)
+    ![Screenshot showing that there is no rule to allow SSH connections."](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/466f654fa70ffb015518a8b97d41196e3a172dec/Instructions/media/Az-720%204-4.png)
 
 1. Note except for load balancers and virtual networks, the highest priority rule will deny all inbound traffic. This will cause connectivity problems.
 
@@ -58,7 +58,7 @@ Follow these steps in the Azure portal:
 
 1. In Settings, **select Networking**.
 
-   ![Screen shot showing the networking option.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/71e2b7bd8b8a128d332eafe391a5dc613c7d78de/Instructions/media/Az-720%204-3.png)
+   ![Screen shot showing the networking option.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/71e2b7bd8b8a128d332eafe391a5dc613c7d78de/Instructions/media/Az-720%204-5.png)
 
 1. Select **Add inbound port rule**.
 
