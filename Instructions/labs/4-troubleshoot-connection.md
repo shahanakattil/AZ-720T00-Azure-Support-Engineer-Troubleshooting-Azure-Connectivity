@@ -1,24 +1,14 @@
----
-lab:
-    title: 'Lab 4 - Troubleshoot virtual machine connections'
-    module: 'Troubleshoot platform-as-a-service issues in Microsoft Azure'
----
-
-An Azure subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
-
 # Troubleshoot virtual machine connections
 
 **Estimated Time: 10 minutes**
 
 In this lab you'll troubleshoot connection issues to a virtual machines running in Azure.
 
-## Check a virtual machines settings
+## Task-1: Check a virtual machines settings
 
 You need to find the causes of connectivity problems to an Azure virtual machine using SSH.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the credentials above, or if you'd like your own Azure subscription.
-
-1. In the resource menu, select **All Resources**.
+1. In the resource groups, select **lab04-rg-<inject key="DeploymentID" enableCopy="false"/>**.
 
 1. Select **LabClientVM**.
 
@@ -30,15 +20,19 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Scroll to the bottom of the pane and select **Test your connection**. This provides a troubleshooter to test connections to your resources.
 
+1. Click on **Run test**
+
 1. Note the connection test succeeds.
 
-1. At the top of the screen, select **All resources**.
+1. At the top of the screen, select **lab04-rg-<inject key="DeploymentID" enableCopy="false"/>**.
 
-1. Select **LabVM**.
+1. Select **LabVM-labrg04**.
 
 1. On the top row of the **Overview** pane, select **Connect**, then select **SSH**.
 
 1. Scroll to the bottom of the pane and select **Test your connection**.
+
+1. Click on **Run test**
 
     ![Screenshot showing SSH failing.](../media/mod4-ssh-failed.png)
 
@@ -52,15 +46,15 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Note except for load balancers and virtual networks, the highest priority rule will deny all inbound traffic. This will cause connectivity problems.
 
-## Resolve the connection issues
+## Task-2: Resolve the connection issues
 
 Follow these steps in the Azure portal:
 
 1. Select **Home** to return to the Azure portal home screen.
 
-1. In the resource menu, select All **Resources**.
+1. Click on Resource groups and select **lab04-rg-<inject key="DeploymentID" enableCopy="false"/>**.
 
-1. Select **LabVM**.
+1. Select **LabVM-labrg04**.
 
 1. In Settings, **select Networking**.
 
@@ -80,6 +74,8 @@ Follow these steps in the Azure portal:
 
    - **Name: SSH_port_22**
 
+    ![Screen shot showing the inbound rule Configuration.](../media/8-exercise-1-add-inbound-port-rule.png)
+
 1. Select **Add**.
 
 1. Wait until the security rule has been deployed.
@@ -88,9 +84,9 @@ Follow these steps in the Azure portal:
 
 1. Scroll down and select **Test your connection**.
 
-   ![screen shot showing the test connection button.](../media/8-exercise-1-test-connection-button.png)
+   ![screen shot showing the Run test button.](../media/8-exercise-1-test-connection-button.png)
 
-1. Select **Test connection**.
+1. Select **Run test**.
 
 1. Notice that connectivity is now allowed and you've resolved the connectivity issue.
 
