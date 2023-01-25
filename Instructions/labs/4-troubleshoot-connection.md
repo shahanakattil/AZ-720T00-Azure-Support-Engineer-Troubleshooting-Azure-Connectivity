@@ -34,7 +34,7 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Click on **Run test**
 
-    ![Screenshot showing SSH failing.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/8156d627906643cfb7ac7c278a1268bf2a19f62b/Instructions/media/Az-720%204-3.png)
+    ![Screenshot showing SSH failing.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/b3d8549a85ad440b70dc74fd1d5a153ff3eaad9a/Instructions/media/Az-720%204-3.png)
 
     The connection test points to an issue connecting based on a security group error.
 
