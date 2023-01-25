@@ -58,7 +58,7 @@ Follow these steps in the Azure portal:
 
 1. In Settings, **select Networking**.
 
-   ![Screen shot showing the networking option.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/8156d627906643cfb7ac7c278a1268bf2a19f62b/Instructions/media/Az-720%204-5.png)
+   ![Screen shot showing the networking option.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/71e2b7bd8b8a128d332eafe391a5dc613c7d78de/Instructions/media/Az-720%204-3.png)
 
 1. Select **Add inbound port rule**.
 
