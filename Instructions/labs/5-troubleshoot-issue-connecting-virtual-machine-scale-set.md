@@ -1,11 +1,3 @@
----
-lab:
-    title: 'Lab 6 - Troubleshoot issue connecting virtual machine scale set'
-    module: 'Troubleshoot network security issues with Microsoft Azure'
----
-
-An Azure subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
-
 # Troubleshoot virtual machine connections
 
 **Estimated Time: 10 minutes**
@@ -16,33 +8,40 @@ You work as a support engineer supporting Azure infrastructure. You've been cont
 
 In this lab, you'll use what you've learned to go through steps to troubleshoot the connection issues to the virtual machines.
 
-## Verify that the website can't be reached
-
-1. Sign in to the [Azure portal](https://portal.azure.com) using the credentials above, or if you'd like your own Azure subscription.
+## Task-1: Verify that the website can't be reached
 
 1. Use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
 
     ![](../media/mod6-cloudshell.png)
 
-1. Select **Bash**, then select **Create storage**.
+1. Select **Bash**
+
+1. Click on **Show advanced settings** and then provide the following details and click **Create Storage**
+
+   * Resource group : Select **Use existing** -> **lab05-rg-<inject key="DeploymentID" enableCopy="false"/>**
+   * Storage account : Select **Create new** and Enter **cloudstore<inject key="DeploymentID" enableCopy="false"/>**
+   * File Share: Select **Create new** and Enter **blob**
+
+
 1. In the cloud shell run this command:
 
     ```
     az network public-ip show \
-    --resource-group lab6rg \
+    --resource-group lab05-rg-$DID \
     --name webPublicIP \
     --query '[ipAddress]' \
     --output tsv
     ```
+    > [!note] Replace $DID with the Deployment Id from your Environment details page.
 
-2. Copy the IP address, in a new tab in your browser, try to navigate to it.
+1. Copy the IP address, in a new tab in your browser, try to navigate to it.
 
 
     ![Screenshot of the website not responding.](../media/6-website-not-responding.png)
 
     > [!note] You're IP address will be different to the one in the above screenshot.
 
-### Check that Network Security Groups are configured correctly
+### Task-2: Check that Network Security Groups are configured correctly
 
 1. In the Azure portal search for **Network security groups**.
 
@@ -60,15 +59,18 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 ### Check the network settings for the virtual machines
 
-1. On the left, select **Virtual Machines**.
+1. Go to Resource Groups and select **lab05-rg-<inject key="DeploymentID" enableCopy="false"/>**
+
+1. Select **WebVM1-labrg05-<inject key="DeploymentID" enableCopy="false"/>**
+
 
    ![A screenshot showing an instance in the scale set highlighted." lightbox="../media/6-check-virtual-machine-networking.png](../media/6-check-virtual-machine-networking.png)
-
-1. Select the first virtual machine listed, in the above example this is **webVirtualMachine1**. In your environment this could be different.
 
 1. On the left, under **Settings**, select **Networking**.
 
 1. Note that port 80 is allowed.
+
+   ![A screenshot showing an instance in the scale set highlighted." lightbox="../media/6-check-virtual-machine-networking.png](../media/6-check-virtual-machine-networking.png)
 
 1. Repeat these steps for **webVirtualMachine2**.
 
