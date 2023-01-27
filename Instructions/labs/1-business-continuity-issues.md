@@ -20,7 +20,7 @@ You've been asked to make a backup of a virtual machine. Your development team h
 
 1. Now, search for **vm (1)** and select the virtual machine named **VM1-<inject key="Deployment ID" enableCopy="false" /> (2)**.
 
-    ![Screenshot showing the stopped vm in the Azure portal.](../media/mod1-vm.png)
+    ![](../media/mod1-vm.png)
 
 1. If the VM is **running (1)**, select **Stop (2)**.
 
