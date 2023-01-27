@@ -1,6 +1,6 @@
 # Troubleshoot business continuity with Microsoft Azure
 
-**Estimated Time: 15 minutes**
+**Estimated Time: 30 minutes**
 
 You've been asked to make a backup of a virtual machine. Your development team have asked that you make the backup application consistent.
 
