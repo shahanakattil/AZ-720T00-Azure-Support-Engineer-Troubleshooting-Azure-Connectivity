@@ -1,6 +1,6 @@
 # Troubleshoot virtual machine connections
 
-**Estimated Time: 10 minutes**
+**Estimated Time: 20 minutes**
 
 In this lab you'll troubleshoot connection issues to a virtual machines running in Azure.
 
@@ -12,11 +12,11 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Select **LabClientVM**.
 
-   ![Screenshot showing the connect option for a virtual machine.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/8156d627906643cfb7ac7c278a1268bf2a19f62b/Instructions/media/Az-720%204-1.png)
+   ![Screenshot showing the connect option for a virtual machine.](../media/Az-720-4-1.png)
 
 1. On the top row of the **LabClientVM Overview** page, select **Connect**, then select **SSH**.
 
-   ![Screenshot showing the test your connection option.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/8156d627906643cfb7ac7c278a1268bf2a19f62b/Instructions/media/Az-720%204-2.png)
+   ![Screenshot showing the test your connection option.](../media/Az-720-4-2.png)
 
 1. Scroll to the bottom of the pane and select **Test your connection**. This provides a troubleshooter to test connections to your resources.
 
@@ -34,7 +34,7 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Click on **Run test**
 
-    ![Screenshot showing SSH failing.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/b3d8549a85ad440b70dc74fd1d5a153ff3eaad9a/Instructions/media/Az-720%204-3.png)
+    ![Screenshot showing SSH failing.](../media/Az-720-4-3.png)
 
     The connection test points to an issue connecting based on a security group error.
 
@@ -42,7 +42,7 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. In the **Network security group** section, notice that there is not a rule at the top of the priority list that will allow TCP connections on port 22.
 
-    ![Screenshot showing that there is no rule to allow SSH connections."](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/466f654fa70ffb015518a8b97d41196e3a172dec/Instructions/media/Az-720%204-4.png)
+    ![Screenshot showing that there is no rule to allow SSH connections."](../media/Az-720-4-4.png)
 
 1. Note except for load balancers and virtual networks, the highest priority rule will deny all inbound traffic. This will cause connectivity problems.
 
@@ -58,11 +58,11 @@ Follow these steps in the Azure portal:
 
 1. In Settings, **select Networking**.
 
-   ![Screen shot showing the networking option.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/71e2b7bd8b8a128d332eafe391a5dc613c7d78de/Instructions/media/Az-720%204-5.png)
+   ![Screen shot showing the networking option.](../media/Az-720-4-5.png)
 
 1. Select **Add inbound port rule**.
 
-   ![Screen shot showing the add inbound rule button.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/8156d627906643cfb7ac7c278a1268bf2a19f62b/Instructions/media/Az-720%204-6.png)
+   ![Screen shot showing the add inbound rule button.](../media/Az-720-4-6.png)
 
 1. On the Add inbound security rule tab, type or select the following values:
 
@@ -74,7 +74,7 @@ Follow these steps in the Azure portal:
 
    - **Name: SSH_port_22**
 
-    ![Screen shot showing the inbound rule Configuration.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/8156d627906643cfb7ac7c278a1268bf2a19f62b/Instructions/media/Az-720%204-7.png)
+    ![Screen shot showing the inbound rule Configuration.](../media/Az-720-4-7.png)
 
 1. Select **Add**.
 
@@ -84,11 +84,11 @@ Follow these steps in the Azure portal:
 
 1. Scroll down and select **Test your connection**.
 
-   ![screen shot showing the Run test button.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/8156d627906643cfb7ac7c278a1268bf2a19f62b/Instructions/media/Az-720%204-8.png)
+   ![screen shot showing the Run test button.](../media/Az-720-4-8.png)
 
 1. Select **Run test**.
 
 1. Notice that connectivity is now allowed and you've resolved the connectivity issue.
 
-   ![Screen shot showing that connectivity is now allowed.](https://github.com/gitssps/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/blob/8156d627906643cfb7ac7c278a1268bf2a19f62b/Instructions/media/Az-720%204-9.png)
+   ![Screen shot showing that connectivity is now allowed.](../media/Az-720-4-9.png)
 
