@@ -48,7 +48,7 @@ You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-
 
    ![Screenshot showing the stopped vm in the Azure portal.](../media/mod2-default.png)
 
-    > [!note] It may take a 10-15 minutes to create the Bastion service. When it's created enter the below details.
+    >**Note**: It may take a 10-15 minutes to create the Bastion service. When it's created enter the below details.
 
 1. Under **Connection Settings**, enter the following details and click on **Connect (3)**, a new tab in your browser should connect to **VM1-<inject key="Deployment ID" enableCopy="false" />**
  
@@ -163,11 +163,11 @@ There are two virtual networks (VNets) called **VNet1** and **VNet2**.
 
 There is a private DNS zone, which is **contoso.com**.
 
-![Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png](../media/mod2-vnets1.png)
+   ![Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png](../media/mod2-venets1.png)
 
-The private DNS zone has vm1 and vm2 automatically registered, but vm3 does not appear.
+The private DNS zone has VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<inject key="Deployment ID" enableCopy="false" /> automatically registered, but vm3 does not appear.
 
-![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/mod2-contoso.png)
+   ![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/mod2-contoso.png)
 
 Switch back to the Azure portal tab. 
 
@@ -181,7 +181,7 @@ Switch back to the Azure portal tab.
 
     Note that the private DNS zone is linked to **VNet1**, but not to **VNet2**.
 
-## Resolve the connection issue
+## Task 5: Resolve the connection issue
 
 Your investigation points to a configuration issue with the private DNS zone.
 
@@ -203,17 +203,17 @@ Your investigation points to a configuration issue with the private DNS zone.
       
       ![Screenshot showing the d n s table." lightbox="../media/5-table.png](../media/mod2-vnet2.png)
 
-    > [!note] It may take a few minutes for the link to be created. Select Refresh occasionally to see the latest status. Wait until the link status says Completed.
+    >**Note**: It may take a few minutes for the link to be created. Select Refresh occasionally to see the latest status. Wait until the link status says Completed.
 
 ### Inspect the Domain Name System name table
 
 Navigate to the Overview page and inspect the DNS name table.
 
-VM1, VM2, and VM3 should appear. You may need to wait a short while for VM3 to appear. Select Refresh if necessary.
+VM1-<inject key="Deployment ID" enableCopy="false" />, VM2-<inject key="Deployment ID" enableCopy="false" />, and VM3-<inject key="Deployment ID" enableCopy="false" /> should appear. You may need to wait a short while for VM3 to appear. Select Refresh if necessary.
 
-Nslookup on VM1 and VM2 should resolve vm3.contoso.com.
+Nslookup on VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<inject key="Deployment ID" enableCopy="false" /> should resolve VM3-<inject key="Deployment ID" enableCopy="false" />.contoso.com.
 
-> [!tip] If VM3 does not appear after several minutes, try restarting the VM.
+> [!tip] If VM3-<inject key="Deployment ID" enableCopy="false" /> does not appear after several minutes, try restarting the VM.
 
 ![Screenshot showing the d n s table." lightbox="../media/5-table.png](../media/mod2-vm3dns.png)
 
@@ -237,7 +237,7 @@ Nslookup on VM1 and VM2 should resolve vm3.contoso.com.
     nslookup  VM3-<inject key="Deployment ID" enableCopy="false" />.contoso.com
     ```
 
-![Screenshot showing the results of running the n s lookup commands." lightbox="../media/5-command-prompt-machine.png](../media/mod2-powershellcommands2.png)
+   ![Screenshot showing the results of running the n s lookup commands." lightbox="../media/5-command-prompt-machine.png](../media/mod2-powershellcommands2.png)
 
 Optionally, you can test pinging each VM, using their DNS names.
 
