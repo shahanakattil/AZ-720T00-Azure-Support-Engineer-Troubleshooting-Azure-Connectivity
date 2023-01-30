@@ -6,7 +6,7 @@ You've been asked to make a backup of a virtual machine. Your development team h
 
 ## Task 1: Create a backup
 
-1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials.
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 3**.
     * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
     * Azure Password: <inject key="AzureAdUserPassword"></inject>
 
