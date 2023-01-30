@@ -89,7 +89,7 @@ You'll check the types are correct for both gateways.
 
 1. Confirm that the VPN type is route-based, and the gateway type is VPN.
 
-   ![Screenshot showing the Gateway and V P N Type."](../media/Az-720-8-10.png)
+   ![Screenshot showing the Gateway and V P N Type."](../media/AZ720823.png)
 
 1. Scroll down the page to check the tunnel Ingress and Egress. Can you see a time when something might have happened to cause a problem?
 
@@ -127,7 +127,7 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. Repeat for **VNet2**.
 
-   ![Screenshot showing the Gateway subnet address.](../media/Az-720-8-16.png)
+   ![Screenshot showing the Gateway subnet address.](../media/AZ720833.png)
 
 1. The **GatewaySubnet** addresses have been correctly created and correspond with the default range.
 
