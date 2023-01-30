@@ -98,7 +98,7 @@ When the first phase has completed, you can see that it is **Crash Consistent**.
 
    ![Screenshot showing multiple backup instances.](../media/mod1-crash.png)
 
-    > [!note] Only the first phase has completed, and the data will now be transferring to the vault. You can continue with the lab; you don't have to wait for this to complete.
+    >**Note**: Only the first phase has completed, and the data will now be transferring to the vault. You can continue with the lab; you don't have to wait for this to complete.
 
  
 ## Task 4: Create an application consistent backup
