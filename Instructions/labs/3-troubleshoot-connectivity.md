@@ -36,9 +36,11 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Search for **vm1 (1)** under virtual machines blade and select **VM1-<inject key="Deployment ID" enableCopy="false" /> (2)** under lab03-rg-<inject key="Deployment ID" enableCopy="false" />.
 
+    ![Screenshot showing selecting option 15.](../media/mod3-vm1.png)
+
 1. On the **Overview** pane, select **Connect**, then select **Bastion**.
 
-Under **Connection Settings**, enter the following details and click on **Connect (3)**, a new tab in your browser should connect to **VM3-<inject key="Deployment ID" enableCopy="false" />**
+1. Under **Connection Settings**, enter the following details and click on **Connect (3)**, a new tab in your browser should connect to **VM1-<inject key="Deployment ID" enableCopy="false" />**
  
      Username: `AdminXyz` (1).
      
@@ -68,7 +70,7 @@ Under **Connection Settings**, enter the following details and click on **Connec
 
 1. Now, switch back to Azure portal and on the breadcrumb trail select **virtual machines**, repeat the above steps to select the **VM2-<inject key="Deployment ID" enableCopy="false" />** and connect with Bastion.
 
-![Screenshot showing the ping output for the firewall and VM2.](../media/mod3-vm.png)
+    ![Screenshot showing the ping output for the firewall and VM2.](../media/mod3-vm.png)
 
 1. Use these Windows credentials:
 
@@ -84,7 +86,7 @@ Under **Connection Settings**, enter the following details and click on **Connec
     ping 10.1.1.4
     ```
 
-1. Ping the private IP address of **VM1**.
+1. Ping the private IP address of **VM1-<inject key="Deployment ID" enableCopy="false" />**.
 
     ```powershell
     ping 10.2.1.4
@@ -92,13 +94,13 @@ Under **Connection Settings**, enter the following details and click on **Connec
 
     ![Screenshot showing the ping output for the firewall and VM1.](../media/mod3-vm2-ping-test.png)
 
-    On VM2 both the firewall and VM1 are reachable.
+    On VM2-<inject key="Deployment ID" enableCopy="false" /> both the firewall and VM1-<inject key="Deployment ID" enableCopy="false" /> are reachable.
 
-### Troubleshoot the problem
+### Task 3: Troubleshoot the problem
 
 1. To understand what is causing the problem, try the following troubleshooting steps:
 
-1. Examine ipconfig /all on both **VM1** and **VM2**.
+1. Examine ipconfig /all on both **VM1-<inject key="Deployment ID" enableCopy="false" />** and **VM2-<inject key="Deployment ID" enableCopy="false" />**.
 
 1. Examine the Network Security Groups, and routing tables.
 
@@ -110,7 +112,7 @@ Under **Connection Settings**, enter the following details and click on **Connec
 
     ![Screenshot showing the effective routes.](../media/mod3-nic.png)
 
-## Resolve the connection issue
+## Task 4: Resolve the connection issue
 
 When you examined the peering connections, you find that the peering settings are different.
 
