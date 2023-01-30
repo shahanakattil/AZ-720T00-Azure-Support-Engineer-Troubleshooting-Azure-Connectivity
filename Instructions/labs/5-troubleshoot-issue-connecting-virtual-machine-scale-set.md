@@ -10,6 +10,10 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 ## Task-1: Verify that the website can't be reached
 
+1. If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to next step.\
+   **Azure Username/Email**: <inject key="AzureAdUserEmail"></inject>\
+   **Azure Password**: <inject key="AzureAdUserPassword"></inject>
+
 1. Use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
 
     ![](../media/Az-720-1bash.png)
@@ -32,14 +36,14 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
     --query '[ipAddress]' \
     --output tsv
     ```
-    > [!note] Replace $DID with the Deployment Id from your Environment details page.
+    >**Note**: Replace $DID with the Deployment Id from your Environment details page.
 
 1. Copy the IP address, in a new tab in your browser, try to navigate to it.
 
 
     ![Screenshot of the website not responding.](../media/Az-720-5-2ip.png)
 
-    > [!note] You're IP address will be different to the one in the above screenshot.
+    >**Note**: You're IP address will be different to the one in the above screenshot.
 
 ### Task-2: Check that Network Security Groups are configured correctly
 
@@ -62,7 +66,6 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 1. Go to Resource Groups and select **lab05-rg-<inject key="DeploymentID" enableCopy="false"/>**
 
 1. Select **WebVM1-labrg05-<inject key="DeploymentID" enableCopy="false"/>**
-
 
    ![A screenshot showing the required VM to select](../media/Az-720-5-6.png)
 
@@ -92,7 +95,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
    ![Screen shot showing the load balancing rules.](../media/Az-720-5-9.png)
 
-   > [!NOTE] 
+   >**Note**:
    > There is a rule for port **80** and port **443**
 
 ### Task-5: Use the Diagnose and solve problems troubleshooter
@@ -133,7 +136,7 @@ After investigating the connection issues to your website, you've found an issue
 
 1. To resolve the backend issue, change the **Backend port** from **443** to **80**, and then select **Save**.
 
-    > [!NOTE]
+    >**Note**:
     > The front and backend in this environment need to be the same to get a response from the webserver to http requests.
 
 1. Wait until the rule has been deployed successfully.
@@ -144,16 +147,17 @@ After investigating the connection issues to your website, you've found an issue
 
 1. Refresh the tab you opened to test the public IP address.
 
-    > [!NOTE]
-    > If you have closed the previous browser tab, run this command to get the public IP address:
+    >**Note**:
+    > If you have closed the previous browser tab, run this command to get the public IP address.
     >
     > ```
     > az network public-ip show \
-    > --resource-group lab6rg \
+    > --resource-group lab05-rg-$DID \
     > --name webPublicIP \
     > --query '[ipAddress]' \
     > --output tsv
     > ```
+    >**Note**:Replace $DID Value from the DeploymentID from the Environment Details page.
 
     If the website is online, you'll see a page with a **Hello World** message from the backend instance.
 
