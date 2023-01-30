@@ -1,11 +1,3 @@
----
-lab:
-    title: 'Lab 3 - Troubleshoot cloud and hybrid connectivity'
-    module: 'Troubleshoot cloud and hybrid connectivity in Microsoft Azure'
----
-
-An Azure subscription is provided for this lab, see the credentials above. If you're interested in completing this lab using your own Azure subscription, sign up for a free trial at <https://azure.microsoft.com/free/>.
-
 # Troubleshoot cloud and hybrid connectivity in Microsoft Azure
 
 **Estimated Time: 15 minutes**
