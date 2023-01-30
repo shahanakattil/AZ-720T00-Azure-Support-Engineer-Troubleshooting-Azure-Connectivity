@@ -222,28 +222,28 @@ Nslookup on VM1 and VM2 should resolve vm3.contoso.com.
 1. Run this powershell command:
 
     ```powershell
-    nslookup vm1.contoso.com
+    nslookup  VM1-<inject key="Deployment ID" enableCopy="false" />.contoso.com
     ```
 
 1. Run this powershell command:
 
     ```powershell
-    nslookup vm2.contoso.com
+    nslookup  VM2-<inject key="Deployment ID" enableCopy="false" />.contoso.com
     ```
 
 1. Run this powershell command:
 
     ```powershell
-    nslookup vm3.contoso.com
+    nslookup  VM3-<inject key="Deployment ID" enableCopy="false" />.contoso.com
     ```
 
 ![Screenshot showing the results of running the n s lookup commands." lightbox="../media/5-command-prompt-machine.png](../media/mod2-powershellcommands2.png)
 
 Optionally, you can test pinging each VM, using their DNS names.
 
-- `ping vm1.contoso.com`
+- `ping  VM1-<inject key="Deployment ID" enableCopy="false" />.contoso.com`
 
-- `ping vm2.contoso.com`
+- `ping  VM2-<inject key="Deployment ID" enableCopy="false" />.contoso.com`
 
-- `ping vm3.contoso.com`
+- `ping  VM3-<inject key="Deployment ID" enableCopy="false" />.contoso.com`
 
