@@ -141,4 +141,4 @@ The **Traffic forwarded from remote virtual network** must be set to **Allow**. 
 
 ![Screenshot showing the command prompt with the ping request working.](../media/mod3-vm1-ping-fixed.png)
 
-It's now possible to ping VM2 from VM1.
+It's now possible to ping VM2-<inject key="Deployment ID" enableCopy="false" /> from VM1-<inject key="Deployment ID" enableCopy="false" />.
