@@ -3,37 +3,41 @@
     "Name": "AZ-720-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity",
     "Language": "English",
     "Files": [
-	    {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/1-business-continuity-issues.md",
+	     {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/0-GettingStarted.md",
         "Order": 1
       },
-      {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/2-name-resolution-issues.md",
+	    {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/1-business-continuity-issues.md",
         "Order": 2
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/3-troubleshoot-connectivity.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/2-name-resolution-issues.md",
         "Order": 3
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/4-troubleshoot-connection.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/3-troubleshoot-connectivity.md",
         "Order": 4
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/6-troubleshoot-issue-connecting-virtual-machine-scale-set.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/4-troubleshoot-connection.md",
         "Order": 5
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/7-troubleshoot-issue-with-load-balancer.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/6-troubleshoot-issue-connecting-virtual-machine-scale-set.md",
         "Order": 6
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/8-azure-bastion.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/7-troubleshoot-issue-with-load-balancer.md",
         "Order": 7
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/9-troubleshoot-site-to-site-vpn-gateway-connectivity.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/8-azure-bastion.md",
         "Order": 8
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/9-troubleshoot-site-to-site-vpn-gateway-connectivity.md",
+        "Order": 9
       }
     ]
   }
