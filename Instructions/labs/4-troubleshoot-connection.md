@@ -20,7 +20,7 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Scroll to the bottom of the pane and select **Test your connection**. This provides a troubleshooter to test connections to your resources.
 
-1. Click on **Run test**
+1. Click on **Test Connection**
 
 1. Note the connection test succeeds.
 
@@ -32,9 +32,9 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Scroll to the bottom of the pane and select **Test your connection**.
 
-1. Click on **Run test**
+1. Click on **Test Connection**
 
-    ![Screenshot showing SSH failing.](../media/Az-720-4-3.png)
+    ![Screenshot showing SSH failing.](../media/az-720-4-n2.png)
 
     The connection test points to an issue connecting based on a security group error.
 
@@ -80,13 +80,13 @@ Follow these steps in the Azure portal:
 
 1. Wait until the security rule has been deployed.
 
-1. On the left, under **Settings**, select **Connect*, then select **SSH**.
+1. On the left, under **Settings**, select **Connect**, then select **SSH**.
 
 1. Scroll down and select **Test your connection**.
 
-   ![screen shot showing the Run test button.](../media/Az-720-4-8.png)
+   ![screen shot showing the Run test button.](../media/az720-4n3.png)
 
-1. Select **Run test**.
+1. Select **Test Connection**.
 
 1. Notice that connectivity is now allowed and you've resolved the connectivity issue.
 
