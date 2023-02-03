@@ -16,7 +16,7 @@ You've been asked to make a backup of a virtual machine. Your development team h
     
 1. Under Resource groups, select **lab01-rg-<inject key="Deployment ID" enableCopy="false" />**.
 
-    ![](../media/mod1-lab01rg.png)
+    ![](../media/az720-1-2.png)
 
 1. Now, search for **vm (1)** and select the virtual machine named **VM1-<inject key="Deployment ID" enableCopy="false" /> (2)**.
 
@@ -52,7 +52,7 @@ You've been asked to make a backup of a virtual machine. Your development team h
 
 1. Select the portal menu on the top left, select **Virtual machines**, and then select **VM1-<inject key="Deployment ID" enableCopy="false" />** under  **lab01-rg-<inject key="Deployment ID" enableCopy="false" />** .
 
-   ![Screenshot showing the stopped vm in the Azure portal.](../media/mod1-vm1.png)
+   ![Screenshot showing the stopped vm in the Azure portal.](../media/az720-1-3.png)
 
 1. In the left navigation pane, under **Operations**, select **Backup**.
 
@@ -107,7 +107,7 @@ The reason the backup isn't application consistent is because the VM is in a **S
 
 1.  Select the portal menu on the top left, select **Virtual machines**, and then select **VM1-<inject key="Deployment ID" enableCopy="false" />** under  **lab01-rg-      <inject key="Deployment ID" enableCopy="false" />** .
 
-    ![Screenshot showing the stopped vm in the Azure portal.](../media/mod1-vm1.png)
+    ![Screenshot showing the stopped vm in the Azure portal.](../media/az720-1-3.png)
 
 1. Select **Start**, and wait for the **Status** to show **Running**.
 
