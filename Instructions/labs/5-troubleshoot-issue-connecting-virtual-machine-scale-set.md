@@ -52,7 +52,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 1. Under **Services**, select **Network Security Groups**.
 
-    ![A screenshot showing the required NSG to select](../media/Az-720-5-4.png)
+    ![A screenshot showing the required NSG to select](../media/az-720-5-2-2.png)
 
 1. Select **webNetworkSecurityGroup**.
 
@@ -74,7 +74,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
    ![A screenshot showing the required port is allowed](../media/Az-720-5-7n1.png)
 
-1. Repeat these steps for **WebVM2-labrg05-<inject key="DeploymentID" enableCopy="false"/>**.
+1. Repeat these steps for **WebVM2-labrg05-<inject key="DeploymentID" enableCopy="false"/>** virtual machine.
 
 ### Task-4: Check the load balancer
 
@@ -140,7 +140,7 @@ After investigating the connection issues to your website, you've found an issue
 
 1. Wait until the rule has been deployed successfully.
 
-    ![A screenshot showing the successful deployment of the updated load balancer rule." lightbox="../media/7-successful-rule.png](../media/Az-720-5-14.png)
+    ![A screenshot showing the successful deployment of the updated load balancer rule." lightbox="../media/7-successful-rule.png](../media/az-720-5-4-2.png)
 
 ### Verify that the website can now be reached
 
