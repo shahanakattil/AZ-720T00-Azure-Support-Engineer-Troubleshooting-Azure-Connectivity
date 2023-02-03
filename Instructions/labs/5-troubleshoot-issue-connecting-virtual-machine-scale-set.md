@@ -40,7 +40,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 1. Copy the IP address, in a new tab in your browser, try to navigate to it.
 
-    ![Screenshot of the website not responding.](../media/Az-720-5-2ip.png)
+    ![Screenshot of the website not responding.](../media/az720-5-2ip.png)
 
     >**Note**: You're IP address will be different to the one in the above screenshot.
 
