@@ -39,8 +39,6 @@
 
     ![](../media/select-rg.png "Resource groups")
    
-1. Confirm you have all resource group are present as shown below.
-
-    ![](../media/az720-1-2.png "Resource groups")
+1. You will see the Resource group containing the resources to perform the tasks given in the next page.
    
 1. Now, click on the **Next** from lower right corner to move on next page.
