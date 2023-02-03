@@ -74,7 +74,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
    ![A screenshot showing the required port is allowed](../media/Az-720-5-7n1.png)
 
-1. Repeat these steps for **webVirtualMachine2**.
+1. Repeat these steps for **WebVM2-labrg05-<inject key="DeploymentID" enableCopy="false"/>**.
 
 ### Task-4: Check the load balancer
 
