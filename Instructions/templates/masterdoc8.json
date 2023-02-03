@@ -4,11 +4,11 @@
     "Language": "English",
     "Files": [
 	     {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/0-GettingStarted.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/stage/Instructions/labs/0-GettingStarted.md",
         "Order": 1
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/master/Instructions/labs/8-troubleshoot-site-to-site-vpn-gateway-connectivity.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-720T00-Azure-Support-Engineer-Troubleshooting-Azure-Connectivity/stage/Instructions/labs/8-troubleshoot-site-to-site-vpn-gateway-connectivity.md",
         "Order": 2
       }
     ]
