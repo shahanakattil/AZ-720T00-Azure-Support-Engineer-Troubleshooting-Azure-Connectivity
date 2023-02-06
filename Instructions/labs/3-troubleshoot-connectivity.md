@@ -127,9 +127,9 @@ When you examined the peering connections, you find that the peering settings ar
 | VnetSpoke1| Spoke1-Hub| Allow (default)|
 | VnetSpoke2| Spoke2-Hub| Block traffic that originates from outside this virtual network|
 
-1. Select VnetHub and click on **Peerings** under settings tab
+1.In the azure portal navigate to virtual networks and select VnetHub and click on **Peerings** under settings tab
 
-![Screenshot showing peerings.](../media/6-peerings.png)
+![Screenshot showing peerings.](../media/vnet.jpg)
 
 The settings on **Hub-Spoke2** are incorrect.
 
