@@ -124,7 +124,7 @@ After reviewing the bastion-nsg network security group you notice that there is 
 
 1. In **Username**, enter **<inject key="VM Admin Username" enableCopy="true"/>**.
 
-1. In **Password**, enter **Password.1!!**.
+1. In **Password**, enter **Password.1!!**
 
 1. Select **Connect**.
 
