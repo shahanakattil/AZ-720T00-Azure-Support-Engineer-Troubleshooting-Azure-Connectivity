@@ -143,7 +143,8 @@ To fix the problem, you must change the setting on both sides of the peering bet
 
 - Hub-Spoke2
 
-- Spoke2-Hub
+To enable the traffic from spoke 2-virtual networks-select VnetSpoke2-peerings-enable allow for traffic from remote virtual network.
+
 
 The **Traffic forwarded from remote virtual network** must be set to **Allow**. There will be a short delay before the new settings take effect. If the ping fails at first, try again.
 
