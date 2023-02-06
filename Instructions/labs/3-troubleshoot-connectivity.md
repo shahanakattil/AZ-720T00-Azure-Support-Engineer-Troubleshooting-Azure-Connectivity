@@ -36,7 +36,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Search for **vm1 (1)** under virtual machines blade and select **VM1-<inject key="Deployment ID" enableCopy="false" /> (2)** under lab03-rg-<inject key="Deployment ID" enableCopy="false" />.
 
-    ![Screenshot showing selecting option 15.](../media/mod3-vm1.png)
+    ![Screenshot showing selecting option 15.](../media/vm.jpg)
 
 1. On the **Overview** pane, select **Connect**, then select **Bastion**.
 
