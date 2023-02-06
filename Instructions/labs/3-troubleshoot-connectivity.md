@@ -20,7 +20,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Select **lab03-rg-<inject key="Deployment ID" enableCopy="false" />**.
 
-    ![Screenshot of the resource visualizer showing the Vnet resources.](../media/mod3-lab3rg.png)
+    ![Screenshot of the resource visualizer showing the Vnet resources.](../media/rg.jpg)
 
 1. Select **Resource visualizer**.
 
