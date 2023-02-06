@@ -24,8 +24,8 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
  >**Note** \
  >Incase, "Storage creation failed", go through these sub-steps:
  >1. Click **Show advanced settings** and enter the details as shown below:
- >![](../media/mod6-3.png)\
- >![](../media/mod6-4.png)\
+ 
+ >![](../media/az720-5-6-cli.png)
  > Resource Group: **lab06-rg-<inject key="Deployment ID" enableCopy="false" />** \
  > Storage Account: **cloudstor<inject key="Deployment ID" enableCopy="false" />** \
  > File share (create new): **blob** \
@@ -56,7 +56,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 ## Task 2: Check all the virtual machines are responding on port 80
 
-1. Navigate to the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) in another browser tab.
+1. Navigate to the Azure Portal in a new tab.
 
 1. Select **Virtual machines**.
 
