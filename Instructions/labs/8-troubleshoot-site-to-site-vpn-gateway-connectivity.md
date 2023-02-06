@@ -24,7 +24,7 @@ We're going to test the connection between the two VMs, by sending a ping reques
 
 1. From the list of VMs, select **VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>**.
 
-   ![Screenshot showing the two virtual machines.](../media/Az-720-8-3.png)
+   ![Screenshot showing the two virtual machines.](../media/az720-8-2n.png)
 
 1. Make a note of the **Public IP address** and **Private IP address**.
 
@@ -33,6 +33,14 @@ We're going to test the connection between the two VMs, by sending a ping reques
 1. Repeat the last two steps for **VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>** and note the Public IP address and Private IP address.
 
 1. Use the Azure Cloud Shell and SSH to connect to **VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>** using the public IP address:
+
+   ```azurecli
+
+   ssh azureuser@<VM1-public IP address>
+
+   ```
+   >**Note**:
+   > Replace \<VM1-public IP address\> with the public IP address you noted for VM1-lab08rg-<inject key="DeploymentID" enableCopy="false"/>.
 
     ![Screenshot showing how to use the cloud shell.](../media/Az-720-8-6.png)
     
@@ -46,31 +54,23 @@ We're going to test the connection between the two VMs, by sending a ping reques
       * Storage account : Select **Create new** and Enter **cloudstore<inject key="DeploymentID" enableCopy="false"/>**
       * File Share: Select **Create new** and Enter **blob**
 
-   ```azurecli
-
-   ssh azureuser@<VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/> public IP address>
-
-   ```
-   >**Note**:
-   > Replace \<VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>  public IP address\> with the public IP address you noted for VM1-lab08rg-<inject key="DeploymentID" enableCopy="false"/>.
-
 1. At the prompt, ` Are you sure you want to continue connecting (yes/no)? ` type yes.
 
 1. At the prompt for a password, type **azur3Pa55w.rd**.
 
-1. Your prompt should change to `azureuser@VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/> :~$`.
+1. Your prompt should change to `azureuser@VM1-labrg08-$DID :~$`.($DID will be your Deployment ID in the Environment Detals Page)
 
 1. This means you've successfully connected to **VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>**.
 
 1. Ping the private IP address of **VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/> **.
 
    ```bash
-   ping <private IP address VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/> >
+   ping <private IP address VM2>
 
    ```
 
    >**Note**:
-   > Replace \<private IP address\> VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>  with the private IP address you noted for VM2. 
+   > Replace \<private IP address VM2\>  with the private IP address you noted for VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>. 
 
    ![Screenshot showing the ping command to check whether machines can connect.](../media/Az-720-8-7.png)
 
@@ -108,7 +108,7 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. Select **VNet1** which belongs to lab08-rg-<inject key="DeploymentID" enableCopy="false"/> resource group.
 
-   ![Screenshot showing the virtual networks.](../media/Az-720-8-12.png)
+   ![Screenshot showing the virtual networks.](../media/az720-8-3n.png)
 
 1. Make a note of the **Address space**.
 
@@ -210,7 +210,7 @@ Follow these steps to check the shared key for both the VPN gateways connections
 
 1. Under Settings, select **Shared key**.
 
-1. Paste the value you copied into the **Shared key (PSK)**. This is to make sure that the values match.
+1. Paste the value you copied into the **Shared key (PSK)** and click on **Save**. This is to make sure that the values match.
 
 ## Task-7: Test the issue is resolved
 
@@ -232,12 +232,12 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
 
    ```azurecli
 
-   ssh azureuser@<VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/> public IP address>
+   ssh azureuser@<VM1-public IP address>
 
    ```
 
    >**Note**:
-   > Replace <VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/> public IP address>; with the public IP address you noted for VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>.
+   > Replace \<VM1-public IP address\>; with the public IP address you noted for VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>.
 
 1. At the prompt for a password, type **azur3Pa55w.rd**.
 
@@ -249,13 +249,15 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
 
    ```
 
-   ping <private IP address VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>>
+   ping <private IP address VM2>
 
    ```
 
    >**Note**
-   > Replace <private IP address VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>; with the private IP address you noted for VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>.
+   > Replace \<private IP address VM2\>; with the private IP address you noted for VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>.
 
    ![Screenshot showing the ping command working.](../media/Az-720-8-29.png)
 
 1. If you have resolved the connection issue, you should see a response from VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>.
+
+1. Press **CTRL** + **C** keys to quit the ping command.
