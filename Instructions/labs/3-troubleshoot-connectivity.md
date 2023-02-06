@@ -20,7 +20,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Select **lab03-rg-<inject key="Deployment ID" enableCopy="false" />**.
 
-    ![Screenshot of the resource visualizer showing the Vnet resources.](../media/mod3-lab3rg.png)
+    ![Screenshot of the resource visualizer showing the Vnet resources.](../media/rg.jpg)
 
 1. Select **Resource visualizer**.
 
@@ -36,7 +36,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Search for **vm1 (1)** under virtual machines blade and select **VM1-<inject key="Deployment ID" enableCopy="false" /> (2)** under lab03-rg-<inject key="Deployment ID" enableCopy="false" />.
 
-    ![Screenshot showing selecting option 15.](../media/mod3-vm1.png)
+    ![Screenshot showing selecting option 15.](../media/vm.jpg)
 
 1. On the **Overview** pane, select **Connect**, then select **Bastion**.
 
@@ -47,6 +47,10 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
      Password: `Azur$Pa55w0rd` (2).
 
     ![Screenshot showing selecting option 15.](../media/mod3-vm1bastion.png)
+    
+    **Note** Please enable the pop up settings of the browser.
+    ![Screenshot showing selecting option 15.](../media/ppmd3.jpg)
+    
 
 1. After you've connected to the machine, in the SConfig menu, enter option **15**.
 
@@ -66,7 +70,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
     ![Screenshot showing the ping output for the firewall and VM2.](../media/mod3-vm1-ping-test.png)
 
-    The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="false" />** and **VM2-<inject key="Deployment ID" enableCopy="false" />** isn't.
+The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="false" />** and **VM2-<inject key="Deployment ID" enableCopy="false" />** is not    reachable.
 
 1. Now, switch back to Azure portal and on the breadcrumb trail select **virtual machines**, repeat the above steps to select the **VM2-<inject key="Deployment ID" enableCopy="false" />** and connect with Bastion.
 
@@ -123,9 +127,13 @@ When you examined the peering connections, you find that the peering settings ar
 | VnetSpoke1| Spoke1-Hub| Allow (default)|
 | VnetSpoke2| Spoke2-Hub| Block traffic that originates from outside this virtual network|
 
-1. Select VnetHub and click on **Peerings** under settings tab
+1.In the azure portal navigate to virtual networks and select VnetHub and click on **Peerings** under settings tab
 
-![Screenshot showing peerings.](../media/6-peerings.png)
+![Screenshot showing peerings.](../media/vnet.jpg)
+
+Under peerings select hub spoke 2.
+
+![Screenshot showing peerings.](../media/hub.jpg)
 
 The settings on **Hub-Spoke2** are incorrect.
 
@@ -135,7 +143,10 @@ To fix the problem, you must change the setting on both sides of the peering bet
 
 - Hub-Spoke2
 
-- Spoke2-Hub
+To enable the traffic from spoke 2-virtual networks-select VnetSpoke2-peerings-enable allow traffic from remote virtual network.
+
+![Screenshot showing peerings.](../media/spke.jpg)
+
 
 The **Traffic forwarded from remote virtual network** must be set to **Allow**. There will be a short delay before the new settings take effect. If the ping fails at first, try again.
 
