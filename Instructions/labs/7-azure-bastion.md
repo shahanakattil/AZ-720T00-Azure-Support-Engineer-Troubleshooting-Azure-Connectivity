@@ -12,7 +12,7 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
     **Azure Username/Email:** <inject key="AzureAdUserEmail"></inject> \
     **Azure Password:** <inject key="AzureAdUserPassword"></inject>
     
-1. Select the top left portal menu, select **Virtual machines**, then select **labvm1-<inject key="DeploymentID" enableCopy="false"/>**.
+1. Select the top left portal menu, select **Virtual machines**, then select **labvm-<inject key="DeploymentID" enableCopy="false"/>**.
 
 1. On the Overview pane, select **Connect**, then select **Bastion**.
 
@@ -105,29 +105,26 @@ After reviewing the bastion-nsg network security group you notice that there is 
 1. Select **bastion-nsg** of Resource Group **lab07-rg-<inject key="DeploymentID" enableCopy="false"/>**.
 1. Select **Inbound security rules**.
 1. Select **+ Add**.
-1. In the fly out, enter these details and leave the remaining at default.
+1. In the fly out, enter these details:
+
+    ![Screenshot of the Add inbound security rule fly out.](../media/mod7-10.png)
 
     - Source: **Service Tag**
     - Source service tag: **Internet**
     - Service: **HTTPS**
     - Name: **AllowInternetInbound**
 
-    ![Screenshot of the Add inbound security rule fly out.](../media/mod7-10.png)
-
 1. Select **Add**.
 
 ## Task 7: Test the issue is resolved
 
-1. Select the top left portal menu, select **Virtual machines**, then select **labvm1-<inject key="DeploymentID" enableCopy="false">**.
+1. Select the top left portal menu, select **Virtual machines**, then select **labvm-<inject key="DeploymentID" enableCopy="false">**.
 
 1. On the Overview pane, select **Connect**, then select **Bastion**.
 
 1. In **Username**, enter **<inject key="VM Admin Username" enableCopy="true"/>**.
 
-1. In **Password**, enter
-    ```
-    Password.1!!
-    ```
+1. In **Password**, enter **Password.1!!**
 
 1. Select **Connect**.
 
