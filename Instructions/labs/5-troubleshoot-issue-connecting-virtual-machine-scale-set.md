@@ -110,6 +110,8 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 1. Scroll down and read the insight found.
 
     ![Screen shot of the connectivity results showing the backend pool can't be connected to over port 443.](../media/Az-720-5-11.png)
+    
+    >**Note**: Wait for 3-5 min to display the output as shown in above screenshot. 
 
     The insight points to the fact that the backend instances in the pool aren't listening for port **443**. The website instances should be listening to port **80**. This insight points to a problem in the load balancer rule.
 
