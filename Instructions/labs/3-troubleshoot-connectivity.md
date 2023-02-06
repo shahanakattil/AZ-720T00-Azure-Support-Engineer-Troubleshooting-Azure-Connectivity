@@ -70,7 +70,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
     ![Screenshot showing the ping output for the firewall and VM2.](../media/mod3-vm1-ping-test.png)
 
-    The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="false" />** and **VM2-<inject key="Deployment ID" enableCopy="false" />** isn't.
+The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="false" />** and **VM2-<inject key="Deployment ID" enableCopy="false" />** is not    reachable.
 
 1. Now, switch back to Azure portal and on the breadcrumb trail select **virtual machines**, repeat the above steps to select the **VM2-<inject key="Deployment ID" enableCopy="false" />** and connect with Bastion.
 
