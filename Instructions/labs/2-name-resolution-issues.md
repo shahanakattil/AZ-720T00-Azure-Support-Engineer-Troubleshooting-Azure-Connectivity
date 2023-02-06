@@ -34,7 +34,7 @@ You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-
     
 1. Under Resource groups, select **lab02-rg-<inject key="Deployment ID" enableCopy="false" />**.
 
-    ![](../media/mod2-lab02rg.png)
+    ![](../media/mod2-lab02rg1.png)
     
 1. Now, search for **vm1 (1)** and select the virtual machine named **VM1-<inject key="Deployment ID" enableCopy="false" /> (2)**.
 
@@ -65,20 +65,22 @@ You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-
 1. Run this powershell command:
 
     ```powershell
-    nslookup VM1-<inject key="Deployment ID" enableCopy="false" />.contoso.com
+    nslookup VM1-DID.contoso.com
     ```
 
 1. Run this powershell command:
 
     ```powershell
-    nslookup VM2-<inject key="Deployment ID" enableCopy="false" />.contoso.com
+    nslookup VM2-DID.contoso.com
     ```
 
 1. Run this powershell command:
 
     ```powershell
-    nslookup VM3-<inject key="Deployment ID" enableCopy="false" />.contoso.com
+    nslookup VM3-DID.contoso.com
     ```
+    
+    >**Note**: Replace $DID with the Deployment Id from your Environment details page.
 
     ![Screenshot showing the results of n s lookup in the command prompt." lightbox="../media/5-nslookup.png](../media/mod2-powershellcommands.png)
 
@@ -105,20 +107,22 @@ You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-
 1. Run this powershell command:
 
     ```powershell
-    nslookup VM1-<inject key="Deployment ID" enableCopy="false" />.contoso.com
+    nslookup VM1-DID.contoso.com
     ```
 
 1. Run this powershell command:
 
     ```powershell
-    nslookup VM2-<inject key="Deployment ID" enableCopy="false" />.contoso.com
+    nslookup VM2-DID.contoso.com
     ```
 
 1. Run this powershell command:
 
     ```powershell
-    nslookup VM3-<inject key="Deployment ID" enableCopy="false" />.contoso.com
+    nslookup VM3-DID.contoso.com
     ```
+    
+    >**Note**: Replace $DID with the Deployment Id from your Environment details page.
 
     ![Screenshot of results of running n s lookup in the command prompt on vm3." lightbox="../media/5-nslookup-3.png](../media/mod2-powershellcommands1.png)
 
@@ -222,20 +226,22 @@ Nslookup on VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<injec
 1. Run this powershell command:
 
     ```powershell
-    nslookup  VM1-<inject key="Deployment ID" enableCopy="false" />.contoso.com
+    nslookup  VM1-DID.contoso.com
     ```
 
 1. Run this powershell command:
 
     ```powershell
-    nslookup  VM2-<inject key="Deployment ID" enableCopy="false" />.contoso.com
+    nslookup  VM2-DID.contoso.com
     ```
 
 1. Run this powershell command:
 
     ```powershell
-    nslookup  VM3-<inject key="Deployment ID" enableCopy="false" />.contoso.com
+    nslookup  VM3-DID.contoso.com
     ```
+    
+    >**Note**: Replace $DID with the Deployment Id from your Environment details page.
 
    ![Screenshot showing the results of running the n s lookup commands." lightbox="../media/5-command-prompt-machine.png](../media/mod2-powershellcommands2.png)
 
