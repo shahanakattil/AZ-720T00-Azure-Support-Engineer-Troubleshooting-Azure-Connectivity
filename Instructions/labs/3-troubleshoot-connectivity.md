@@ -131,7 +131,7 @@ When you examined the peering connections, you find that the peering settings ar
 
 ![Screenshot showing peerings.](../media/vnet.jpg)
 
-The settings on **Hub-Spoke2** are incorrect.
+Under peerings select hub spoke 2 ,the settings on **Hub-Spoke2** are incorrect.
 
 ![Screenshot showing the incorrect spoke traffic forwarding setting.](../media/6-incorrect-traffic-forwarding.png)
 
