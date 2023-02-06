@@ -22,6 +22,8 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 1. Click on **Show advanced settings** and then provide the following details and click **Create Storage**
 
+    ![](../media/az720-5-6-cli.png)
+
    * Resource group : Select **Use existing** -> **lab05-rg-<inject key="DeploymentID" enableCopy="false"/>**
    * Storage account : Select **Create new** and Enter **cloudstore<inject key="DeploymentID" enableCopy="false"/>**
    * File Share: Select **Create new** and Enter **blob**
