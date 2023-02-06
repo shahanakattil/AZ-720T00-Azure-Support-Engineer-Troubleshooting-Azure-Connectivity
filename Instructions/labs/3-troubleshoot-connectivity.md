@@ -143,7 +143,7 @@ To fix the problem, you must change the setting on both sides of the peering bet
 
 - Hub-Spoke2
 
-To enable the traffic from spoke 2-virtual networks-select VnetSpoke2-peerings-enable allow for traffic from remote virtual network.
+To enable the traffic from spoke 2-virtual networks-select VnetSpoke2-peerings-enable allow traffic from remote virtual network.
 
 ![Screenshot showing peerings.](../media/spke.jpg)
 
