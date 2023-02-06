@@ -47,6 +47,10 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
      Password: `Azur$Pa55w0rd` (2).
 
     ![Screenshot showing selecting option 15.](../media/mod3-vm1bastion.png)
+    
+    **Note** Please enable the pop up settings of the browser.
+    ![Screenshot showing selecting option 15.](../media/ppmd3.jpg)
+    
 
 1. After you've connected to the machine, in the SConfig menu, enter option **15**.
 
