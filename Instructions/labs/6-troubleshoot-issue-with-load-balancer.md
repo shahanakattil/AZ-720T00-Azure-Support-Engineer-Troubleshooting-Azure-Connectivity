@@ -24,11 +24,11 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
  >**Note** \
  >Incase, "Storage creation failed", go through these sub-steps:
  >1. Click **Show advanced settings** and enter the details as shown below:
- >![](../media/mod6-3.png)\
- >![](../media/mod6-4.png)\
+ 
+ >![](../media/az720-5-6-cli.png)
  > Resource Group: **lab06-rg-<inject key="Deployment ID" enableCopy="false" />** \
- > Storage Account: **azuredemouser<inject key="Deployment ID" enableCopy="false" />** \
- > File share (create new): **none** \
+ > Storage Account: **cloudstor<inject key="Deployment ID" enableCopy="false" />** \
+ > File share (create new): **blob** \
  > Click **Create storage** 
 
 4. In the cloud shell run this command:
@@ -44,6 +44,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 5. Copy the IP address, in a new tab in your browser, try to navigate to it.
 
+     ![Screenshot of the virtual machines.](../media/az720-6-2.png)
     > **Note**
     > Your IP address will be different to the one shown in the screenshot.
 
@@ -55,7 +56,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 ## Task 2: Check all the virtual machines are responding on port 80
 
-1. Navigate to the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true) in another browser tab.
+1. Navigate to the Azure Portal in a new tab.
 
 1. Select **Virtual machines**.
 
@@ -83,9 +84,9 @@ The current settings appear to be correct.
 
 1. Under **Services**, select **Load balancers**.
 
-    ![A screenshot showing the load balancers.](../media/mod6-9.png)
+    ![A screenshot showing the load balancers.](../media/az720-6-3.png)
 
-1. Select **webLoadBalancer** of Resource group **lab06-rg-<inject key="Deployment ID" enableCopy="false" />**.
+1. Select **webLoadBalancer**.
 
 1. Under **Settings**, Select the **Frontend IP configuration**.
 
@@ -126,7 +127,7 @@ You think you have identified the issue. At the moment once a user visits the we
 
 Switch back to the tab where you pasted the public IP address. If you have closed the tab select the load balancer rule and the public IP address is listed there.
 
-1. Refresh the browser 20 or 30 times, you should see the message switch between **webVirtualMachine1** and **webVirtualMachine2**.
+1. Refresh the browser 20 or 30 times, you should see the message switch between **WebVM1-labrg06-<inject key="Deployment ID" enableCopy="false" />** and **WebVM2-labrg06-<inject key="Deployment ID" enableCopy="false" />**.
 1. The traffic is now being shared correctly between all the machines in the backend pool.
 
     ![Animated gif showing the different webservers responding.](../media/traffic_distribution.gif)
