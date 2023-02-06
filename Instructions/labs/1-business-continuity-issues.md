@@ -83,6 +83,8 @@ You won't see anything in the Backup page of the VM until the backup has complet
 1. Select the backup job to see more info. You can see in the screen picture that the first phase has completed.
 
     ![Screenshot showing a single backup instance.](../media/mod1-backupcheck.png)
+    
+    >**Note**: Wait for 10-12min to get the output as shown in the screenshot above.
 
 ## Task 3: View results of first phase
 
