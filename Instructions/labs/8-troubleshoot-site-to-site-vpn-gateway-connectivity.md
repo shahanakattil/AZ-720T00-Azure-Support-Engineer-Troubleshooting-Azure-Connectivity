@@ -16,11 +16,11 @@ We're going to test the connection between the two VMs, by sending a ping reques
 
 1. From the Azure Portal, type **virtual machines** in the search bar and select **Virtual machines** under the Services.
 
-   ![Screenshot showing the search bar and the results of searching for virtual machines.](../media/Az-720-8-2.png)
+   ![Screenshot showing the search bar and the results of searching for virtual machines.](../media/Az-720-8-2-new.png)
 
 1. From the list of VMs, select **VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>**.
 
-   ![Screenshot showing the two virtual machines.](../media/az720-8-2n-new.png)
+   ![Screenshot showing the two virtual machines.](../media/az720-8-2n-new1.png)
 
 1. Make a note of the **Public IP address** and **Private IP address**.
 
