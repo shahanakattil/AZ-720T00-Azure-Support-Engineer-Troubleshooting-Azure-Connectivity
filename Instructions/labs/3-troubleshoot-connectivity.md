@@ -10,11 +10,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 ## Task 1: Verify the network topology
 
-1. If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
-    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
-    * Azure Password: <inject key="AzureAdUserPassword"></inject>
-
-1. Select the portal menu on the top left, select **Resource groups**.
+1. From the portal menu on the top left, select **Resource groups**.
 
    ![Screenshot of the resource visualizer showing the Vnet resources.](../media/mod3-rg.png)
 
@@ -30,7 +26,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 ### Task 2: Check OSI level 3 connectivity
 
-1. Connect to each virtual machine (****VM1-<inject key="Deployment ID" enableCopy="false" />**** and ****VM2-<inject key="Deployment ID" enableCopy="false" />****) using Bastion.
+1. Connect to each virtual machines (****VM1-<inject key="Deployment ID" enableCopy="false" />**** and ****VM2-<inject key="Deployment ID" enableCopy="false" />****) using Bastion.
 
 1. Select the portal menu on the top left, select **Virtual machines**.
 
@@ -48,7 +44,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
     ![Screenshot showing selecting option 15.](../media/mod3-vm1bastion.png)
     
-    **Note** Please enable the pop up settings of the browser.
+    **Note** Please ensure to enable the pop up settings of the browser.
     ![Screenshot showing selecting option 15.](../media/ppmd3.jpg)
     
 
@@ -104,7 +100,7 @@ The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="fal
 
 1. To understand what is causing the problem, try the following troubleshooting steps:
 
-1. Examine ipconfig /all on both **VM1-<inject key="Deployment ID" enableCopy="false" />** and **VM2-<inject key="Deployment ID" enableCopy="false" />**.
+1. Examine **ipconfig /all** on both **VM1-<inject key="Deployment ID" enableCopy="false" />** and **VM2-<inject key="Deployment ID" enableCopy="false" />**.
 
 1. Examine the Network Security Groups, and routing tables.
 
@@ -112,7 +108,7 @@ The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="fal
 
 1. Examine the peering connection properties.
 
-    The diagram shows the effective routes on VM1-nic.
+    The diagram shows the effective routes on **VM1-<inject key="Deployment ID" enableCopy="false" /> nic**.
 
     ![Screenshot showing the effective routes.](../media/mod3-nic.png)
 
