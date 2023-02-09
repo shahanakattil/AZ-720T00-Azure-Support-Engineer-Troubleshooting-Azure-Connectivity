@@ -8,7 +8,7 @@ You work as a support engineer supporting Azure infrastructure. You've been cont
 
 The web team thinks that the internet traffic isn't being distributed equally between all the webservers.
 
-In this lab, you'll use what you've learned to go through steps to troubleshoot the performance issues with your organizations website.
+In this lab, you'll use what you've learned to go through steps to troubleshoot the performance issues with your organization's website.
 
 ## Task 1: Check that the issue still exists
 
