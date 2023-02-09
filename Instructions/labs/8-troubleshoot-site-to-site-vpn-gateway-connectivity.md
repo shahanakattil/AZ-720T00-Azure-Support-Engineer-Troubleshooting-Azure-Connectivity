@@ -229,11 +229,11 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
    ```
 
    >**Note**
-   > Replace \<private IP address VM2\>; with the private IP address you noted for VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>.
+   > Replace \<VM1-public IP address\>; with the public IP address you noted for VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/> in task 1, Step 4
 
 1. At the prompt for a password, type **azur3Pa55w.rd**.
 
-1. Your prompt should now be `azureuser@VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>:~$`.
+1. Your prompt should now be azureuser@VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>:~$
 
 1. This means you have successfully connected to VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>.
 
