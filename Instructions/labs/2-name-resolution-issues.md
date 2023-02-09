@@ -1,6 +1,6 @@
 # Troubleshoot name resolution issues in Microsoft Azure
 
-**Estimated Time: 15 minutes**
+**Estimated Time: 30 minutes**
 
 You work for Contoso as a network engineer, and users are complaining that they cannot access VM1 or VM2. You have configured two Azure virtual networks: VNet1 and VNet2. They are connected with peering.
 
