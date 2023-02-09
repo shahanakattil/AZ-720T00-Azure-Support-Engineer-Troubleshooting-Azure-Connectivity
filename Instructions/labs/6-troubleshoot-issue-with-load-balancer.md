@@ -12,24 +12,22 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 ## Task 1: Check that the issue still exists
 
-1. If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to the next step.\
-    **Azure Username/Email:** <inject key="AzureAdUserEmail"></inject> \
-    **Azure Password:** <inject key="AzureAdUserPassword"></inject>
-
 1. Use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
 
     ![Screenshot showing how to access the cloud shell.](../media/mod6-2.png)
 
-1. Select **Bash**, then select **Create storage**.
- >**Note** \
- >Incase, "Storage creation failed", go through these sub-steps:
- >1. Click **Show advanced settings** and enter the details as shown below:
+1. Select **Bash**
+
+1. Click **Show advanced settings** and enter the details as shown below:
  
- >![](../media/az720-5-6-cli.png)
+    ![](../media/az720-5-6-cli.png)
+
  > Resource Group: **lab06-rg-<inject key="Deployment ID" enableCopy="false" />** \
  > Storage Account: **cloudstor<inject key="Deployment ID" enableCopy="false" />** \
  > File share (create new): **blob** \
  > Click **Create storage** 
+
+
 
 4. In the cloud shell run this command:
    
