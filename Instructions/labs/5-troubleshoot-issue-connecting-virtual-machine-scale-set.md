@@ -136,8 +136,7 @@ After investigating the connection issues to your website, you've found an issue
 
 1. To resolve the backend issue, change the **Backend port** from **443** to **80**, and then select **Save**.
 
-    >**Note**:
-    > The front and backend in this environment need to be the same to get a response from the webserver to http requests.
+    >**Note**: The front and backend port number in this environment need to be the same to get a response from the webserver to http requests.
 
 1. Wait until the rule has been deployed successfully.
 
