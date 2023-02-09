@@ -214,7 +214,7 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
 
 1. From the list of VMs, select **VM1-lab08rg-<inject key="DeploymentID" enableCopy="false"/>**.
 
-   ![Screenshot showing the I P address of the first virtual machine.](../media/Az-720-8-28.png)
+   ![Screenshot showing the I P address of the first virtual machine.](../media/Az-720-8-28-new.png)
 
 1. Make a note of the Public IP address and Private IP address.
 
