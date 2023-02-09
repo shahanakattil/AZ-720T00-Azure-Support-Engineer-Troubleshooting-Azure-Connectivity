@@ -20,11 +20,11 @@ We're going to test the connection between the two VMs, by sending a ping reques
 
 1. From the list of VMs, select **VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>**.
 
-   ![Screenshot showing the two virtual machines.](../media/az720-8-2n.png)
+   ![Screenshot showing the two virtual machines.](../media/az720-8-2n-new.png)
 
 1. Make a note of the **Public IP address** and **Private IP address**.
 
-   ![Screenshot of V M 1 showing networking the private and public IP addresses."](../media/Az-720-8-4.png)
+   ![Screenshot of V M 1 showing networking the private and public IP addresses."](../media/Az-720-8-4-new.png)
 
 1. Repeat the last two steps for **VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>** and note the Public IP address and Private IP address.
 
@@ -38,7 +38,7 @@ We're going to test the connection between the two VMs, by sending a ping reques
    >**Note**:
    > Replace \<VM1-public IP address\> with the public IP address you noted for VM1-lab08rg-<inject key="DeploymentID" enableCopy="false"/>.
 
-    ![Screenshot showing how to use the cloud shell.](../media/Az-720-8-6.png)
+    ![Screenshot showing how to use the cloud shell.](../media/Az-720-8-6-new.png)
     
     >**Note**: If you are using Azure Cloud shell for the first time, Please follow below mentioned steps.
     
@@ -80,15 +80,15 @@ You'll check the types are correct for both gateways.
 
 1. On the Azure portal, in the search bar, type **virtual network gateways**, and then select the service to continue.
 
-   ![Screenshot showing the virtual gateway service.](../media/Az-720-8-8.png)
+   ![Screenshot showing the virtual gateway service.](../media/Az-720-8-8-new.png)
 
 1. Select **VNet1GW**.
 
-   ![Screenshot of the virtual gateways.](../media/Az-720-8-9.png)
+   ![Screenshot of the virtual gateways.](../media/Az-720-8-9-new.png)
 
 1. Confirm that the VPN type is route-based, and the gateway type is VPN.
 
-   ![Screenshot showing the Gateway and V P N Type."](../media/AZ720823.png)
+   ![Screenshot showing the Gateway and V P N Type."](../media/AZ720823-new.png)
 
 1. Scroll down the page to check the tunnel Ingress and Egress. Can you see a time when something might have happened to cause a problem?
 
@@ -104,7 +104,7 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. Select **VNet1** which belongs to lab08-rg-<inject key="DeploymentID" enableCopy="false"/> resource group.
 
-   ![Screenshot showing the virtual networks.](../media/az720-8-3n.png)
+   ![Screenshot showing the virtual networks.](../media/az720-8-3n-new.png)
 
 1. Make a note of the **Address space**.
 
@@ -112,7 +112,7 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. Select **VNet2** which belongs to lab08-rg-<inject key="DeploymentID" enableCopy="false"/> resource group, and check that the address spaces do not overlap.
 
-   ![Screenshot showing the address space of V Net 2.](../media/Az-720-8-14.png)
+   ![Screenshot showing the address space of V Net 2.](../media/Az-720-8-14-new.png)
 
 1. The two address spaces are different, so we can rule out any problems with them.
 
@@ -120,13 +120,11 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. Select **VNet1**, then select **Subnets**.
 
-   ![Screenshot showing the subnet menu.](../media/Az-720-8-15.png)
-
 1. Check the **subnet address** is a subset of the **address space**.
 
 1. Repeat for **VNet2**.
 
-   ![Screenshot showing the Gateway subnet address.](../media/AZ720833.png)
+   ![Screenshot showing the Gateway subnet address.](../media/AZ720833-new.png)
 
 1. The **GatewaySubnet** addresses have been correctly created and correspond with the default range.
 
