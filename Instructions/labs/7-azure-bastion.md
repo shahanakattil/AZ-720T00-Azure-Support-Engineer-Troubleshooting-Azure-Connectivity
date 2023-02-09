@@ -21,11 +21,11 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
 1. Select **Connect**.
 
->**Note** Please ensure to enable the pop up settings of the browser.
+1. Please ensure to enable the pop up settings of the browser.
 
    ![Screenshot showing selecting option 15.](../media/popup.png)
 
->It takes time for the new tab to open, and when it does there's no response.
+> **Note:** It takes time for the new tab to open, and when it does there's no response.
 
 ## Task 2: Check that Bastion has been deployed
 
