@@ -22,10 +22,11 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
  
     ![](../media/az720-5-6-cli.png)
 
-    > Resource Group: **lab06-rg-<inject key="Deployment ID" enableCopy="false" />** \
-    > Storage Account: **cloudstore<inject key="Deployment ID" enableCopy="false" />** \
-    > File share (create new): **blob** \
-    > Click **Create storage** 
+   * Resource group : Select **Use existing** -> **lab06-rg-<inject key="DeploymentID" enableCopy="false"/>**
+   * Storage account : Select **Create new** and Enter **cloudstore<inject key="DeploymentID" enableCopy="false"/>**
+   * File Share: Select **Create new** and Enter **blob**
+
+> **Note :** Please wait until the storage account is created and proceed with step4.
 
 4. In the cloud shell run this command:
    
