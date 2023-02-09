@@ -1,4 +1,4 @@
-# Troubleshoot virtual machine connections
+# Part A - Troubleshoot virtual machine connections
 
 **Estimated Time: 30 minutes**
 
@@ -41,7 +41,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
     ![Screenshot of the website not responding.](../media/az720-5-2ip.png)
 
-    >**Note**: You're IP address will be different to the one in the above screenshot.
+    >**Note**: Your IP address will be different to the one in the above screenshot.
 
 ### Task-2: Check that Network Security Groups are configured correctly
 
@@ -114,7 +114,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
     The insight points to the fact that the backend instances in the pool aren't listening for port **443**. The website instances should be listening to port **80**. This insight points to a problem in the load balancer rule.
 
-## Resolve the connection issue
+## Part B - Resolve the connection issue
 
 After investigating the connection issues to your website, you've found an issue with the load balancer rule user by the virtual machine scale set. You'll now resolve the issue and check that the website can be accessed.
 
