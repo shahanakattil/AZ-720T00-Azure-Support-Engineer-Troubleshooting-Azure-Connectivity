@@ -74,7 +74,7 @@ The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="fal
 
 1. Use these Windows credentials:
 
-    - User name: **AdminXyz**
+    - Username: **AdminXyz**
     
     - Password: **Azur$Pa55w0rd**
 
