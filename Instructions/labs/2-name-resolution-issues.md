@@ -76,7 +76,7 @@ You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-
     nslookup VM3-DID.contoso.com
     ```
     
-    >**Note**: Replace $DID with the Deployment Id from your Environment details page.
+    >**Note**: Replace **DID** with the Deployment Id from your Environment details page.
 
     ![Screenshot showing the results of n s lookup in the command prompt." lightbox="../media/5-nslookup.png](../media/mod2-powershellcommands.png)
 
@@ -122,7 +122,7 @@ You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-
 
     ![Screenshot of results of running n s lookup in the command prompt on vm3." lightbox="../media/5-nslookup-3.png](../media/mod2-powershellcommands1.png)
 
-    VM3-<inject key="Deployment ID" enableCopy="false" /> is unable to find any of the domains. 
+    >**Note**: VM3-<inject key="Deployment ID" enableCopy="false" /> is unable to find any of the domains. 
 
 ### Task 2: Examine the Internet Protocol configuration of the Virtual Machines
 
@@ -165,7 +165,7 @@ There is a private DNS zone, which is **contoso.com**.
 
    ![Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png](../media/mod2-venets1.png)
 
-The private DNS zone has VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<inject key="Deployment ID" enableCopy="false" /> automatically registered, but vm3 does not appear.
+The private DNS zone has VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<inject key="Deployment ID" enableCopy="false" /> automatically registered, but VM3-<inject key="Deployment ID" enableCopy="false" /> does not appear.
 
    ![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/mod2-contoso.png)
 
@@ -213,7 +213,7 @@ VM1-<inject key="Deployment ID" enableCopy="false" />, VM2-<inject key="Deployme
 
 Nslookup on VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<inject key="Deployment ID" enableCopy="false" /> should resolve VM3-<inject key="Deployment ID" enableCopy="false" />.contoso.com.
 
-> [!tip] If VM3-<inject key="Deployment ID" enableCopy="false" /> does not appear after several minutes, try restarting the VM.
+>**Note**: If VM3-<inject key="Deployment ID" enableCopy="false" /> does not appear after several minutes, try restarting the VM.
 
 ![Screenshot showing the d n s table." lightbox="../media/5-table.png](../media/mod2-vm3dns.png)
 
@@ -237,7 +237,7 @@ Nslookup on VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<injec
     nslookup  VM3-DID.contoso.com
     ```
     
-    >**Note**: Replace $DID with the Deployment Id from your Environment details page.
+    >**Note**: Replace **DID** with the Deployment Id from your Environment details page.
 
    ![Screenshot showing the results of running the n s lookup commands." lightbox="../media/5-command-prompt-machine.png](../media/mod2-powershellcommands2.png)
 
