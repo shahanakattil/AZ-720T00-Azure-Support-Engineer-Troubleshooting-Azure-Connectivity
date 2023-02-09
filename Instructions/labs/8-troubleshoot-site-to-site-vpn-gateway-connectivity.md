@@ -10,7 +10,7 @@ Checking the topology, you can see that there are VPN gateways and connections.
 
 In this lab, you'll troubleshoot and resolve the connectivity issue.
 
-## Task-1: Test the connection
+## Task 1: Test the connection
 
 We're going to test the connection between the two VMs, by sending a ping request between them.
 
@@ -74,7 +74,7 @@ We're going to test the connection between the two VMs, by sending a ping reques
 
 1. Press **CTRL** + **C** keys to quit the ping command.
 
-## Task-2: Troubleshoot the gateways
+## Task 2: Troubleshoot the gateways
 
 You'll check the types are correct for both gateways.
 
@@ -96,7 +96,7 @@ You'll check the types are correct for both gateways.
 
 1. Repeat for VNet2GW.
 
-## Task-3: Troubleshoot the virtual networks
+## Task 3: Troubleshoot the virtual networks
 
 You'll now check the address spaces don't overlap for the two virtual networks.
 
@@ -128,7 +128,7 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. The **GatewaySubnet** addresses have been correctly created and correspond with the default range.
 
-## Task-4: Check the gateway connections
+## Task 4: Check the gateway connections
 
 1. In the search bar, type virtual network gateway and then select **virtual network gateways**.
 
@@ -172,7 +172,7 @@ You've explored the possible reasons why your two machines can't connect to each
 
 You'll change the shared key on a VPN gateway connection to resolve the issue.
 
-## Task-5: Change a gateway connection's shared key
+## Task 5: Change a gateway connection's shared key
 
 Follow these steps to check the shared key for both the VPN gateways connections:
 
@@ -204,7 +204,7 @@ Follow these steps to check the shared key for both the VPN gateways connections
 
 1. Paste the value you copied into the **Shared key (PSK)** and click on **Save**. This is to make sure that the values match.
 
-## Task-6: Test the issue is resolved
+## Task 6: Test the issue is resolved
 
 Repeat the steps you did in the previous exercise to see if the two VMs can connect to each other. Using the Cloud Shell on the right and the Azure portal, follow these steps:
 
