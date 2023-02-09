@@ -45,7 +45,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
     > **Note**
     > Your IP address will be different to the one shown in the screenshot.
 
-6. Hit refresh in your browser, or on Windows press the **F5** ten or twenty times. Notice that you are getting a response from the same webserver every single time.
+6. Hit refresh in your browser for few times and notice that you are getting a response from the same webserver every single time.
 
     ![Screenshot showing a single web server returing a response.](../media/mod6-5.png)
 
