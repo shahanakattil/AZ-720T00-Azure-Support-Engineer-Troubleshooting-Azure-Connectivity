@@ -1,6 +1,6 @@
 # Troubleshoot virtual machine connections
 
-**Estimated Time: 20 minutes**
+**Estimated Time: 30 minutes**
 
 You work as a support engineer supporting Azure infrastructure. You've been contacted by your web team about an issue with the website not responding. The web team have a pool of webservers behind a load balancer and public IP address.
 
