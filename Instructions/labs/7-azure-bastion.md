@@ -14,7 +14,7 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
 1. In **Username**, enter **<inject key="VM Admin Username" enableCopy="true"/>**.
 
-1. In **Password**, enter **<inject key="VM Admin Password" enableCopy="true"/>**.
+1. In **Password**, enter ```Password.1!!```.
 
 1. Select **Connect**.
 
