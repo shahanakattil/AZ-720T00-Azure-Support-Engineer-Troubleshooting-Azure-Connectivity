@@ -233,9 +233,9 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
 
 1. At the prompt for a password, type **azur3Pa55w.rd**.
 
-1. Your prompt should now be azureuser@VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>:~$
+1. Your prompt should now be azureuser@VM1-labrg08-XXXXX:~$
 
-1. This means you have successfully connected to VM1-labrg08-XXXXX" enableCopy="false"/>.
+1. This means you have successfully connected to VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>
 
 1. Ping the private IP address of VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>
 
