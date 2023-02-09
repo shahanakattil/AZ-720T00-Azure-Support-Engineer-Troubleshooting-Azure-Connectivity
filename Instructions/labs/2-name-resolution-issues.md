@@ -24,11 +24,7 @@ You work for Contoso as a network engineer, and users are complaining that they 
 
 You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-<inject key="Deployment ID" enableCopy="false" /> using Azure Bastion and perform some networking checks.
 
-1. If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials oe skip to **step 2**.
-    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
-    * Azure Password: <inject key="AzureAdUserPassword"></inject>
-
-1.  Select the portal menu on the top left, select **Resource groups**.
+1.  From the portal menu on the top left, select **Resource groups**.
 
      ![Screenshot of the resource visualizer showing the Vnet resources.](../media/mod3-rg.png)
     
