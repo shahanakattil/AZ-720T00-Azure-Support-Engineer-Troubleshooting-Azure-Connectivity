@@ -24,6 +24,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
    * Storage account : Select **Create new** and Enter **cloudstore<inject key="DeploymentID" enableCopy="false"/>**
    * File Share: Select **Create new** and Enter **blob**
 
+
 4. In the cloud shell run this command:
 
     ```
