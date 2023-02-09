@@ -44,7 +44,7 @@ You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-
 
    ![Screenshot showing the stopped vm in the Azure portal.](../media/mod2-default.png)
 
-    >**Note**: It may take a 10-15 minutes to create the Bastion service. When it's created enter the below details.
+    >**Note**: It may take 10-15 minutes to create the Bastion service. When it's created enter the below details.
 
 1. Under **Connection Settings**, enter the following details and click on **Connect (3)**, a new tab in your browser should connect to **VM1-<inject key="Deployment ID" enableCopy="false" />**
  
@@ -163,15 +163,15 @@ There are two virtual networks (VNets) called **VNet1** and **VNet2**.
 
 There is a private DNS zone, which is **contoso.com**.
 
-   ![Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png](../media/mod2-venets1.png)
+    ![Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png](../media/mod2-venets1.png)
 
 The private DNS zone has VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<inject key="Deployment ID" enableCopy="false" /> automatically registered, but VM3-<inject key="Deployment ID" enableCopy="false" /> does not appear.
 
-   ![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/mod2-contoso.png)
+    ![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/mod2-contoso.png)
 
 Switch back to the Azure portal tab. 
 
-1. Search for private dns zones, then select **contoso.com**.
+1. Search for private DNS zones, then select **contoso.com**.
 
    ![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/mod2-contoso1.png)
 
@@ -205,9 +205,9 @@ Your investigation points to a configuration issue with the private DNS zone.
 
     >**Note**: It may take a few minutes for the link to be created. Select Refresh occasionally to see the latest status. Wait until the link status says Completed.
 
-### Inspect the Domain Name System name table
+## Task 6: Inspect the Domain Name System name table
 
-Navigate to the Overview page and inspect the DNS name table.
+1. Navigate to the Overview page and inspect the DNS name table.
 
 VM1-<inject key="Deployment ID" enableCopy="false" />, VM2-<inject key="Deployment ID" enableCopy="false" />, and VM3-<inject key="Deployment ID" enableCopy="false" /> should appear. You may need to wait a short while for VM3 to appear. Select Refresh if necessary.
 
@@ -215,7 +215,7 @@ Nslookup on VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<injec
 
 >**Note**: If VM3-<inject key="Deployment ID" enableCopy="false" /> does not appear after several minutes, try restarting the VM.
 
-![Screenshot showing the d n s table." lightbox="../media/5-table.png](../media/mod2-vm3dns.png)
+  ![Screenshot showing the d n s table." lightbox="../media/5-table.png](../media/mod2-vm3dns.png)
 
 1. Switch back to the VM1 tab in your browser. 
 
