@@ -58,7 +58,7 @@ We're going to test the connection between the two VMs, by sending a ping reques
 
 1. This means you've successfully connected to **VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>**.
 
-1. Ping the private IP address of **VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/> **.
+1. Ping the private IP address of **VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>**.
 
    ```bash
    ping <private IP address VM2>
@@ -168,13 +168,11 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. The shared keys are not the same. For the connections to work, the shared key must be identical.
 
-## Task-5: Resolve the VM connection issues
-
 You've explored the possible reasons why your two machines can't connect to each other. You found that the shared key for the two connections is different.
 
 You'll change the shared key on a VPN gateway connection to resolve the issue.
 
-## Task-6: Change a gateway connection's shared key
+## Task-5: Change a gateway connection's shared key
 
 Follow these steps to check the shared key for both the VPN gateways connections:
 
@@ -206,7 +204,7 @@ Follow these steps to check the shared key for both the VPN gateways connections
 
 1. Paste the value you copied into the **Shared key (PSK)** and click on **Save**. This is to make sure that the values match.
 
-## Task-7: Test the issue is resolved
+## Task-6: Test the issue is resolved
 
 Repeat the steps you did in the previous exercise to see if the two VMs can connect to each other. Using the Cloud Shell on the right and the Azure portal, follow these steps:
 
@@ -220,7 +218,7 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
 
 1. Make a note of the Public IP address and Private IP address.
 
-1. Repeat the last two steps for **VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/> and note the Public IP address and Private IP address.
+1. Repeat the last two steps for **VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>** and note the Public IP address and Private IP address.
 
 1. On the right, in the Cloud Shell, connect to VM1 with SSH to the public IP address:
 
@@ -231,7 +229,7 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
    ```
 
    >**Note**:
-   > Replace \<VM1-public IP address\>; with the public IP address you noted for VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/>.
+   > Replace \<VM1-public IP address\>; with the public IP address you noted for VM1-labrg08-<inject key="DeploymentID" enableCopy="false"/> in task 1, Step 4
 
 1. At the prompt for a password, type **azur3Pa55w.rd**.
 
