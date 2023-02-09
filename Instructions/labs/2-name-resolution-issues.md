@@ -170,6 +170,7 @@ The private DNS zone has VM1-<inject key="Deployment ID" enableCopy="false" /> a
   ![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/mod2-contoso.png)
 
 Switch back to the Azure portal tab. 
+ ![Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png](../media/mod2-venets1.png)
 
 1. Search for private DNS zones, then select **contoso.com**.
 
