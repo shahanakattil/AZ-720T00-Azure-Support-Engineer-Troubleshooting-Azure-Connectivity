@@ -16,7 +16,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Select **lab03-rg-<inject key="Deployment ID" enableCopy="false" />**.
 
-    ![Screenshot of the resource visualizer showing the Vnet resources.](../media/rg.jpg)
+    ![Screenshot of the resource visualizer showing the Vnet resources.](../media/rg.png)
 
 1. Select **Resource visualizer**.
 
@@ -32,7 +32,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Search for **vm1 (1)** under virtual machines blade and select **VM1-<inject key="Deployment ID" enableCopy="false" /> (2)** under lab03-rg-<inject key="Deployment ID" enableCopy="false" />.
 
-    ![Screenshot showing selecting option 15.](../media/vm.jpg)
+    ![Screenshot showing selecting option 15.](../media/vm.png)
 
 1. On the **Overview** pane, select **Connect**, then select **Bastion**.
 
@@ -45,7 +45,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
     ![Screenshot showing selecting option 15.](../media/mod3-vm1bastion.png)
     
     **Note** Please ensure to enable the pop up settings of the browser.
-    ![Screenshot showing selecting option 15.](../media/ppmd3.jpg)
+    ![Screenshot showing selecting option 15.](../media/popup.png)
     
 
 1. After you've connected to the machine, in the SConfig menu, enter option **15**.
@@ -125,11 +125,11 @@ When you examined the peering connections, you find that the peering settings ar
 
 1.In the azure portal navigate to virtual networks and select VnetHub and click on **Peerings** under settings tab
 
-![Screenshot showing peerings.](../media/vnet.jpg)
+![Screenshot showing peerings.](../media/vnet.png)
 
 Under peerings select hub spoke 2.
 
-![Screenshot showing peerings.](../media/hub.jpg)
+![Screenshot showing peerings.](../media/hub.png)
 
 The settings on **Hub-Spoke2** are incorrect.
 
@@ -141,7 +141,7 @@ To fix the problem, you must change the setting on both sides of the peering bet
 
 To enable the traffic from spoke 2-virtual networks-select VnetSpoke2-peerings-enable allow traffic from remote virtual network.
 
-![Screenshot showing peerings.](../media/spke.jpg)
+![Screenshot showing peerings.](../media/vnetspoke2.png)
 
 
 The **Traffic forwarded from remote virtual network** must be set to **Allow**. There will be a short delay before the new settings take effect. If the ping fails at first, try again.
