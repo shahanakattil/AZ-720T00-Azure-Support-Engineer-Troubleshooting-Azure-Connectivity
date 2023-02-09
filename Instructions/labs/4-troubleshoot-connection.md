@@ -2,7 +2,7 @@
 
 **Estimated Time: 20 minutes**
 
-In this lab you'll troubleshoot connection issues to a virtual machines running in Azure.
+In this lab you'll troubleshoot connection issues with the virtual machines running in Azure.
 
 ## Task-1: Check a virtual machines settings
 
@@ -96,5 +96,5 @@ Follow these steps in the Azure portal:
 
 1. Notice that connectivity is now allowed and you've resolved the connectivity issue.
 
-   ![Screen shot showing that connectivity is now allowed.](../media/Az-720-4-9.png)
+   ![Screen shot showing that connectivity is now allowed.](../media/Az-720-4-10.png)
 
