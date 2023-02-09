@@ -12,7 +12,7 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
 1. On the Overview pane, select **Connect**, then select **Bastion**.
 
-1. In **Username**, enter **<inject key="VM Admin Username" enableCopy="true"/>**.
+1. In **Username**, enter **<inject key="VM Admin Username" enableCopy="true"/>**
 
 1. In **Password**, enter 
    ```
@@ -21,7 +21,7 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
 1. Select **Connect**.
 
-1. Please ensure to enable the pop up settings of the browser.
+1. Please ensure to enable the pop-up settings of the browser.
 
    ![Screenshot showing selecting option 15.](../media/popup.png)
 
