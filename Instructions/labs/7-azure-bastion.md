@@ -63,11 +63,9 @@ If Azure Bastion has a **Network security group** associated with the subnet, yo
 
    ![A screenshot of the Azure portal, searching for private D N S, and selecting Private D N S zones.](../media/mod7-5.png)
 
-1. From the results, under **Services**, click **Private DNS zones**.
+1. From the results, under **Services**, click **Private DNS zones** and you shouldn't see any private DNS zones.
 
    ![A screenshot showing that no private D N S zones are being used.](../media/mod7-no-private-zones.png)
-
-1. You shouldn't see any private DNS zones.
 
 1. If there are any zones listed, check that they don't end in **azure.com** or **core.windows.net**.
 
