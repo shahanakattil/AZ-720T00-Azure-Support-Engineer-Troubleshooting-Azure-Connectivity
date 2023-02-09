@@ -41,10 +41,8 @@
    
 1. You will see the Resource group containing the resources to perform the tasks given in the next page.
    
-1. Now, click on the **Next** from lower right corner to move on next page.
-In order to copy contents to the bastion vm please click on allow to copy contents to the clipboard.
- 
- ![](../media/clip.jpg)
+1. Use **Next** button from lower right corner to move on to the next page.
 
-Click on the arrow to see the clipboard and copy the contents to the clipboard.
+   ![](../media/next.png "Resource groups")
+
 
