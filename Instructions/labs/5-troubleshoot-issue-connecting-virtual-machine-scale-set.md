@@ -12,11 +12,11 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 1. From the portal open the **Cloud shell (1)**, use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
 
-1. Select **Bash** and if there is any pop-up to create storage, follow the below steps.
+2. Select **Bash** and if there is any pop-up to create storage, follow the below steps.
 
    ![](../media/Az-720-bash.png)
 
-1. Click on **Show advanced settings** and then provide the following details and click **Create Storage**
+3. Click on **Show advanced settings** and then provide the following details and click **Create Storage**
 
     ![](../media/az720-5-6-cli.png)
 
@@ -24,8 +24,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
    * Storage account : Select **Create new** and Enter **cloudstore<inject key="DeploymentID" enableCopy="false"/>**
    * File Share: Select **Create new** and Enter **blob**
 
-
-1. In the cloud shell run this command:
+4. In the cloud shell run this command:
 
     ```
     az network public-ip show \
@@ -36,7 +35,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
     ```
     >**Note**: Replace $DID with the Deployment Id from your Environment details page.
 
-1. Copy the IP address, in a new tab in your browser, try to navigate to it.
+5. Copy the IP address, in a new tab in your browser, try to navigate to it.
 
     ![Screenshot of the website not responding.](../media/az720-5-2ip.png)
 
