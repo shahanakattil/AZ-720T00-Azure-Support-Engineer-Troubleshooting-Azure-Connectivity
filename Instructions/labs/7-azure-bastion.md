@@ -47,11 +47,11 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
 1. Select the **lab07-rg-<inject key="DeploymentID" enableCopy="false"/>-vnet-bastion**.
 
-   ![A screenshot showing the Virtual network/subnet link on the Bastion pane.](../media/mod7-3.png)
+   ![A screenshot showing the Virtual network/subnet link on the Bastion pane.](../media/mod7-3a.png)
 
 1. In the top right, click the **Virtual network/subnet** link.
 
-   ![A screenshot of the subnets menu highlighted on the virtual network pane, with the AzureBastionSubnet selected.](../media/mod7-4.png)
+   ![A screenshot of the subnets menu highlighted on the virtual network pane, with the AzureBastionSubnet selected.](../media/mod7-4a.png)
 
 1. Under **Settings**, click **Subnets**, and then click **bastion-nsg**.
 
@@ -95,7 +95,7 @@ If Azure Bastion has a **Network security group** associated with the subnet, yo
 
 1. The connection troubleshooter will show that the VM is reachable, even though it isn't.
 
-    ![A screenshot of the connection troubleshoot results, showing the stats as reachable.](../media/mod7-9.png)
+    ![A screenshot of the connection troubleshoot results, showing the stats as reachable.](../media/mod7-9a.png)
 
 
 ## Task 6: Resolve the bastion connection issue
@@ -133,6 +133,6 @@ After reviewing the bastion-nsg network security group you notice that there is 
 
 1. Select **Connect**.
 
-    ![Screenshot showing a browser tab connected to a VM with Bastion.](../media/mod7-last.png)
+    ![Screenshot showing a browser tab connected to a VM with Bastion.](../media/mod7-final.png)
 
     You should see a new tab open and connect to your VM.
