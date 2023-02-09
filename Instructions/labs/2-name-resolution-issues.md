@@ -163,11 +163,11 @@ There are two virtual networks (VNets) called **VNet1** and **VNet2**.
 
 There is a private DNS zone, which is **contoso.com**.
 
-    ![Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png](../media/mod2-venets1.png)
+![Screenshot showing the resources within the resource group." lightbox="../media/5-resource-group.png](../media/mod2-venets1.png)
 
 The private DNS zone has VM1-<inject key="Deployment ID" enableCopy="false" /> and VM2-<inject key="Deployment ID" enableCopy="false" /> automatically registered, but VM3-<inject key="Deployment ID" enableCopy="false" /> does not appear.
 
-    ![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/mod2-contoso.png)
+![Screenshot showing that that vm 3 is not appearing." lightbox="../media/5-no-machine-3.png](../media/mod2-contoso.png)
 
 Switch back to the Azure portal tab. 
 
