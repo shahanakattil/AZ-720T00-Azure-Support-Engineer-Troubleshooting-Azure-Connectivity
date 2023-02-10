@@ -38,16 +38,16 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Under **Connection Settings**, enter the following details and click on **Connect (3)**, a new tab in your browser should connect to **VM1-<inject key="Deployment ID" enableCopy="false" />**
  
-     Username: `AdminXyz` (1).
+   Username: `AdminXyz` (1).
      
-     Password: `Azur$Pa55w0rd` (2).
+   Password: `Azur$Pa55w0rd` (2).
 
-    ![Screenshot showing selecting option 15.](../media/mod3-vm1bastion.png)
+  ![Screenshot showing selecting option 15.](../media/mod3-vm1bastion.png)
     
-    **Note** Please ensure to enable the pop up settings of the browser.
-    ![Screenshot showing selecting option 15.](../media/popup.png)
+  **Note** Please ensure to enable the pop up settings of the browser.
     
-
+  ![Screenshot showing selecting option 15.](../media/popup.png)
+    
 1. After you've connected to the machine, in the SConfig menu, enter option **15**.
 
    ![Screenshot showing the ping output for the firewall and VM2.](../media/mod3-sconfig.png)
