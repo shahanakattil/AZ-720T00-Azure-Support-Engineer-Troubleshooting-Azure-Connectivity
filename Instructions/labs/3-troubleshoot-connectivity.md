@@ -28,15 +28,15 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 1. Connect to each virtual machines (****VM1-<inject key="Deployment ID" enableCopy="false" />**** and ****VM2-<inject key="Deployment ID" enableCopy="false" />****) using Bastion.
 
-1. Select the portal menu on the top left, select **Virtual machines**.
+2. Select the portal menu on the top left, select **Virtual machines**.
 
-1. Search for **vm1 (1)** under virtual machines blade and select **VM1-<inject key="Deployment ID" enableCopy="false" /> (2)** under lab03-rg-<inject key="Deployment ID" enableCopy="false" />.
+3. Search for **vm1 (1)** under virtual machines blade and select **VM1-<inject key="Deployment ID" enableCopy="false" /> (2)** under lab03-rg-<inject key="Deployment ID" enableCopy="false" />.
 
     ![Screenshot showing selecting option 15.](../media/vm.png)
 
-1. On the **Overview** pane, select **Connect**, then select **Bastion**.
+4. On the **Overview** pane, select **Connect**, then select **Bastion**.
 
-1. Under **Connection Settings**, enter the following details and click on **Connect (3)**, a new tab in your browser should connect to **VM1-<inject key="Deployment ID" enableCopy="false" />**
+5. Under **Connection Settings**, enter the following details and click on **Connect (3)**, a new tab in your browser should connect to **VM1-<inject key="Deployment ID" enableCopy="false" />**
  
    Username: `AdminXyz` (1).
      
@@ -48,17 +48,17 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
     
   ![Screenshot showing selecting option 15.](../media/popup.png)
     
-1. After you've connected to the machine, in the SConfig menu, enter option **15**.
+6. After you've connected to the machine, in the SConfig menu, enter option **15**.
 
    ![Screenshot showing the ping output for the firewall and VM2.](../media/mod3-sconfig.png)
 
-1. Ping the private IP address of the Azure firewall (**FW1**).
+7. Ping the private IP address of the Azure firewall (**FW1**).
 
     ```powershell
     ping 10.1.1.4
     ```
 
-1. On **VM1-<inject key="Deployment ID" enableCopy="false" />**, in the command prompt window ping the private IP address of **VM2-<inject key="Deployment ID" enableCopy="false" />**.
+8. On **VM1-<inject key="Deployment ID" enableCopy="false" />**, in the command prompt window ping the private IP address of **VM2-<inject key="Deployment ID" enableCopy="false" />**.
 
     ```powershell
     ping 10.3.1.4
@@ -68,25 +68,25 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="false" />** and **VM2-<inject key="Deployment ID" enableCopy="false" />** is not    reachable.
 
-1. Now, switch back to Azure portal and on the breadcrumb trail select **virtual machines**, repeat the above steps to select the **VM2-<inject key="Deployment ID" enableCopy="false" />** and connect with Bastion.
+9. Now, switch back to Azure portal and on the breadcrumb trail select **virtual machines**, repeat the above steps to select the **VM2-<inject key="Deployment ID" enableCopy="false" />** and connect with Bastion.
 
     ![Screenshot showing the ping output for the firewall and VM2.](../media/mod3-vm.png)
 
-1. Use these Windows credentials:
+10. Use these Windows credentials:
 
     - Username: **AdminXyz**
     
     - Password: **Azur$Pa55w0rd**
 
-1. After you've connected to the machine, in the SConfig menu, enter option **15**.
+11. After you've connected to the machine, in the SConfig menu, enter option **15**.
 
-1. Ping the private IP address of the Azure firewall (**FW1**).
+12. Ping the private IP address of the Azure firewall (**FW1**).
 
     ```powershell
     ping 10.1.1.4
     ```
 
-1. Ping the private IP address of **VM1-<inject key="Deployment ID" enableCopy="false" />**.
+13. Ping the private IP address of **VM1-<inject key="Deployment ID" enableCopy="false" />**.
 
     ```powershell
     ping 10.2.1.4
