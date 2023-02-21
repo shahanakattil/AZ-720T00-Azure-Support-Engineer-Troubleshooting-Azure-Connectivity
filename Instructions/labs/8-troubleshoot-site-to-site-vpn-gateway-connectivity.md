@@ -132,51 +132,51 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. In the search bar, type virtual network gateway and then select **virtual network gateways**.
 
-1. The two gateways will be displayed.
+2. The two gateways will be displayed.
 
-1. Select **VNet1GW**.
+3. Select **VNet1GW**.
 
    ![Screenshot of the V Net 1 gateway.](../media/Az-720-8-17.png)
 
-1. Select **Connections**.
+4. Select **Connections**.
 
    ![Screenshot of the Connections option.](../media/Az-720-8-18.png)
 
-1. The issue seems to be with the connections between the gateways.
+5. The issue seems to be with the connections between the gateways.
 
    ![Screenshot showing the two virtual networks not connected.](../media/Az-720-8-19.png)
 
-1. Select **Refresh** to check that there is still an issue with connection.
+6. Select **Refresh** to check that there is still an issue with connection.
 
    ![Screenshot of the refresh button.](../media/Az-720-8-20.png)
 
-1. A connection still can't be made, so you'll check the shared keys.
+7. A connection still can't be made, so you'll check the shared keys.
 
-1. Use the Azure Cloud shell to view the shared keys for each connecctions.
+8. Use the Azure Cloud shell to view the shared keys for each connecctions.
 
    ```azurecli
 
-     az network vpn-connection shared-key show -g MyResourceGroup --connection-name MyConnection
+     az network vpn-connection shared-key show -g MyResourceGroup --connection-name VNet1-VNet2
 
    ```
-    >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** and MyConnection with the **VNet1-VNet2**
-    
-   ![Screenshot of the refresh button.](../media/Az720-8-1857.png)
+    >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** 
+  
+ ![Screenshot of the refresh button.](../media/Az720-8-1857.png)
 
-1. Make a note of the **Shared key** value from the cloud shell.
+9. Make a note of the **Shared key** value from the cloud shell.
 
-1. Repeat the same command for fetching the shared key value for **VNet2-VNet1** Connection as shown below.
+10. Repeat the same command for fetching the shared key value for **VNet2-VNet1** Connection as shown below.
 
    ```azurecli
 
-     az network vpn-connection shared-key show -g MyResourceGroup --connection-name MyConnection
+     az network vpn-connection shared-key show -g MyResourceGroup --connection-name VNet2-VNet1
 
     ```
-    >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** and MyConnection with the **VNet2-VNet1**
+    >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** 
     
    ![Screenshot of the refresh button.](../media/Az720-8-1858.png)
 
-1. The shared keys are not the same. For the connections to work, the shared key must be identical.
+11. The shared keys are not the same. For the connections to work, the shared key must be identical.
 
    ![Screenshot of the refresh button.](../media/azclisharedkeyview.png)
 
