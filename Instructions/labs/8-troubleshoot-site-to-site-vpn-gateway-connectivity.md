@@ -161,24 +161,24 @@ You'll now check the address spaces don't overlap for the two virtual networks.
    ```
     >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** and MyConnection with the **VNet1-VNet2**
     
-    ![Screenshot of the refresh button.](../media/Az-720-8-1857.png)
+   ![Screenshot of the refresh button.](../media/Az720-8-1857.png)
 
 1. Make a note of the **Shared key** value from the cloud shell.
 
 1. Repeat the same command for fetching the shared key value for **VNet2-VNet1** Connection as shown below.
 
-1.  ```azurecli
+   ```azurecli
 
-   az network vpn-connection shared-key show -g MyResourceGroup --connection-name MyConnection
+     az network vpn-connection shared-key show -g MyResourceGroup --connection-name MyConnection
 
-   ```
+    ```
     >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** and MyConnection with the **VNet2-VNet1**
     
-    ![Screenshot of the refresh button.](../media/Az-720-8-1858.png)
+   ![Screenshot of the refresh button.](../media/Az720-8-1858.png)
 
 1. The shared keys are not the same. For the connections to work, the shared key must be identical.
 
-    ![Screenshot of the refresh button.](../media/Azclisharedkeyview.png)
+   ![Screenshot of the refresh button.](../media/azclisharedkeyview.png)
 
 You've explored the possible reasons why your two machines can't connect to each other. You found that the shared key for the two connections is different.
 
@@ -196,7 +196,7 @@ Follow these steps to make the shared keys identical for both the VPN gateways c
 
 1. Under Settings, select **Connections**.
 
-   ![Screenshot showing all v net to v net connections.](../media/Az-720-8-24.png)
+   ![Screenshot showing all v net to v net connections.](../media/Az720-8-1862.png)
 
 1. Select the Second connection, **VNet2-VNet1**.
 
