@@ -124,7 +124,7 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. Repeat for **VNet2**.
 
-   ![Screenshot showing the Gateway subnet address.](../media/AZ720833-new.png)
+   ![Screenshot showing the Gateway subnet address.](../media/Az720-8-1861.png)
 
 1. The **GatewaySubnet** addresses have been correctly created and correspond with the default range.
 
@@ -132,41 +132,53 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. In the search bar, type virtual network gateway and then select **virtual network gateways**.
 
-1. The two gateways will be displayed.
+2. The two gateways will be displayed.
 
-1. Select **VNet1GW**.
+3. Select **VNet1GW**.
 
    ![Screenshot of the V Net 1 gateway.](../media/Az-720-8-17.png)
 
-1. Select **Connections**.
+4. Select **Connections**.
 
    ![Screenshot of the Connections option.](../media/Az-720-8-18.png)
 
-1. The issue seems to be with the connections between the gateways.
+5. The issue seems to be with the connections between the gateways.
 
    ![Screenshot showing the two virtual networks not connected.](../media/Az-720-8-19.png)
 
-1. Select **Refresh** to check that there is still an issue with connection.
+6. Select **Refresh** to check that there is still an issue with connection.
 
    ![Screenshot of the refresh button.](../media/Az-720-8-20.png)
 
-1. A connection still can't be made, so you'll check the shared keys.
+7. A connection still can't be made, so you'll check the shared keys.
 
-1. Select **VNet1-VNet2**.
+8. Use the Azure Cloud shell to view the shared keys for each connecctions.
 
-1. Select **Shared key** under settings.
+   ```azurecli
 
-1. Make a note of the **Shared key**.
+     az network vpn-connection shared-key show -g MyResourceGroup --connection-name VNet1-VNet2
 
-   ![Screenshot of the shared key.](../media/Az-720-8-21.png)
+   ```
+    >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** 
+  
+ ![Screenshot of the refresh button.](../media/Az720-8-1857.png)
 
-1. Navigate back to **VNet1GW**,Select **Connections** then select **VNet2-VNet1**.
+9. Make a note of the **Shared key** value from the cloud shell.
 
-1. Select **Shared key** under settings.
+10. Repeat the same command for fetching the shared key value for **VNet2-VNet1** Connection as shown below.
 
-   ![Screenshot of the second shared key showing it's different to the first shared key.](../media/Az-720-8-22.png)
+   ```azurecli
 
-1. The shared keys are not the same. For the connections to work, the shared key must be identical.
+     az network vpn-connection shared-key show -g MyResourceGroup --connection-name VNet2-VNet1
+
+    ```
+    >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** 
+    
+   ![Screenshot of the refresh button.](../media/Az720-8-1858.png)
+
+11. The shared keys are not the same. For the connections to work, the shared key must be identical.
+
+   ![Screenshot of the refresh button.](../media/azclisharedkeyview.png)
 
 You've explored the possible reasons why your two machines can't connect to each other. You found that the shared key for the two connections is different.
 
@@ -174,7 +186,7 @@ You'll change the shared key on a VPN gateway connection to resolve the issue.
 
 ## Task 5: Change a gateway connection's shared key
 
-Follow these steps to check the shared key for both the VPN gateways connections:
+Follow these steps to make the shared keys identical for both the VPN gateways connections:
 
 1. In the Azure portal, search for **virtual network gateways**, then under **Services**, select **Virtual network gateways**.
 
@@ -184,25 +196,17 @@ Follow these steps to check the shared key for both the VPN gateways connections
 
 1. Under Settings, select **Connections**.
 
-   ![Screenshot showing all v net to v net connections.](../media/Az-720-8-24.png)
+   ![Screenshot showing all v net to v net connections.](../media/Az720-8-1862.png)
 
-1. Select the first connection, **VNet1-VNet2**.
-
-1. Under Settings, select **Shared key**.
-
-   ![Screenshot showing the first shared key.](../media/Az-720-8-25.png)
-
-1. Copy the text in the **Shared key (PSK)**.
-
-1. Navigate back to **VNet1GW**,then Select **Connections**
-
-1. Select the second connection, **VNet2-VNet1**.
-
-   ![Screenshot showing the second vnet to vnet connection.](../media/Az-720-8-26.png)
+1. Select the Second connection, **VNet2-VNet1**.
 
 1. Under Settings, select **Shared key**.
 
-1. Paste the value you copied into the **Shared key (PSK)** and click on **Save**. This is to make sure that the values match.
+   ![Screenshot showing the first shared key.](../media/Az720-8-1859.png)
+
+1. Replace the text in the **Shared key (PSK)** with the Shared key of **VNet1-VNet2** which was noted earlier and click on **Save**.This is to make sure that the values match.
+
+   ![Screenshot showing the first shared key.](../media/Az720-8-1860.png)
 
 ## Task 6: Test the issue is resolved
 
