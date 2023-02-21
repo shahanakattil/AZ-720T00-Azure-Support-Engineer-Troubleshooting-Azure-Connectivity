@@ -124,7 +124,7 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. Repeat for **VNet2**.
 
-   ![Screenshot showing the Gateway subnet address.](../media/Vnetgateway.png)
+   ![Screenshot showing the Gateway subnet address.](../media/Az720-8-1861.png)
 
 1. The **GatewaySubnet** addresses have been correctly created and correspond with the default range.
 
@@ -154,9 +154,9 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. Use the Azure Cloud shell to view the shared keys for each connecctions.
 
-1.  ```azurecli
+   ```azurecli
 
-   az network vpn-connection shared-key show -g MyResourceGroup --connection-name MyConnection
+     az network vpn-connection shared-key show -g MyResourceGroup --connection-name MyConnection
 
    ```
     >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** and MyConnection with the **VNet1-VNet2**
