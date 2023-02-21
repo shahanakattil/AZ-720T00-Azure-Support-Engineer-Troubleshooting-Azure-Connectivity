@@ -171,14 +171,14 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
      az network vpn-connection shared-key show -g MyResourceGroup --connection-name VNet2-VNet1
 
-    ```
-    >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** 
+   ```
+   >**Note**: Replace **MyResourceGroup** with the **lab08-rg-<inject key="DeploymentID" enableCopy="false"/>** 
     
-   ![Screenshot of the refresh button.](../media/Az720-8-1858.png)
+  ![Screenshot of the refresh button.](../media/Az720-8-1858.png)
 
 11. The shared keys are not the same. For the connections to work, the shared key must be identical.
 
-   ![Screenshot of the refresh button.](../media/azclisharedkeyview.png)
+![Screenshot of the refresh button.](../media/azclisharedkeyview.png)
 
 You've explored the possible reasons why your two machines can't connect to each other. You found that the shared key for the two connections is different.
 
