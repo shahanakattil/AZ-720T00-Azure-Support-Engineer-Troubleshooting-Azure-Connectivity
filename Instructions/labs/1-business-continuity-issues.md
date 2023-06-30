@@ -1,4 +1,4 @@
-# Troubleshoot business continuity with Microsoft Azure
+# Module 01: Troubleshoot business continuity with Microsoft Azure
 
 **Estimated Time: 30 minutes**
 

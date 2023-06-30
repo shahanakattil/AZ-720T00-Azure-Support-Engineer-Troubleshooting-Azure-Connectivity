@@ -1,4 +1,4 @@
-# Troubleshoot name resolution issues in Microsoft Azure
+# Module 02: Troubleshoot name resolution issues in Microsoft Azure
 
 **Estimated Time: 30 minutes**
 
