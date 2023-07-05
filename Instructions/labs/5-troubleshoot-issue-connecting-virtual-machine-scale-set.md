@@ -1,4 +1,4 @@
-# Part A - Troubleshoot virtual machine connections
+# Module 05: Troubleshoot virtual machine connections
 
 **Estimated Time: 30 minutes**
 

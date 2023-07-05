@@ -1,4 +1,4 @@
-# Troubleshoot site-to-site VPN gateway connectivity
+# Module 08: Troubleshoot site-to-site VPN gateway connectivity
 
 **Estimated Time: 20 minutes**
 

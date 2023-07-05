@@ -1,4 +1,4 @@
-# Troubleshoot cloud and hybrid connectivity in Microsoft Azure
+# Module 03: Troubleshoot cloud and hybrid connectivity in Microsoft Azure
 
 **Estimated Time: 20 minutes**
 

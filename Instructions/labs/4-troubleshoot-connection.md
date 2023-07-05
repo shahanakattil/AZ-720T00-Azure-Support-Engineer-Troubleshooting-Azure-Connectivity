@@ -1,4 +1,4 @@
-# Troubleshoot virtual machine connections
+# Module 04: Troubleshoot virtual machine connections
 
 **Estimated Time: 30 minutes**
 

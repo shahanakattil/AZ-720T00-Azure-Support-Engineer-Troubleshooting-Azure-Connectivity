@@ -1,4 +1,4 @@
-# Troubleshoot routing, traffic control and load balancing issues
+# Module 06: Troubleshoot routing, traffic control and load balancing issues
 
 **Estimated Time: 10 minutes**
 
