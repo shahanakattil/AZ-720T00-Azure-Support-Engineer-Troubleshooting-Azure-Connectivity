@@ -1,6 +1,6 @@
 # Module 03: Troubleshoot cloud and hybrid connectivity in Microsoft Azure
 
-**Estimated Time: 20 minutes**
+## Estimated timing: 20 minutes
 
 You've configured your network as shown in the diagram below. You want VM1 and VM2 to communicate via the VnetHub. Users are complaining that VM1 cannot communicate with VM2. You need to investigate to diagnose the problem and then fix it.
 
