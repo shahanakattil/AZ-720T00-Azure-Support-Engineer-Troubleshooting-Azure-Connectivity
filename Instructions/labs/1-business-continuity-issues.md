@@ -1,6 +1,6 @@
 # Module 01: Troubleshoot business continuity with Microsoft Azure
 
-## Estimated timing: 30 minutes
+## Estimated timing: 60 minutes
 
 You've been asked to make a backup of a virtual machine. Your development team have asked that you make the backup application consistent.
 
