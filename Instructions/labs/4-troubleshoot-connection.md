@@ -1,6 +1,6 @@
 # Module 04: Troubleshoot virtual machine connections
 
-**Estimated Time: 30 minutes**
+## Estimated timing: 30 minutes
 
 In this lab you'll troubleshoot connection issues with the virtual machines running in Azure.
 

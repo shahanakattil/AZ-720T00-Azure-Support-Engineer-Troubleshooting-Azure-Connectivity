@@ -1,6 +1,6 @@
 # Module 06: Troubleshoot routing, traffic control and load balancing issues
 
-**Estimated Time: 10 minutes**
+## Estimated timing: 10 minutes
 
 You work as a support engineer supporting Azure infrastructure. You've been contacted by your web team about an issue with website performance. The web team has a pool of webservers behind a load balancer and public IP address.
 

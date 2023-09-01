@@ -1,6 +1,6 @@
 # Module 07: Troubleshoot routing, traffic control and load balancing issues
 
-**Estimated Time: 10 minutes**
+## Estimated timing: 10 minutes
 
 You've been contacted by one of the teams you support. The team is having problems connecting to their VM using the Azure Bastion service.
 
