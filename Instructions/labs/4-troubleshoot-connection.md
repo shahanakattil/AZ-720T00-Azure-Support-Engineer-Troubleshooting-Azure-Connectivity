@@ -19,6 +19,10 @@ In this lab you'll troubleshoot connection issues with the virtual machines runn
 ## Task-1: Check a virtual machines settings
 
 You need to find the causes of connectivity problems to an Azure virtual machine using SSH.
+
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
    
 1. From the Azure portal, select **Resource groups** under **Navigate**.
 
