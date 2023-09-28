@@ -51,6 +51,12 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 7. Leave this tab open to check you resolve the issue in the next exercise.
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 2: Check all the virtual machines are responding on port 80
 
 1. Navigate to the Azure Portal in a new tab.
@@ -119,6 +125,12 @@ You think you have identified the issue. At the moment once a user visits the we
     > By setting **Session persistence** to **None**, successive request from clients can be handled by different virtual machines.
 
 1. Wait until the rule has been deployed successfully.
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ## Task 5: Test that the issue has been resolved
 
