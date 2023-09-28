@@ -153,3 +153,14 @@ Switch back to the tab where you pasted the public IP address. If you have close
 1. The traffic is now being shared correctly between all the machines in the backend pool.
 
     ![Animated gif showing the different webservers responding.](../media/traffic_distribution.gif)
+
+## Review
+
+In this lab you have:
+
+- Confirmed website performance issue related to uneven traffic distribution.
+- Checked VM settings and Load Balancer configuration.
+- Adjusted Load Balancer session persistence settings to "None" for improved traffic distribution.
+- Tested the fix by refreshing the browser and verified that traffic was evenly distributed among web servers.
+
+## You have Successfully Completed the Lab
