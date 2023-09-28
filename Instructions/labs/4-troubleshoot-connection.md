@@ -1,5 +1,17 @@
 # Module 04: Troubleshoot virtual machine connections
 
+## Lab Scenario
+
+In this lab, you'll practice troubleshooting connection issues with virtual machines running in Azure. Your main objective is to diagnose and resolve connectivity problems when trying to SSH into an Azure virtual machine.
+
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Identify and diagnose connectivity problems to an Azure virtual machine (VM).
+- Troubleshoot and address issues with connectivity using SSH to Azure VMs.
+- Resolve security group-related connectivity issues to enable successful SSH connections to an Azure VM.
+
 ## Estimated timing: 30 minutes
 
 In this lab you'll troubleshoot connection issues with the virtual machines running in Azure.
