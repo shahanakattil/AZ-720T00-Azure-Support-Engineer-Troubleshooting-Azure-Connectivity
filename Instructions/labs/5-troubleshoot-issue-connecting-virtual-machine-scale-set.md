@@ -23,6 +23,10 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 ## Task-1: Verify that the website can't be reached
 
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
+
 1. From the portal open the **Cloud shell (1)**, use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
 
 2. Select **Bash** and if there is any pop-up to create storage, follow the below steps.
