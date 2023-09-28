@@ -1,5 +1,22 @@
 # Module 07: Troubleshoot routing, traffic control and load balancing issues
 
+## Lab Scenario
+
+In this lab, you are responsible for supporting Azure infrastructure. One of the teams you support is facing difficulties connecting to their virtual machine (VM) using the Azure Bastion service. Azure Bastion is a service that allows secure and seamless RDP and SSH connectivity to Azure virtual machines directly from the Azure portal.
+
+The team is unable to establish a connection to the VM through Azure Bastion, and your task is to diagnose and troubleshoot the issue. You will investigate and resolve problems with Azure Bastion, ensuring that it can be used to access Azure virtual machines successfully.
+
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Troubleshoot issues with the Azure Bastion service when connecting to Azure virtual machines.
+- Check if the Azure Bastion service has been correctly deployed.
+- Investigate and resolve issues with Network Security Groups (NSGs) associated with the Azure Bastion subnet.
+- Verify if private DNS zones are causing connectivity issues with Azure Bastion.
+- Use the Azure Bastion connection troubleshooter to diagnose problems.
+- Resolve connectivity issues with Azure Bastion by configuring appropriate NSG rules
+
 ## Estimated timing: 30 minutes
 
 You've been contacted by one of the teams you support. The team is having problems connecting to their VM using the Azure Bastion service.
