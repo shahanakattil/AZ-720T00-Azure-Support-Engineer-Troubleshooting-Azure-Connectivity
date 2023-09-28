@@ -39,6 +39,12 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
    ![A screenshot showing the list of created Azure Bastions.](../media/mod7-1.png)
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 3: Check if AzureBastionSubnet is using a Network Security Group correctly
 
 1. In the Azure portal, in the search box, type **Bastions**.
@@ -56,6 +62,12 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 1. Under **Settings**, click **Subnets**, and then click **bastion-nsg**.
 
 If Azure Bastion has a **Network security group** associated with the subnet, you need to check that it has all the inbound and outbound rules created. See the official Microsoft documentation, https://learn.microsoft.com/azure/bastion/bastion-nsg. Are there any rules missing?
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ## Task 4: Check if there's a private DNS zone
 
@@ -116,6 +128,12 @@ After reviewing the bastion-nsg network security group you notice that there is 
     ![Screenshot of the Add inbound security rule fly out.](../media/mod7-10.png)
 
 1. Select **Add**.
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ## Task 7: Test the issue is resolved
 
