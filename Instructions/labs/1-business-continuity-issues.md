@@ -68,6 +68,12 @@ You've been asked to make a backup of a virtual machine. Your development team h
 
     - In the second phase, it moves the data into the recovery services vault. This takes about 50 minutes.
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 2: Monitor progress of the first phase
 
 You won't see anything in the Backup page of the VM until the backup has completed. However, you can monitor it in the Backup center.
@@ -85,6 +91,12 @@ You won't see anything in the Backup page of the VM until the backup has complet
     ![Screenshot showing a single backup instance.](../media/mod1-backupcheck.png)
     
     >**Note**: Wait for 10-12min to get the output as shown in the screenshot above.
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ## Task 3: View results of first phase
 
