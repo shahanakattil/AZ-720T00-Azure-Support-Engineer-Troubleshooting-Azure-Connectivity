@@ -118,6 +118,8 @@ Follow these steps in the Azure portal:
 
 ## Review
 
+In this Lab you have:
+
 - Identified SSH connectivity problem.
 - Diagnosed issue: Missing SSH security rule.
 - Added SSH security rule.
