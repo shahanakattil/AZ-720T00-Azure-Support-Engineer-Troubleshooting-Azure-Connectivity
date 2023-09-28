@@ -115,3 +115,12 @@ Follow these steps in the Azure portal:
     > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+## Review
+
+- Identified SSH connectivity problem.
+- Diagnosed issue: Missing SSH security rule.
+- Added SSH security rule.
+- Successfully resolved connectivity problem.
+
+## You have Successfully Completed the Lab
