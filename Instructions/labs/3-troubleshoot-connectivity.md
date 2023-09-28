@@ -1,5 +1,18 @@
 # Module 03: Troubleshoot cloud and hybrid connectivity in Microsoft Azure
 
+## Lab Scenario
+
+In this lab, you find yourself managing a complex Azure network topology comprising three Azure Virtual Networks (VNets) organized in a hub-and-spoke configuration. Your primary goal is to enable communication between VM1 and VM2 via VnetHub. However, users have reported that VM1 cannot establish communication with VM2, and your task is to diagnose and rectify the problem.
+
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Verify network topology to identify configuration issues.
+- Troubleshoot OSI Level 3 connectivity problems between virtual machines (VMs).
+- Identify and rectify problems related to Network Security Groups (NSGs), routing tables, and firewall rules.
+- Investigate and resolve issues with Azure Virtual Network peering settings in a hub-and-spoke topology.
+
 ## Estimated timing: 60 minutes
 
 You've configured your network as shown in the diagram below. You want VM1 and VM2 to communicate via the VnetHub. Users are complaining that VM1 cannot communicate with VM2. You need to investigate to diagnose the problem and then fix it.
