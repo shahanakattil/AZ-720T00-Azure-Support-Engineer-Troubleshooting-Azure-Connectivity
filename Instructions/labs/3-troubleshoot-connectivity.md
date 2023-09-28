@@ -168,3 +168,15 @@ It's now possible to ping VM2-<inject key="Deployment ID" enableCopy="false" /> 
     > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+## Review
+
+In this Lab you have:
+
+- Diagnosed connectivity issue between VM1 and VM2 in a complex Azure network topology.
+- Verified OSI Level 3 connectivity issues.
+- Troubleshot using ipconfig, Network Security Groups, routing tables, and firewall rules.
+- Identified the problem in peering settings and fixed it.
+- Successfully enabled communication between VM1 and VM2.
+
+## You have Successfully Completed the Lab
