@@ -287,15 +287,15 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
 
 In this lab, we performed the following tasks to troubleshoot and resolve connectivity issues between Azure virtual networks using site-to-site VPN gateways:
 
-Tested the Connection
+- Tested the Connection
 
-Troubleshot the Gateways
+- Troubleshot the Gateways
 
-Troubleshot the Virtual Networks
+- Troubleshot the Virtual Networks
 
-Checked the Gateway Connections
+- Checked the Gateway Connections
 
-Changed a Gateway Connection's Shared Key
+- Changed a Gateway Connection's Shared Key
 
 ## You have Successfully Completed the lab
 
