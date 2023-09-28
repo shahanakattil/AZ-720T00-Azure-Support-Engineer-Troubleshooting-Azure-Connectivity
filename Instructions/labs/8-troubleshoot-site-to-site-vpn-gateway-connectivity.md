@@ -1,6 +1,6 @@
 # Module 08: Troubleshoot site-to-site VPN gateway connectivity
 
-## Estimated timing: 30 minutes
+## Lab Scenario
 
 As your organization's support engineer, you've been asked to help fix an issue between your resources in the US and northern Europe. you've existing infrastructure of virtual networks in two different regions. The VMs in the US virtual network (VNet1) are unable to get a ping response from the VMs in northern Europe (VNet2).
 
@@ -9,6 +9,19 @@ Checking the topology, you can see that there are VPN gateways and connections.
 ![Diagram of the topology of the network that needs troubleshooting."](../media/Az-720-8-1.png)
 
 In this lab, you'll troubleshoot and resolve the connectivity issue.
+
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Troubleshoot and resolve connectivity issues between Azure virtual networks connected via site-to-site VPN gateways.
+- Test network connectivity between virtual machines (VMs) located in different Azure virtual networks.
+- Inspect VPN gateway configurations to identify issues with the VPN gateway settings.
+- Verify address spaces and subnets in Azure virtual networks to rule out IP address conflicts.
+- Investigate and resolve issues with VPN gateway connections.
+- Change shared keys for VPN gateway connections to ensure proper connectivity.
+
+## Estimated timing: 30 minutes
 
 ## Task 1: Test the connection
 
