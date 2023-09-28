@@ -74,6 +74,12 @@ We're going to test the connection between the two VMs, by sending a ping reques
 
 1. Press **CTRL** + **C** keys to quit the ping command.
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 2: Troubleshoot the gateways
 
 You'll check the types are correct for both gateways.
@@ -207,6 +213,12 @@ Follow these steps to make the shared keys identical for both the VPN gateways c
 1. Replace the text in the **Shared key (PSK)** with the Shared key of **VNet1-VNet2** which was noted earlier and click on **Save**.This is to make sure that the values match.
 
    ![Screenshot showing the first shared key.](../media/Az720-8-1860.png)
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ## Task 6: Test the issue is resolved
 
