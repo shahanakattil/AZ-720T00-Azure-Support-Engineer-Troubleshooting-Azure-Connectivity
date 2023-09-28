@@ -189,6 +189,8 @@ After investigating the connection issues to your website, you've found an issue
 
    ## Review
 
+In this lab you have:
+
 - Verified unresponsive website via public IP.
 - Checked NSGs and VM network settings.
 - Identified load balancer rule issue.
