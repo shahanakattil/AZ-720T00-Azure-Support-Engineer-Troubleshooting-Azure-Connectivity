@@ -167,4 +167,13 @@ The reason the backup isn't application consistent is because the VM is in a **S
 
     ![Screenshot showing the crash consistent restore point.](../media/mod1-app.png)
 
+## Review
 
+In this lab, you performed the following tasks:
+
+- Configured Peering: Established peering between VNet1 and VNet2 for VM communication.
+- Diagnosed Networking Issues: Identified DNS resolution problems with VM3 using Azure Bastion.
+- Examined IP Configuration: Inspected VM IP configurations and DNS server details.
+- Resolved Connection Issue: Fixed VM3's name resolution problem by linking the private DNS zone to VNet2.
+
+## You have Successfully Completed the Lab
