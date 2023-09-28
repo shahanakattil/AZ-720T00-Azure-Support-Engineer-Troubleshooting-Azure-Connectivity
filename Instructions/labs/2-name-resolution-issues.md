@@ -281,3 +281,14 @@ Optionally, you can test pinging each VM, using their DNS names.
     > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+## Review
+
+In this lab you have:
+
+- Diagnosed and resolved name resolution issues in an Azure environment.
+- Checked the Internet Protocol configuration of virtual machines.
+- Tested network connectivity using the 'ping' command to ensure OSI Layer 3 connectivity.
+- Linked a private DNS zone to the appropriate virtual network, resolving DNS-related problems and enabling successful name resolution.
+
+## You have Successfully Completed the Lab
