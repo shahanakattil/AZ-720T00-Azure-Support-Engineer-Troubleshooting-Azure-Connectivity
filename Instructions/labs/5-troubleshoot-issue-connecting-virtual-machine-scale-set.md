@@ -187,4 +187,11 @@ After investigating the connection issues to your website, you've found an issue
 
     ![A screenshot of the website showing it's online.](../media/Az-720-5-15.png)
 
+   ## Review
 
+- Verified unresponsive website via public IP.
+- Checked NSGs and VM network settings.
+- Identified load balancer rule issue.
+- Resolved by changing load balancer backend port to 80, making the website responsive.
+
+## You have Successfully Completed the Lab
