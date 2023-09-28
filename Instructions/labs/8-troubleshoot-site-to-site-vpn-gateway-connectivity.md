@@ -27,6 +27,10 @@ By the end of this lab, you will be able to:
 
 We're going to test the connection between the two VMs, by sending a ping request between them.
 
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
+
 1. From the Azure Portal, type **virtual machines** in the search bar and select **Virtual machines** under the Services.
 
    ![Screenshot showing the search bar and the results of searching for virtual machines.](../media/Az-720-8-2-new.png)
