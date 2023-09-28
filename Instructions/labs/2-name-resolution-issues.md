@@ -1,5 +1,20 @@
 # Module 02: Troubleshoot name resolution issues in Microsoft Azure
 
+## Lab Scenario
+
+You work as a network engineer for Contoso, a company that relies on Microsoft Azure for its infrastructure. Users have reported issues accessing VM1 and VM2. Contoso's Azure environment consists of two virtual networks, VNet1 and VNet2, interconnected via peering. Your role as a network engineer is to diagnose and resolve these network-related problems to ensure seamless communication between VM1, VM2, and VM3. The tasks in this lab guide you through the troubleshooting process, from diagnosing networking issues to examining the IP configuration, testing network connectivity, and resolving any DNS-related problems.
+
+## Objectives
+
+Upon completing this lab, you will be able to:
+
+- Diagnose and troubleshoot name resolution issues between Azure virtual machines.
+- Examine and configure the Internet Protocol settings for virtual machines.
+- Test network connectivity using the 'ping' command.
+- Inspect Azure resource groups and identify configuration issues.
+- Resolve connection issues by linking private DNS zones to virtual networks.
+- Inspect the Domain Name System (DNS) name table and ensure name resolution.
+
 ## Estimated timing: 60 minutes
 
 You work for Contoso as a network engineer, and users are complaining that they cannot access VM1 or VM2. You have configured two Azure virtual networks: VNet1 and VNet2. They are connected with peering.
