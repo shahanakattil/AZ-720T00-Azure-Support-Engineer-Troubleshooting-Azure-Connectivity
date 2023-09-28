@@ -171,3 +171,14 @@ After reviewing the bastion-nsg network security group you notice that there is 
     ![Screenshot showing a browser tab connected to a VM with Bastion.](../media/mod7-final.png)
 
     You should see a new tab open and connect to your VM.
+
+## Review
+
+In this lab, you have performed:
+
+- Diagnosed Azure Bastion connectivity issues.
+- Verified Azure Bastion deployment.
+- Investigated and fixed Network Security Group (NSG) rules.
+- Successfully resolved the issue and established a VM connection through Azure Bastion.
+
+## You have Successfully Completed this Lab
