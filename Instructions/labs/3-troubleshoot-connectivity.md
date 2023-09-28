@@ -1,5 +1,18 @@
 # Module 03: Troubleshoot cloud and hybrid connectivity in Microsoft Azure
 
+## Lab Scenario
+
+In this lab, you find yourself managing a complex Azure network topology comprising three Azure Virtual Networks (VNets) organized in a hub-and-spoke configuration. Your primary goal is to enable communication between VM1 and VM2 via VnetHub. However, users have reported that VM1 cannot establish communication with VM2, and your task is to diagnose and rectify the problem.
+
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Verify network topology to identify configuration issues.
+- Troubleshoot OSI Level 3 connectivity problems between virtual machines (VMs).
+- Identify and rectify problems related to Network Security Groups (NSGs), routing tables, and firewall rules.
+- Investigate and resolve issues with Azure Virtual Network peering settings in a hub-and-spoke topology.
+
 ## Estimated timing: 60 minutes
 
 You've configured your network as shown in the diagram below. You want VM1 and VM2 to communicate via the VnetHub. Users are complaining that VM1 cannot communicate with VM2. You need to investigate to diagnose the problem and then fix it.
@@ -9,6 +22,10 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 ![Screenshot of spoke and hub topology.](../media/6-spoke-hub-topology.png)
 
 ## Task 1: Verify the network topology
+
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
 
 1. From the portal menu on the top left, select **Resource groups**.
 
@@ -149,3 +166,21 @@ The **Traffic forwarded from remote virtual network** must be set to **Allow**. 
 ![Screenshot showing the command prompt with the ping request working.](../media/mod3-vm1-ping-fixed.png)
 
 It's now possible to ping VM2-<inject key="Deployment ID" enableCopy="false" /> from VM1-<inject key="Deployment ID" enableCopy="false" />.
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+## Review
+
+In this Lab you have:
+
+- Diagnosed connectivity issue between VM1 and VM2 in a complex Azure network topology.
+- Verified OSI Level 3 connectivity issues.
+- Troubleshot using ipconfig, Network Security Groups, routing tables, and firewall rules.
+- Identified the problem in peering settings and fixed it.
+- Successfully enabled communication between VM1 and VM2.
+
+## You have Successfully Completed the Lab

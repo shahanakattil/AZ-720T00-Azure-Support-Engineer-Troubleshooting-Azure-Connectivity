@@ -1,6 +1,6 @@
 # Module 08: Troubleshoot site-to-site VPN gateway connectivity
 
-## Estimated timing: 30 minutes
+## Lab Scenario
 
 As your organization's support engineer, you've been asked to help fix an issue between your resources in the US and northern Europe. you've existing infrastructure of virtual networks in two different regions. The VMs in the US virtual network (VNet1) are unable to get a ping response from the VMs in northern Europe (VNet2).
 
@@ -10,9 +10,26 @@ Checking the topology, you can see that there are VPN gateways and connections.
 
 In this lab, you'll troubleshoot and resolve the connectivity issue.
 
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Troubleshoot and resolve connectivity issues between Azure virtual networks connected via site-to-site VPN gateways.
+- Test network connectivity between virtual machines (VMs) located in different Azure virtual networks.
+- Inspect VPN gateway configurations to identify issues with the VPN gateway settings.
+- Verify address spaces and subnets in Azure virtual networks to rule out IP address conflicts.
+- Investigate and resolve issues with VPN gateway connections.
+- Change shared keys for VPN gateway connections to ensure proper connectivity.
+
+## Estimated timing: 30 minutes
+
 ## Task 1: Test the connection
 
 We're going to test the connection between the two VMs, by sending a ping request between them.
+
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
 
 1. From the Azure Portal, type **virtual machines** in the search bar and select **Virtual machines** under the Services.
 
@@ -73,6 +90,12 @@ We're going to test the connection between the two VMs, by sending a ping reques
 1. We can confirm that the two machines can't connect, as there is no response from **VM2-lab08rg-<inject key="DeploymentID" enableCopy="false"/>**.
 
 1. Press **CTRL** + **C** keys to quit the ping command.
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ## Task 2: Troubleshoot the gateways
 
@@ -208,6 +231,12 @@ Follow these steps to make the shared keys identical for both the VPN gateways c
 
    ![Screenshot showing the first shared key.](../media/Az720-8-1860.png)
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 6: Test the issue is resolved
 
 Repeat the steps you did in the previous exercise to see if the two VMs can connect to each other. Using the Cloud Shell on the right and the Azure portal, follow these steps:
@@ -257,3 +286,25 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
 1. If you have resolved the connection issue, you should see a response from VM2-labrg08-<inject key="DeploymentID" enableCopy="false"/>.
 
 1. Press **CTRL** + **C** keys to quit the ping command.
+
+## Review
+
+In this lab, we performed the following tasks to troubleshoot and resolve connectivity issues between Azure virtual networks using site-to-site VPN gateways:
+
+- Tested the Connection
+
+- Troubleshot the Gateways
+
+- Troubleshot the Virtual Networks
+
+- Checked the Gateway Connections
+
+- Changed a Gateway Connection's Shared Key
+
+## You have Successfully Completed the lab
+
+
+
+
+
+

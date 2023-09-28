@@ -1,12 +1,20 @@
 # Module 01: Troubleshoot business continuity with Microsoft Azure
 
+## Lab Scenario
+
+You are an IT administrator responsible for ensuring the business continuity of your organization's critical virtual machines hosted in Microsoft Azure. The development team has raised concerns about the reliability and consistency of the virtual machine backups. They require that the backups are not only created but are also application consistent to safeguard the integrity of their work.
+
+## Objective
+
+By the end of this module, you will be able to create a backup of a virtual machine in Microsoft Azure while ensuring that the backup is application consistent.
+
 ## Estimated timing: 60 minutes
 
 You've been asked to make a backup of a virtual machine. Your development team have asked that you make the backup application consistent.
 
 ## Task 1: Create a backup
 
-1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 3**.
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
     * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
     * Azure Password: <inject key="AzureAdUserPassword"></inject>
 
@@ -68,6 +76,12 @@ You've been asked to make a backup of a virtual machine. Your development team h
 
     - In the second phase, it moves the data into the recovery services vault. This takes about 50 minutes.
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 2: Monitor progress of the first phase
 
 You won't see anything in the Backup page of the VM until the backup has completed. However, you can monitor it in the Backup center.
@@ -85,6 +99,12 @@ You won't see anything in the Backup page of the VM until the backup has complet
     ![Screenshot showing a single backup instance.](../media/mod1-backupcheck.png)
     
     >**Note**: Wait for 10-12min to get the output as shown in the screenshot above.
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ## Task 3: View results of first phase
 
@@ -147,4 +167,13 @@ The reason the backup isn't application consistent is because the VM is in a **S
 
     ![Screenshot showing the crash consistent restore point.](../media/mod1-app.png)
 
+## Review
 
+In this lab, you performed the following tasks:
+
+- Configured Peering: Established peering between VNet1 and VNet2 for VM communication.
+- Diagnosed Networking Issues: Identified DNS resolution problems with VM3 using Azure Bastion.
+- Examined IP Configuration: Inspected VM IP configurations and DNS server details.
+- Resolved Connection Issue: Fixed VM3's name resolution problem by linking the private DNS zone to VNet2.
+
+## You have Successfully Completed the Lab

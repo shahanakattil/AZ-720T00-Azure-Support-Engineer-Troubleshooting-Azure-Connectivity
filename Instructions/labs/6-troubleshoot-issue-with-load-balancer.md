@@ -1,5 +1,18 @@
 # Module 06: Troubleshoot routing, traffic control and load balancing issues
 
+## Lab Scenario
+
+In this lab, you are working as a support engineer responsible for Azure infrastructure. The web team in your organization has reported performance issues with the organization's website. The web team uses a pool of web servers behind a load balancer to distribute incoming web traffic. The web team has noticed that the internet traffic isn't being distributed equally between all the web servers, leading to performance problems.
+
+# Objectives
+
+By the end of this lab, you will be able to:
+
+- Troubleshoot performance issues related to load balancing and traffic distribution in Azure.
+- Identify issues with session persistence settings in load balancer rules.
+- Modify load balancer settings to ensure even distribution of internet traffic to backend servers.
+- Verify that performance issues have been resolved.
+
 ## Estimated timing: 30 minutes
 
 You work as a support engineer supporting Azure infrastructure. You've been contacted by your web team about an issue with website performance. The web team has a pool of webservers behind a load balancer and public IP address.
@@ -11,6 +24,10 @@ The web team thinks that the internet traffic isn't being distributed equally be
 In this lab, you'll use what you've learned to go through steps to troubleshoot the performance issues with your organization's website.
 
 ## Task 1: Check that the issue still exists
+
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
 
 1. Use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
 
@@ -50,6 +67,12 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
     ![Screenshot showing a single web server returing a response.](../media/mod6-5.png)
 
 7. Leave this tab open to check you resolve the issue in the next exercise.
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ## Task 2: Check all the virtual machines are responding on port 80
 
@@ -120,6 +143,12 @@ You think you have identified the issue. At the moment once a user visits the we
 
 1. Wait until the rule has been deployed successfully.
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 5: Test that the issue has been resolved
 
 Switch back to the tab where you pasted the public IP address. If you have closed the tab select the load balancer rule and the public IP address is listed there.
@@ -128,3 +157,14 @@ Switch back to the tab where you pasted the public IP address. If you have close
 1. The traffic is now being shared correctly between all the machines in the backend pool.
 
     ![Animated gif showing the different webservers responding.](../media/traffic_distribution.gif)
+
+## Review
+
+In this lab you have:
+
+- Confirmed website performance issue related to uneven traffic distribution.
+- Checked VM settings and Load Balancer configuration.
+- Adjusted Load Balancer session persistence settings to "None" for improved traffic distribution.
+- Tested the fix by refreshing the browser and verified that traffic was evenly distributed among web servers.
+
+## You have Successfully Completed the Lab

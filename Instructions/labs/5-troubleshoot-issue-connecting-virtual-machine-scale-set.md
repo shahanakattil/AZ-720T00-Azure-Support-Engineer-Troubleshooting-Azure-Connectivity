@@ -1,5 +1,18 @@
 # Module 05: Troubleshoot virtual machine connections
 
+## Lab Scenario
+
+In this lab, you are working as a support engineer responsible for Azure infrastructure. The web team in your organization has reported an issue with the website not responding. They have a pool of web servers behind a load balancer and a public IP address that should allow users to access the website. Your task is to troubleshoot the connectivity issues and resolve them.
+
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Troubleshoot connectivity issues to Azure virtual machines and web services.
+- Identify and diagnose network problems using Azure CLI and the Azure portal.
+- Address issues with Network Security Groups (NSGs) and network settings to enable connectivity.
+- Resolve problems with load balancer rules to ensure proper load balancing and connectivity.
+
 ## Estimated timing: 30 minutes
 
 You work as a support engineer supporting Azure infrastructure. You've been contacted by your web team about an issue with the website not responding. The web team have a pool of webservers behind a load balancer and public IP address.
@@ -9,6 +22,10 @@ You work as a support engineer supporting Azure infrastructure. You've been cont
 In this lab, you'll use what you've learned to go through steps to troubleshoot the connection issues to the virtual machines.
 
 ## Task-1: Verify that the website can't be reached
+
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
 
 1. From the portal open the **Cloud shell (1)**, use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
 
@@ -42,6 +59,12 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
     ![Screenshot of the website not responding.](../media/az720-5-2ip.png)
 
     >**Note**: Your IP address will be different to the one in the above screenshot.
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ### Task-2: Check that Network Security Groups are configured correctly
 
@@ -142,6 +165,12 @@ After investigating the connection issues to your website, you've found an issue
 
     ![A screenshot showing the successful deployment of the updated load balancer rule." lightbox="../media/7-successful-rule.png](../media/az-720-5-4-2.png)
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ### Verify that the website can now be reached
 
 1. Refresh the tab you opened to test the public IP address.
@@ -162,4 +191,13 @@ After investigating the connection issues to your website, you've found an issue
 
     ![A screenshot of the website showing it's online.](../media/Az-720-5-15.png)
 
+   ## Review
 
+In this lab you have:
+
+- Verified unresponsive website via public IP.
+- Checked NSGs and VM network settings.
+- Identified load balancer rule issue.
+- Resolved by changing load balancer backend port to 80, making the website responsive.
+
+## You have Successfully Completed the Lab

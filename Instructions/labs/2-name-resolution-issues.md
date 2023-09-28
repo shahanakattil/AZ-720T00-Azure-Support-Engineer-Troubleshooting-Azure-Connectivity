@@ -1,5 +1,20 @@
 # Module 02: Troubleshoot name resolution issues in Microsoft Azure
 
+## Lab Scenario
+
+You work as a network engineer for Contoso, a company that relies on Microsoft Azure for its infrastructure. Users have reported issues accessing VM1 and VM2. Contoso's Azure environment consists of two virtual networks, VNet1 and VNet2, interconnected via peering. Your role as a network engineer is to diagnose and resolve these network-related problems to ensure seamless communication between VM1, VM2, and VM3. The tasks in this lab guide you through the troubleshooting process, from diagnosing networking issues to examining the IP configuration, testing network connectivity, and resolving any DNS-related problems.
+
+## Objectives
+
+Upon completing this lab, you will be able to:
+
+- Diagnose and troubleshoot name resolution issues between Azure virtual machines.
+- Examine and configure the Internet Protocol settings for virtual machines.
+- Test network connectivity using the 'ping' command.
+- Inspect Azure resource groups and identify configuration issues.
+- Resolve connection issues by linking private DNS zones to virtual networks.
+- Inspect the Domain Name System (DNS) name table and ensure name resolution.
+
 ## Estimated timing: 60 minutes
 
 You work for Contoso as a network engineer, and users are complaining that they cannot access VM1 or VM2. You have configured two Azure virtual networks: VNet1 and VNet2. They are connected with peering.
@@ -23,6 +38,10 @@ You work for Contoso as a network engineer, and users are complaining that they 
 ## Task 1: Diagnose networking issues between virtual machines
 
 You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-<inject key="Deployment ID" enableCopy="false" /> using Azure Bastion and perform some networking checks.
+
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
 
 1.  From the portal menu on the top left, select **Resource groups**.
 
@@ -124,6 +143,12 @@ You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-
 
     >**Note**: VM3-<inject key="Deployment ID" enableCopy="false" /> is unable to find any of the domains. 
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ### Task 2: Examine the Internet Protocol configuration of the Virtual Machines
 
 The internal IP addresses of the virtual machines are:
@@ -205,6 +230,12 @@ Your investigation points to a configuration issue with the private DNS zone.
 
     >**Note**: It may take a few minutes for the link to be created. Select Refresh occasionally to see the latest status. Wait until the link status says Completed.
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 6: Inspect the Domain Name System name table
 
 1. Navigate to the Overview page and inspect the DNS name table.
@@ -249,3 +280,19 @@ Optionally, you can test pinging each VM, using their DNS names.
 
 - `ping  VM3-<inject key="Deployment ID" enableCopy="false" />.contoso.com`
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+## Review
+
+In this lab you have:
+
+- Diagnosed and resolved name resolution issues in an Azure environment.
+- Checked the Internet Protocol configuration of virtual machines.
+- Tested network connectivity using the 'ping' command to ensure OSI Layer 3 connectivity.
+- Linked a private DNS zone to the appropriate virtual network, resolving DNS-related problems and enabling successful name resolution.
+
+## You have Successfully Completed the Lab

@@ -1,5 +1,17 @@
 # Module 04: Troubleshoot virtual machine connections
 
+## Lab Scenario
+
+In this lab, you'll practice troubleshooting connection issues with virtual machines running in Azure. Your main objective is to diagnose and resolve connectivity problems when trying to SSH into an Azure virtual machine.
+
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Identify and diagnose connectivity problems to an Azure virtual machine (VM).
+- Troubleshoot and address issues with connectivity using SSH to Azure VMs.
+- Resolve security group-related connectivity issues to enable successful SSH connections to an Azure VM.
+
 ## Estimated timing: 30 minutes
 
 In this lab you'll troubleshoot connection issues with the virtual machines running in Azure.
@@ -7,6 +19,10 @@ In this lab you'll troubleshoot connection issues with the virtual machines runn
 ## Task-1: Check a virtual machines settings
 
 You need to find the causes of connectivity problems to an Azure virtual machine using SSH.
+
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
    
 1. From the Azure portal, select **Resource groups** under **Navigate**.
 
@@ -98,3 +114,19 @@ Follow these steps in the Azure portal:
 
    ![Screen shot showing that connectivity is now allowed.](../media/Az-720-4-10.png)
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+## Review
+
+In this Lab you have:
+
+- Identified SSH connectivity problem.
+- Diagnosed issue: Missing SSH security rule.
+- Added SSH security rule.
+- Successfully resolved connectivity problem.
+
+## You have Successfully Completed the Lab

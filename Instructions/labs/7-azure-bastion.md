@@ -1,5 +1,22 @@
 # Module 07: Troubleshoot routing, traffic control and load balancing issues
 
+## Lab Scenario
+
+In this lab, you are responsible for supporting Azure infrastructure. One of the teams you support is facing difficulties connecting to their virtual machine (VM) using the Azure Bastion service. Azure Bastion is a service that allows secure and seamless RDP and SSH connectivity to Azure virtual machines directly from the Azure portal.
+
+The team is unable to establish a connection to the VM through Azure Bastion, and your task is to diagnose and troubleshoot the issue. You will investigate and resolve problems with Azure Bastion, ensuring that it can be used to access Azure virtual machines successfully.
+
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Troubleshoot issues with the Azure Bastion service when connecting to Azure virtual machines.
+- Check if the Azure Bastion service has been correctly deployed.
+- Investigate and resolve issues with Network Security Groups (NSGs) associated with the Azure Bastion subnet.
+- Verify if private DNS zones are causing connectivity issues with Azure Bastion.
+- Use the Azure Bastion connection troubleshooter to diagnose problems.
+- Resolve connectivity issues with Azure Bastion by configuring appropriate NSG rules
+
 ## Estimated timing: 30 minutes
 
 You've been contacted by one of the teams you support. The team is having problems connecting to their VM using the Azure Bastion service.
@@ -7,6 +24,10 @@ You've been contacted by one of the teams you support. The team is having proble
 In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
 ## Task 1: Check that the issue still exists
+
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
     
 1. From the top left portal menu, select **Virtual machines**, then select **labvm1-<inject key="DeploymentID" enableCopy="false"/>**.
 
@@ -39,6 +60,12 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
    ![A screenshot showing the list of created Azure Bastions.](../media/mod7-1.png)
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 3: Check if AzureBastionSubnet is using a Network Security Group correctly
 
 1. In the Azure portal, in the search box, type **Bastions**.
@@ -56,6 +83,12 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 1. Under **Settings**, click **Subnets**, and then click **bastion-nsg**.
 
 If Azure Bastion has a **Network security group** associated with the subnet, you need to check that it has all the inbound and outbound rules created. See the official Microsoft documentation, https://learn.microsoft.com/azure/bastion/bastion-nsg. Are there any rules missing?
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ## Task 4: Check if there's a private DNS zone
 
@@ -117,6 +150,12 @@ After reviewing the bastion-nsg network security group you notice that there is 
 
 1. Select **Add**.
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ## Task 7: Test the issue is resolved
 
 1. Select the top left portal menu, select **Virtual machines**, then select **labvm1-<inject key="DeploymentID" enableCopy="false">**.
@@ -136,3 +175,14 @@ After reviewing the bastion-nsg network security group you notice that there is 
     ![Screenshot showing a browser tab connected to a VM with Bastion.](../media/mod7-final.png)
 
     You should see a new tab open and connect to your VM.
+
+## Review
+
+In this lab, you have performed:
+
+- Diagnosed Azure Bastion connectivity issues.
+- Verified Azure Bastion deployment.
+- Investigated and fixed Network Security Group (NSG) rules.
+- Successfully resolved the issue and established a VM connection through Azure Bastion.
+
+## You have Successfully Completed this Lab
