@@ -1,5 +1,13 @@
 # Module 01: Troubleshoot business continuity with Microsoft Azure
 
+## Lab Scenario
+
+You are an IT administrator responsible for ensuring the business continuity of your organization's critical virtual machines hosted in Microsoft Azure. The development team has raised concerns about the reliability and consistency of the virtual machine backups. They require that the backups are not only created but are also application consistent to safeguard the integrity of their work.
+
+## Objective
+
+By the end of this module, you will be able to create a backup of a virtual machine in Microsoft Azure while ensuring that the backup is application consistent.
+
 ## Estimated timing: 60 minutes
 
 You've been asked to make a backup of a virtual machine. Your development team have asked that you make the backup application consistent.
