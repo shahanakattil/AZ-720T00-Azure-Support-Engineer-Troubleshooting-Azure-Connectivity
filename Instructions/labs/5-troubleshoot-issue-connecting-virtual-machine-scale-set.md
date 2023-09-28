@@ -43,6 +43,12 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
     >**Note**: Your IP address will be different to the one in the above screenshot.
 
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
+
 ### Task-2: Check that Network Security Groups are configured correctly
 
 1. In the Azure portal search for **Network security groups**.
@@ -141,6 +147,12 @@ After investigating the connection issues to your website, you've found an issue
 1. Wait until the rule has been deployed successfully.
 
     ![A screenshot showing the successful deployment of the updated load balancer rule." lightbox="../media/7-successful-rule.png](../media/az-720-5-4-2.png)
+
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. You can proceed to the next task if you receive a success message.
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 ### Verify that the website can now be reached
 
