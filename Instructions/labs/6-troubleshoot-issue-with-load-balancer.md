@@ -25,6 +25,10 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 ## Task 1: Check that the issue still exists
 
+1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
+    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+    * Azure Password: <inject key="AzureAdUserPassword"></inject>
+
 1. Use this Azure CLI command in the Cloud Shell to get the public IP address of the scale set.
 
     ![Screenshot showing how to access the cloud shell.](../media/mod6-2.png)
