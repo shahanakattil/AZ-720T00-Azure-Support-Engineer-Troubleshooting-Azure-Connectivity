@@ -1,5 +1,18 @@
 # Module 06: Troubleshoot routing, traffic control and load balancing issues
 
+## Lab Scenario
+
+In this lab, you are working as a support engineer responsible for Azure infrastructure. The web team in your organization has reported performance issues with the organization's website. The web team uses a pool of web servers behind a load balancer to distribute incoming web traffic. The web team has noticed that the internet traffic isn't being distributed equally between all the web servers, leading to performance problems.
+
+# Objectives
+
+By the end of this lab, you will be able to:
+
+- Troubleshoot performance issues related to load balancing and traffic distribution in Azure.
+- Identify issues with session persistence settings in load balancer rules.
+- Modify load balancer settings to ensure even distribution of internet traffic to backend servers.
+- Verify that performance issues have been resolved.
+
 ## Estimated timing: 30 minutes
 
 You work as a support engineer supporting Azure infrastructure. You've been contacted by your web team about an issue with website performance. The web team has a pool of webservers behind a load balancer and public IP address.
