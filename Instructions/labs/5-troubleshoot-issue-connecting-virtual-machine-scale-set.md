@@ -1,5 +1,18 @@
 # Module 05: Troubleshoot virtual machine connections
 
+## Lab Scenario
+
+In this lab, you are working as a support engineer responsible for Azure infrastructure. The web team in your organization has reported an issue with the website not responding. They have a pool of web servers behind a load balancer and a public IP address that should allow users to access the website. Your task is to troubleshoot the connectivity issues and resolve them.
+
+## Objectives
+
+By the end of this lab, you will be able to:
+
+- Troubleshoot connectivity issues to Azure virtual machines and web services.
+- Identify and diagnose network problems using Azure CLI and the Azure portal.
+- Address issues with Network Security Groups (NSGs) and network settings to enable connectivity.
+- Resolve problems with load balancer rules to ensure proper load balancing and connectivity.
+
 ## Estimated timing: 30 minutes
 
 You work as a support engineer supporting Azure infrastructure. You've been contacted by your web team about an issue with the website not responding. The web team have a pool of webservers behind a load balancer and public IP address.
