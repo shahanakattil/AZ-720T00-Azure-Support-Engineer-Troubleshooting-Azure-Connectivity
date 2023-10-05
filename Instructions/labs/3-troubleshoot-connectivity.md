@@ -19,7 +19,7 @@ You've configured your network as shown in the diagram below. You want VM1 and V
 
 There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
-![Screenshot of spoke and hub topology.](../media/6-spoke-hub-topology.png)
+![Screenshot of spoke and hub topology.](../media/6-spoke-hub-topology01.png)
 
 ### Task 1: Verify the network topology
 
