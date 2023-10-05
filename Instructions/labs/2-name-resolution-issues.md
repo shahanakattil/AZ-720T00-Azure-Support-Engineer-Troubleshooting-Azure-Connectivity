@@ -25,7 +25,7 @@ You work for Contoso as a network engineer, and users are complaining that they 
 ||| Subnet2| 10.1.2.0/24|
 | VNet2| 10.2.0.0/16| Default| 10.2.0.0/24|
 
-![Screenshot showing the topology of v net 1.](../media/5-network-1.png)
+![Screenshot showing the topology of v net 1.](../media/5-network-01.png)
 
 ![Screenshot showing the topology of v net 2.](../media/5-network-2.png)
 
