@@ -288,11 +288,11 @@ Optionally, you can test pinging each VM, using their DNS names.
 
 ## Review
 
-In this lab you have:
+In this lab you have Performed:
 
-- Diagnosed and resolved name resolution issues in an Azure environment.
-- Checked the Internet Protocol configuration of virtual machines.
-- Tested network connectivity using the 'ping' command to ensure OSI Layer 3 connectivity.
-- Linked a private DNS zone to the appropriate virtual network, resolving DNS-related problems and enabling successful name resolution.
+- Diagnosing and resolving name resolution issues in an Azure environment.
+- Checking the Internet Protocol configuration of virtual machines.
+- Testing network connectivity using the 'ping' command to ensure OSI Layer 3 connectivity.
+- Linking a private DNS zone to the appropriate virtual network, resolving DNS-related problems and enabling successful name resolution.
 
 ## You have Successfully Completed the Lab
