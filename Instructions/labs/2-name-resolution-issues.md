@@ -15,7 +15,7 @@ In this lab you will perform:
 + Task 5: Resolve the connection issue
 + Task 6: Inspect the Domain Name System name table
 
-## Estimated timing: 60 minutes
+### Estimated timing: 60 minutes
 
 You work for Contoso as a network engineer, and users are complaining that they cannot access VM1 or VM2. You have configured two Azure virtual networks: VNet1 and VNet2. They are connected with peering.
 
@@ -35,7 +35,7 @@ You work for Contoso as a network engineer, and users are complaining that they 
 | VM2| Windows Server 2019| VNet1, Subnet2| contoso.com|
 | VM3| Windows Server 2019| VNet2, default| contoso.com|
 
-## Task 1: Diagnose networking issues between virtual machines
+### Task 1: Diagnose networking issues between virtual machines
 
 You'll connect to VM1-<inject key="Deployment ID" enableCopy="false" /> and VM3-<inject key="Deployment ID" enableCopy="false" /> using Azure Bastion and perform some networking checks.
 
@@ -206,7 +206,7 @@ Switch back to the Azure portal tab.
 
     Note that the private DNS zone is linked to **VNet1**, but not to **VNet2**.
 
-## Task 5: Resolve the connection issue
+### Task 5: Resolve the connection issue
 
 Your investigation points to a configuration issue with the private DNS zone.
 
@@ -236,7 +236,7 @@ Your investigation points to a configuration issue with the private DNS zone.
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 6: Inspect the Domain Name System name table
+### Task 6: Inspect the Domain Name System name table
 
 1. Navigate to the Overview page and inspect the DNS name table.
 
