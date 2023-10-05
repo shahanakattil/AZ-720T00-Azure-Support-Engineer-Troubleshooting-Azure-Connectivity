@@ -4,19 +4,18 @@
 
 In this lab, you'll practice troubleshooting connection issues with virtual machines running in Azure. Your main objective is to diagnose and resolve connectivity problems when trying to SSH into an Azure virtual machine.
 
-## Objectives
+## Lab Objectives
 
-By the end of this lab, you will be able to:
+In this lab you will perform:
 
-- Identify and diagnose connectivity problems to an Azure virtual machine (VM).
-- Troubleshoot and address issues with connectivity using SSH to Azure VMs.
-- Resolve security group-related connectivity issues to enable successful SSH connections to an Azure VM.
++ Task 01: Check a virtual machines settings
++ Task 02: Resolve the connection issues
 
 ## Estimated timing: 30 minutes
 
 In this lab you'll troubleshoot connection issues with the virtual machines running in Azure.
 
-## Task-1: Check a virtual machines settings
+## Task 01: Check a virtual machines settings
 
 You need to find the causes of connectivity problems to an Azure virtual machine using SSH.
 
@@ -66,7 +65,7 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Note: except for load balancers and virtual networks, the highest priority rule will deny all inbound traffic. This will cause connectivity problems.
 
-## Task-2: Resolve the connection issues
+## Task 02: Resolve the connection issues
 
 Follow these steps in the Azure portal:
 
@@ -122,7 +121,7 @@ Follow these steps in the Azure portal:
 
 ## Review
 
-In this Lab you have:
+In this Lab you have performed:
 
 - Identified SSH connectivity problem.
 - Diagnosed issue: Missing SSH security rule.
