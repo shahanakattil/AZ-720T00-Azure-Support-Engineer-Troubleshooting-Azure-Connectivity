@@ -174,7 +174,7 @@ The reason the backup isn't application consistent is because the VM is in a **S
 
 ## Review
 
-In this lab, you performed the following tasks:
+In this lab, you have performed:
 
 - Configured Peering: Established peering between VNet1 and VNet2 for VM communication.
 - Diagnosed Networking Issues: Identified DNS resolution problems with VM3 using Azure Bastion.
