@@ -10,20 +10,20 @@ Checking the topology, you can see that there are VPN gateways and connections.
 
 In this lab, you'll troubleshoot and resolve the connectivity issue.
 
-## Objectives
+## Lab Objectives
 
-By the end of this lab, you will be able to:
+In this lab you will perform:
 
-- Troubleshoot and resolve connectivity issues between Azure virtual networks connected via site-to-site VPN gateways.
-- Test network connectivity between virtual machines (VMs) located in different Azure virtual networks.
-- Inspect VPN gateway configurations to identify issues with the VPN gateway settings.
-- Verify address spaces and subnets in Azure virtual networks to rule out IP address conflicts.
-- Investigate and resolve issues with VPN gateway connections.
-- Change shared keys for VPN gateway connections to ensure proper connectivity.
++ Task 1: Test the connection
++ Task 2: Troubleshoot the gateways
++ Task 3: Troubleshoot the virtual networks
++ Task 4: Check the gateway connections
++ Task 5: Change a gateway connection's shared key
++ Task 6: Test the issue is resolved
 
 ## Estimated timing: 30 minutes
 
-## Task 1: Test the connection
+### Task 1: Test the connection
 
 We're going to test the connection between the two VMs, by sending a ping request between them.
 
@@ -97,7 +97,7 @@ We're going to test the connection between the two VMs, by sending a ping reques
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 2: Troubleshoot the gateways
+### Task 2: Troubleshoot the gateways
 
 You'll check the types are correct for both gateways.
 
@@ -119,7 +119,7 @@ You'll check the types are correct for both gateways.
 
 1. Repeat for VNet2GW.
 
-## Task 3: Troubleshoot the virtual networks
+### Task 3: Troubleshoot the virtual networks
 
 You'll now check the address spaces don't overlap for the two virtual networks.
 
@@ -151,7 +151,7 @@ You'll now check the address spaces don't overlap for the two virtual networks.
 
 1. The **GatewaySubnet** addresses have been correctly created and correspond with the default range.
 
-## Task 4: Check the gateway connections
+### Task 4: Check the gateway connections
 
 1. In the search bar, type virtual network gateway and then select **virtual network gateways**.
 
@@ -207,7 +207,7 @@ You've explored the possible reasons why your two machines can't connect to each
 
 You'll change the shared key on a VPN gateway connection to resolve the issue.
 
-## Task 5: Change a gateway connection's shared key
+### Task 5: Change a gateway connection's shared key
 
 Follow these steps to make the shared keys identical for both the VPN gateways connections:
 
@@ -237,7 +237,7 @@ Follow these steps to make the shared keys identical for both the VPN gateways c
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 6: Test the issue is resolved
+### Task 6: Test the issue is resolved
 
 Repeat the steps you did in the previous exercise to see if the two VMs can connect to each other. Using the Cloud Shell on the right and the Azure portal, follow these steps:
 
