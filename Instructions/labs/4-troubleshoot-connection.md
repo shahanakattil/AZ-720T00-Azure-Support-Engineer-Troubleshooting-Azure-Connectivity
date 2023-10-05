@@ -11,11 +11,11 @@ In this lab you will perform:
 + Task 01: Check a virtual machines settings
 + Task 02: Resolve the connection issues
 
-## Estimated timing: 30 minutes
+### Estimated timing: 30 minutes
 
 In this lab you'll troubleshoot connection issues with the virtual machines running in Azure.
 
-## Task 01: Check a virtual machines settings
+### Task 01: Check a virtual machines settings
 
 You need to find the causes of connectivity problems to an Azure virtual machine using SSH.
 
@@ -65,7 +65,7 @@ You need to find the causes of connectivity problems to an Azure virtual machine
 
 1. Note: except for load balancers and virtual networks, the highest priority rule will deny all inbound traffic. This will cause connectivity problems.
 
-## Task 02: Resolve the connection issues
+### Task 02: Resolve the connection issues
 
 Follow these steps in the Azure portal:
 
