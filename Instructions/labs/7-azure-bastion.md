@@ -6,16 +6,17 @@ In this lab, you are responsible for supporting Azure infrastructure. One of the
 
 The team is unable to establish a connection to the VM through Azure Bastion, and your task is to diagnose and troubleshoot the issue. You will investigate and resolve problems with Azure Bastion, ensuring that it can be used to access Azure virtual machines successfully.
 
-## Objectives
+## Lab Objectives
 
-By the end of this lab, you will be able to:
+In this lab you will perform:
 
-- Troubleshoot issues with the Azure Bastion service when connecting to Azure virtual machines.
-- Check if the Azure Bastion service has been correctly deployed.
-- Investigate and resolve issues with Network Security Groups (NSGs) associated with the Azure Bastion subnet.
-- Verify if private DNS zones are causing connectivity issues with Azure Bastion.
-- Use the Azure Bastion connection troubleshooter to diagnose problems.
-- Resolve connectivity issues with Azure Bastion by configuring appropriate NSG rules
++ Task 1: Check that the issue still exists
++ Task 2: Check that Bastion has been deployed
++ Task 3: Check if AzureBastionSubnet is using a Network Security Group correctly
++ Task 4: Check if there's a private DNS zone
++ Task 5: Run the Connection Troubleshoot tool to check for issues
++ Task 6: Resolve the bastion connection issue
++ Task 7: Test the issue is resolved
 
 ## Estimated timing: 30 minutes
 
@@ -23,7 +24,7 @@ You've been contacted by one of the teams you support. The team is having proble
 
 In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
-## Task 1: Check that the issue still exists
+### Task 1: Check that the issue still exists
 
 1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
     * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
@@ -48,7 +49,7 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
 
 > **Note:** It takes time for the new tab to open, and when it does there's no response.
 
-## Task 2: Check that Bastion has been deployed
+### Task 2: Check that Bastion has been deployed
 
 1. In the Azure portal, in the search box, type **Bastions**.
 
@@ -66,7 +67,7 @@ In this lab, you'll see how to troubleshoot the Azure Bastion Service.
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 3: Check if AzureBastionSubnet is using a Network Security Group correctly
+### Task 3: Check if AzureBastionSubnet is using a Network Security Group correctly
 
 1. In the Azure portal, in the search box, type **Bastions**.
 
@@ -90,7 +91,7 @@ If Azure Bastion has a **Network security group** associated with the subnet, yo
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 4: Check if there's a private DNS zone
+### Task 4: Check if there's a private DNS zone
 
 1. In the Azure portal, in the search box, type **private dns**.
 
@@ -104,7 +105,7 @@ If Azure Bastion has a **Network security group** associated with the subnet, yo
 
    ![Screenshot showing a private D N S zone that will cause connection problems for Azure Bastion.](../media/mod7-7.png)
 
-## Task 5: Run the Connection Troubleshoot tool to check for issues
+### Task 5: Run the Connection Troubleshoot tool to check for issues
 
 1. In the Azure portal, in the search box, type **Bastions**.
 
@@ -131,7 +132,7 @@ If Azure Bastion has a **Network security group** associated with the subnet, yo
     ![A screenshot of the connection troubleshoot results, showing the stats as reachable.](../media/mod7-9a.png)
 
 
-## Task 6: Resolve the bastion connection issue
+### Task 6: Resolve the bastion connection issue
 
 After reviewing the bastion-nsg network security group you notice that there is a missing rule.
 
@@ -156,7 +157,7 @@ After reviewing the bastion-nsg network security group you notice that there is 
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 7: Test the issue is resolved
+### Task 7: Test the issue is resolved
 
 1. Select the top left portal menu, select **Virtual machines**, then select **labvm1-<inject key="DeploymentID" enableCopy="false">**.
 
@@ -180,9 +181,9 @@ After reviewing the bastion-nsg network security group you notice that there is 
 
 In this lab, you have performed:
 
-- Diagnosed Azure Bastion connectivity issues.
-- Verified Azure Bastion deployment.
-- Investigated and fixed Network Security Group (NSG) rules.
+- Diagnosing Azure Bastion connectivity issues.
+- Verifying Azure Bastion deployment.
+- Investigating and fixed Network Security Group (NSG) rules.
 - Successfully resolved the issue and established a VM connection through Azure Bastion.
 
 ## You have Successfully Completed this Lab

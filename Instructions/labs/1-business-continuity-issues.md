@@ -4,15 +4,20 @@
 
 You are an IT administrator responsible for ensuring the business continuity of your organization's critical virtual machines hosted in Microsoft Azure. The development team has raised concerns about the reliability and consistency of the virtual machine backups. They require that the backups are not only created but are also application consistent to safeguard the integrity of their work.
 
-## Objective
+## Lab Objectives
 
-By the end of this module, you will be able to create a backup of a virtual machine in Microsoft Azure while ensuring that the backup is application consistent.
+In this lab you will Perform:
 
-## Estimated timing: 60 minutes
++ Task 1: Create a backup
++ Task 2: Monitor progress of the first phase
++ Task 3: View results of first phase
++ Task 4: Create an application consistent backup
+
+### Estimated timing: 60 minutes
 
 You've been asked to make a backup of a virtual machine. Your development team have asked that you make the backup application consistent.
 
-## Task 1: Create a backup
+### Task 1: Create a backup
 
 1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
     * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
@@ -82,7 +87,7 @@ You've been asked to make a backup of a virtual machine. Your development team h
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 2: Monitor progress of the first phase
+### Task 2: Monitor progress of the first phase
 
 You won't see anything in the Backup page of the VM until the backup has completed. However, you can monitor it in the Backup center.
 
@@ -106,7 +111,7 @@ You won't see anything in the Backup page of the VM until the backup has complet
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 3: View results of first phase
+### Task 3: View results of first phase
 
 When the first phase has completed, you can see that it is **Crash Consistent**.
 
@@ -123,7 +128,7 @@ When the first phase has completed, you can see that it is **Crash Consistent**.
     >**Note**: Only the first phase has completed, and the data will now be transferring to the vault. You can continue with the lab; you don't have to wait for this to complete.
 
  
-## Task 4: Create an application consistent backup
+### Task 4: Create an application consistent backup
 
 The reason the backup isn't application consistent is because the VM is in a **Stopped** state. You need to start the VM and wait for it to be in a running state before making your backups.
 
@@ -169,7 +174,7 @@ The reason the backup isn't application consistent is because the VM is in a **S
 
 ## Review
 
-In this lab, you performed the following tasks:
+In this lab, you have performed:
 
 - Configured Peering: Established peering between VNet1 and VNet2 for VM communication.
 - Diagnosed Networking Issues: Identified DNS resolution problems with VM3 using Azure Bastion.

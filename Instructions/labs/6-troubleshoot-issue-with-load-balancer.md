@@ -4,14 +4,15 @@
 
 In this lab, you are working as a support engineer responsible for Azure infrastructure. The web team in your organization has reported performance issues with the organization's website. The web team uses a pool of web servers behind a load balancer to distribute incoming web traffic. The web team has noticed that the internet traffic isn't being distributed equally between all the web servers, leading to performance problems.
 
-# Objectives
+## Lab Objectives
 
-By the end of this lab, you will be able to:
+In this lab you will perform:
 
-- Troubleshoot performance issues related to load balancing and traffic distribution in Azure.
-- Identify issues with session persistence settings in load balancer rules.
-- Modify load balancer settings to ensure even distribution of internet traffic to backend servers.
-- Verify that performance issues have been resolved.
++ Task 1: Check that the issue still exists
++ Task 2: Check all the virtual machines are responding on port 80
++ Task 3: Check the Load Balancer settings
++ Task 4: Resolve load balancer issue
++ Task 5: Test that the issue has been resolved
 
 ## Estimated timing: 30 minutes
 
@@ -23,7 +24,7 @@ The web team thinks that the internet traffic isn't being distributed equally be
 
 In this lab, you'll use what you've learned to go through steps to troubleshoot the performance issues with your organization's website.
 
-## Task 1: Check that the issue still exists
+### Task 1: Check that the issue still exists
 
 1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
     * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
@@ -74,7 +75,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 2: Check all the virtual machines are responding on port 80
+### Task 2: Check all the virtual machines are responding on port 80
 
 1. Navigate to the Azure Portal in a new tab.
 
@@ -94,7 +95,7 @@ In this lab, you'll use what you've learned to go through steps to troubleshoot 
 
 The current settings appear to be correct.
 
-## Task 3: Check the Load Balancer settings
+### Task 3: Check the Load Balancer settings
 
 1. Select **Home**.
 
@@ -132,7 +133,7 @@ The current settings appear to be correct.
 
 You think you have identified the issue. At the moment once a user visits the website they are routed to one virtual machine. This will persist because of the **Session persistence** setting.
 
-## Task 4: Resolve load balancer issue
+### Task 4: Resolve load balancer issue
 
 1. To resolve the backend issue, change the **Session persistence** from **Client IP and protocol** to **None**, and then select **Save**.
 
@@ -149,7 +150,7 @@ You think you have identified the issue. At the moment once a user visits the we
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-## Task 5: Test that the issue has been resolved
+### Task 5: Test that the issue has been resolved
 
 Switch back to the tab where you pasted the public IP address. If you have closed the tab select the load balancer rule and the public IP address is listed there.
 
@@ -160,11 +161,11 @@ Switch back to the tab where you pasted the public IP address. If you have close
 
 ## Review
 
-In this lab you have:
+In this lab you have Performed:
 
-- Confirmed website performance issue related to uneven traffic distribution.
-- Checked VM settings and Load Balancer configuration.
-- Adjusted Load Balancer session persistence settings to "None" for improved traffic distribution.
-- Tested the fix by refreshing the browser and verified that traffic was evenly distributed among web servers.
+- Confirming website performance issue related to uneven traffic distribution.
+- Checking VM settings and Load Balancer configuration.
+- Adjusting Load Balancer session persistence settings to "None" for improved traffic distribution.
+- Testing the fix by refreshing the browser and verified that traffic was evenly distributed among web servers.
 
 ## You have Successfully Completed the Lab

@@ -4,24 +4,24 @@
 
 In this lab, you find yourself managing a complex Azure network topology comprising three Azure Virtual Networks (VNets) organized in a hub-and-spoke configuration. Your primary goal is to enable communication between VM1 and VM2 via VnetHub. However, users have reported that VM1 cannot establish communication with VM2, and your task is to diagnose and rectify the problem.
 
-## Objectives
+## Lab Objectives
 
-By the end of this lab, you will be able to:
+In this lab you will perform:
 
-- Verify network topology to identify configuration issues.
-- Troubleshoot OSI Level 3 connectivity problems between virtual machines (VMs).
-- Identify and rectify problems related to Network Security Groups (NSGs), routing tables, and firewall rules.
-- Investigate and resolve issues with Azure Virtual Network peering settings in a hub-and-spoke topology.
++ Task 1: Verify the network topology
++ Task 2: Check OSI level 3 connectivity
++ Task 3: Troubleshoot the problem
++ Task 4: Resolve the connection issue
 
-## Estimated timing: 60 minutes
+### Estimated timing: 60 minutes
 
 You've configured your network as shown in the diagram below. You want VM1 and VM2 to communicate via the VnetHub. Users are complaining that VM1 cannot communicate with VM2. You need to investigate to diagnose the problem and then fix it.
 
 There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
-![Screenshot of spoke and hub topology.](../media/6-spoke-hub-topology.png)
+![Screenshot of spoke and hub topology.](../media/6-spoke-hub-topology01.png)
 
-## Task 1: Verify the network topology
+### Task 1: Verify the network topology
 
 1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
     * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
@@ -129,7 +129,7 @@ The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="fal
 
     ![Screenshot showing the effective routes.](../media/mod3-nic.png)
 
-## Task 4: Resolve the connection issue
+### Task 4: Resolve the connection issue
 
 When you examined the peering connections, you find that the peering settings are different.
 
@@ -175,12 +175,12 @@ It's now possible to ping VM2-<inject key="Deployment ID" enableCopy="false" /> 
 
 ## Review
 
-In this Lab you have:
+In this Lab you have performed:
 
-- Diagnosed connectivity issue between VM1 and VM2 in a complex Azure network topology.
-- Verified OSI Level 3 connectivity issues.
-- Troubleshot using ipconfig, Network Security Groups, routing tables, and firewall rules.
-- Identified the problem in peering settings and fixed it.
+- Diagnosing connectivity issue between VM1 and VM2 in a complex Azure network topology.
+- Verifying OSI Level 3 connectivity issues.
+- Troubleshooting using ipconfig, Network Security Groups, routing tables, and firewall rules.
+- Identifying the problem in peering settings and fixed it.
 - Successfully enabled communication between VM1 and VM2.
 
 ## You have Successfully Completed the Lab
