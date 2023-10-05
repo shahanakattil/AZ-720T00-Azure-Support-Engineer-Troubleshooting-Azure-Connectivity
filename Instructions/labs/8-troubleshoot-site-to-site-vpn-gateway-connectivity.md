@@ -289,17 +289,17 @@ Repeat the steps you did in the previous exercise to see if the two VMs can conn
 
 ## Review
 
-In this lab, we performed the following tasks:
+In this lab, you have performed:
 
-- Tested the Connection
+- Testing the Connection
 
-- Troubleshot the Gateways
+- Troubleshooting the Gateways
 
-- Troubleshot the Virtual Networks
+- Troubleshooting the Virtual Networks
 
-- Checked the Gateway Connections
+- Checking the Gateway Connections
 
-- Changed a Gateway Connection's Shared Key
+- Changing a Gateway Connection's Shared Key
 
 ## You have Successfully Completed the lab
 
