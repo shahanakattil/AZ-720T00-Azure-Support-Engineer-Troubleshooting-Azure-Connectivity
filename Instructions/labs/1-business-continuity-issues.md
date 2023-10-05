@@ -4,7 +4,7 @@
 
 You are an IT administrator responsible for ensuring the business continuity of your organization's critical virtual machines hosted in Microsoft Azure. The development team has raised concerns about the reliability and consistency of the virtual machine backups. They require that the backups are not only created but are also application consistent to safeguard the integrity of their work.
 
-## Lab Objective
+## Lab Objectives
 
 In this lab you will Perform:
 
