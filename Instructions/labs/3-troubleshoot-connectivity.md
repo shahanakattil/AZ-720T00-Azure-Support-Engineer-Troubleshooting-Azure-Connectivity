@@ -13,7 +13,7 @@ In this lab you will perform:
 + Task 3: Troubleshoot the problem
 + Task 4: Resolve the connection issue
 
-## Estimated timing: 60 minutes
+### Estimated timing: 60 minutes
 
 You've configured your network as shown in the diagram below. You want VM1 and VM2 to communicate via the VnetHub. Users are complaining that VM1 cannot communicate with VM2. You need to investigate to diagnose the problem and then fix it.
 
@@ -21,7 +21,7 @@ There are three Azure virtual networks (VNets) in a hub and spoke topology.
 
 ![Screenshot of spoke and hub topology.](../media/6-spoke-hub-topology.png)
 
-## Task 1: Verify the network topology
+### Task 1: Verify the network topology
 
 1.  If you are not logged in already, click on Azure portal shortcut that is available on the desktop and log in with below Azure credentials or skip to **step 2**.
     * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
@@ -129,7 +129,7 @@ The firewall is reachable from **VM1-<inject key="Deployment ID" enableCopy="fal
 
     ![Screenshot showing the effective routes.](../media/mod3-nic.png)
 
-## Task 4: Resolve the connection issue
+### Task 4: Resolve the connection issue
 
 When you examined the peering connections, you find that the peering settings are different.
 
