@@ -4,16 +4,16 @@
 
 You work as a network engineer for Contoso, a company that relies on Microsoft Azure for its infrastructure. Users have reported issues accessing VM1 and VM2. Contoso's Azure environment consists of two virtual networks, VNet1 and VNet2, interconnected via peering. Your role as a network engineer is to diagnose and resolve these network-related problems to ensure seamless communication between VM1, VM2, and VM3. The tasks in this lab guide you through the troubleshooting process, from diagnosing networking issues to examining the IP configuration, testing network connectivity, and resolving any DNS-related problems.
 
-## Objectives
+## Lab Objectives
 
-Upon completing this lab, you will be able to:
+In this lab you will perform:
 
-- Diagnose and troubleshoot name resolution issues between Azure virtual machines.
-- Examine and configure the Internet Protocol settings for virtual machines.
-- Test network connectivity using the 'ping' command.
-- Inspect Azure resource groups and identify configuration issues.
-- Resolve connection issues by linking private DNS zones to virtual networks.
-- Inspect the Domain Name System (DNS) name table and ensure name resolution.
++ Task 1: Diagnose networking issues between virtual machines
++ Task 2: Examine the Internet Protocol configuration of the Virtual Machines
++ Task 3: Test network connectivity
++ Task 4: Examine the Azure resource group
++ Task 5: Resolve the connection issue
++ Task 6: Inspect the Domain Name System name table
 
 ## Estimated timing: 60 minutes
 
