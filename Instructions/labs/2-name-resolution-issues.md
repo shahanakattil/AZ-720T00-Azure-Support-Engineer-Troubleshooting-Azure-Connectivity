@@ -27,7 +27,7 @@ You work for Contoso as a network engineer, and users are complaining that they 
 
 ![Screenshot showing the topology of v net 1.](../media/5-network-01.png)
 
-![Screenshot showing the topology of v net 2.](../media/5-network-2.png)
+![Screenshot showing the topology of v net 2.](../media/5-network-02.png)
 
 | **Virtual machine**| **Operating system**| **VNet and subnet**| **DNS domain**|
 | :--- | :--- | :--- | :--- |
