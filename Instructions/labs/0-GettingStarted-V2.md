@@ -1,6 +1,5 @@
-# Getting Started with Your SC-900: Microsoft Security, Compliance, and Identity Fundamentals Workshop
- 
-Welcome to your SC-900: Microsoft Security, Compliance, and Identity Fundamentals workshop! We've prepared a seamless environment for you to explore and learn about Azure services. Let's begin by making the most of this experience:
+# Getting Started with Your AZ-720: Troubleshooting Microsoft Azure Connectivity
+Welcome to your AZ-720: Troubleshooting Microsoft Azure Connectivity workshop! We've prepared a seamless environment for you to explore and learn about Azure services. Let's begin by making the most of this experience:
  
 ## Accessing Your Lab Environment
  
